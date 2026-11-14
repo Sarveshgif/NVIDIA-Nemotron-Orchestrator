@@ -1,0 +1,21 @@
+// Semantic colours used by the map, canvas imagery and charts. CSS tokens mirror these.
+export const C = {
+  silage: '#0f7c78',
+  silageSoft: '#8fd0c9',
+  grain: '#b7801a',
+  grainSoft: '#ecd08f',
+  unresolved: '#7f8682',
+  unresolvedSoft: '#d4d6d1',
+  amber: '#c26a00',
+  amberSoft: '#f6c56e',
+  amberPale: '#fbe7c2',
+  sand: '#e6dfcd',
+  covered: '#3f6585',
+  coveredSoft: '#a9c0d4',
+  forest: '#173b2c',
+  ink: '#1c2620',
+  ndvi: '#2f7d32',
+  lswi: '#2a6f9e',
+  vv: '#6b4fa0',
+  vh: '#b04a6c',
+};

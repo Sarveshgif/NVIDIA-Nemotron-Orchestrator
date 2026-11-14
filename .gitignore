@@ -1,0 +1,12 @@
+# secrets / deploy state
+.env*
+.vercel
+# dependencies and build output
+node_modules/
+dist/
+dist-artifact/
+.cache/
+.venv/
+__pycache__/
+*.pyc
+.DS_Store

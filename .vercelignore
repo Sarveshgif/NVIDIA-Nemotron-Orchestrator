@@ -1,0 +1,4 @@
+.cache
+.venv
+dist
+dist-artifact

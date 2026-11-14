@@ -1,0 +1,25 @@
+{
+ "source": "PDOK Basisregistratie Gewaspercelen (BRP) 2025, status 'Definitief', OGC API api.pdok.nl/rvo/gewaspercelen (anonymous)",
+ "license": "BRP open data from RVO via PDOK (published as open data; verify current terms on the PDOK/NGR metadata record b812a145-b4fe-4331-8dc6-d914327a87ff)",
+ "year": 2025,
+ "positive_class": "silage (259 'Mais, snij-')",
+ "negative_class": "grain (316 'Mais, korrel-')",
+ "excluded_maize_codes": {
+  "317": "Mais, corncob mix",
+  "1935": "Maiskolvensilage",
+  "814": "Mais, suiker-"
+ },
+ "maize_categories_in_scanned_blocks": {
+  "259 Mais, snij-": 7268,
+  "316 Mais, korrel-": 1055,
+  "317 Mais, corncob mix": 343,
+  "1935 Maiskolvensilage": 152,
+  "814 Mais, suiker-": 43
+ },
+ "parcels_seen_in_more_than_one_block_bbox": 38,
+ "invalid_geometries": 0,
+ "candidates_by_class": {
+  "grain": 1015,
+  "silage": 6952
+ }
+}

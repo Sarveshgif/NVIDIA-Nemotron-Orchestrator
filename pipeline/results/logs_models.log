@@ -1,0 +1,77 @@
+[2026-11-13 22:39:58] models: fields train=2050 val=1272 test=1847; silage share train=0.85 test=0.89
+[2026-11-13 22:40:06] models: rule features computed
+[2026-11-13 22:40:06] rules original test: {"coverage": 0.314, "precision_silage": 0.884, "recall_silage": 0.994, "precision_grain": 0.0, "recall_grain": 0.0, "fpr_silage": 1.0, "fpr_grain": 0.006, "accuracy": 0.879, "f1_silage": 0.936, "f1_grain": NaN, "balanced_accuracy": 0.497, "macro_f1": NaN, "roc_auc": 0.491, "pr_auc_silage": 0.863, "pr_auc_grain": 0.144, "grain_prevalence": 0.125, "unresolved_area_frac": 0.679, "area_true_silage_ha": 4929.322, "area_true_grain_ha": 598.631, "area_pred_silage_ha": 1766.412, "area_pred_grain_ha": 5.741, "area_unresolved_ha": 3755.799}
+[2026-11-13 22:40:11] adapted rule search 6s: cal=ext veto=False th={'silageMinNdvi': 0.5, 'silageMaxDryDown': 7, 'grainMinDryDown': 14, 'grainMaxNdvi': 0.55, 'maxGapAtDrop': 25, 'minClearObs': 14, 'minRadarDrop': 1.5} val_bal_acc=0.513 cov=0.89
+[2026-11-13 22:40:25] rf_s2_summary: val_auc=0.702 test bal_acc=0.701 auc=0.779 grain P/R=0.23/0.69 fit 10s
+[2026-11-13 22:40:39] rf_s2_summary_patch: val_auc=0.706 test bal_acc=0.706 auc=0.783 grain P/R=0.22/0.75 fit 10s
+[2026-11-13 22:40:52] rf_s1_only: val_auc=0.628 test bal_acc=0.666 auc=0.717 grain P/R=0.17/0.85 fit 10s
+[2026-11-13 22:41:06] rf_s2_s1: val_auc=0.701 test bal_acc=0.704 auc=0.791 grain P/R=0.21/0.75 fit 10s
+[2026-11-13 22:41:16] as-of Oct31: test bal_acc=0.701 auc=0.790
+[2026-11-13 22:41:41] simulated gap: S2 bal_acc=0.654 S1+S2=0.687
+[2026-11-13 22:41:45] models: done; selected rf_s2_summary_patch
+[2026-11-13 22:50:53] models: fields train=2050 val=1272 test=1847; silage share train=0.85 test=0.89
+[2026-11-13 22:51:01] models: rule features computed
+[2026-11-13 22:51:01] rules original test: {"coverage": 0.314, "precision_silage": 0.884, "recall_silage": 0.994, "precision_grain": 0.0, "recall_grain": 0.0, "fpr_silage": 1.0, "fpr_grain": 0.006, "accuracy": 0.879, "f1_silage": 0.936, "f1_grain": NaN, "balanced_accuracy": 0.497, "macro_f1": NaN, "roc_auc": 0.491, "pr_auc_silage": 0.863, "pr_auc_grain": 0.144, "grain_prevalence": 0.125, "unresolved_area_frac": 0.679, "area_true_silage_ha": 4929.322, "area_true_grain_ha": 598.631, "area_pred_silage_ha": 1766.412, "area_pred_grain_ha": 5.741, "area_unresolved_ha": 3755.799}
+[2026-11-13 22:51:07] adapted rule search 6s: cal=ext veto=False th={'silageMinNdvi': 0.5, 'silageMaxDryDown': 7, 'grainMinDryDown': 14, 'grainMaxNdvi': 0.55, 'maxGapAtDrop': 25, 'minClearObs': 14, 'minRadarDrop': 1.5} val_bal_acc=0.513 cov=0.89
+[2026-11-13 22:51:21] rf_s2_summary: val_auc=0.702 test bal_acc=0.701 auc=0.779 grain P/R=0.23/0.69 fit 10s
+[2026-11-13 22:51:35] rf_s2_summary_patch: val_auc=0.706 test bal_acc=0.706 auc=0.783 grain P/R=0.22/0.75 fit 10s
+[2026-11-13 22:51:48] rf_s1_only: val_auc=0.628 test bal_acc=0.666 auc=0.717 grain P/R=0.17/0.85 fit 10s
+[2026-11-13 22:52:02] rf_s2_s1: val_auc=0.701 test bal_acc=0.704 auc=0.791 grain P/R=0.21/0.75 fit 10s
+[2026-11-13 22:52:12] as-of Oct31: test bal_acc=0.701 auc=0.790
+[2026-11-13 22:52:37] simulated gap: S2 bal_acc=0.654 S1+S2=0.687
+[2026-11-13 22:52:41] models: done; selected rf_s2_summary_patch
+[2026-11-13 23:26:30] models[hth_e1test]: train years [2025] test year 2025; fields train=2050 val=1272 test=1847; grain train=305 val=125 test=204
+[2026-11-13 23:26:38] models: rule features computed
+[2026-11-13 23:26:38] rules original test: {"coverage": 0.314, "precision_silage": 0.884, "recall_silage": 0.994, "precision_grain": 0.0, "recall_grain": 0.0, "fpr_silage": 1.0, "fpr_grain": 0.006, "accuracy": 0.879, "f1_silage": 0.936, "f1_grain": NaN, "balanced_accuracy": 0.497, "macro_f1": NaN, "roc_auc": 0.491, "pr_auc_silage": 0.863, "pr_auc_grain": 0.144, "grain_prevalence": 0.125, "unresolved_area_frac": 0.679, "area_true_silage_ha": 4929.322, "area_true_grain_ha": 598.631, "area_pred_silage_ha": 1766.412, "area_pred_grain_ha": 5.741, "area_unresolved_ha": 3755.799}
+[2026-11-13 23:26:44] adapted rule search 6s: cal=ext veto=False th={'silageMinNdvi': 0.5, 'silageMaxDryDown': 7, 'grainMinDryDown': 14, 'grainMaxNdvi': 0.55, 'maxGapAtDrop': 25, 'minClearObs': 14, 'minRadarDrop': 1.5} val_bal_acc=0.513 cov=0.89
+[2026-11-13 23:26:58] rf_s2_summary: val_auc=0.702 test bal_acc=0.701 auc=0.779 grain P/R=0.23/0.69 fit 10s
+[2026-11-13 23:27:11] rf_s2_summary_patch: val_auc=0.706 test bal_acc=0.706 auc=0.783 grain P/R=0.22/0.75 fit 10s
+[2026-11-13 23:27:25] rf_s1_only: val_auc=0.628 test bal_acc=0.666 auc=0.717 grain P/R=0.17/0.85 fit 10s
+[2026-11-13 23:27:39] rf_s2_s1: val_auc=0.701 test bal_acc=0.704 auc=0.791 grain P/R=0.21/0.75 fit 10s
+[2026-11-13 23:27:49] as-of Oct31: test bal_acc=0.701 auc=0.790
+[2026-11-13 23:28:14] simulated gap: S2 bal_acc=0.654 S1+S2=0.687
+[2026-11-13 23:28:14] models: done; selected rf_s2_summary_patch
+[2026-11-14 01:21:52] models[results_e1_train2025_test2025]: train years [2025] test year 2025; fields train=2050 val=1272 test=1847; grain train=305 val=125 test=204
+[2026-11-14 01:22:00] models: rule features computed
+[2026-11-14 01:22:00] rules original test: {"coverage": 0.314, "precision_silage": 0.884, "recall_silage": 0.994, "precision_grain": 0.0, "recall_grain": 0.0, "fpr_silage": 1.0, "fpr_grain": 0.006, "accuracy": 0.879, "f1_silage": 0.936, "f1_grain": NaN, "balanced_accuracy": 0.497, "macro_f1": NaN, "roc_auc": 0.491, "pr_auc_silage": 0.863, "pr_auc_grain": 0.144, "grain_prevalence": 0.125, "unresolved_area_frac": 0.679, "area_true_silage_ha": 4929.322, "area_true_grain_ha": 598.631, "area_pred_silage_ha": 1766.412, "area_pred_grain_ha": 5.741, "area_unresolved_ha": 3755.799}
+[2026-11-14 01:22:06] adapted rule search 6s: cal=ext veto=False th={'silageMinNdvi': 0.5, 'silageMaxDryDown': 7, 'grainMinDryDown': 14, 'grainMaxNdvi': 0.55, 'maxGapAtDrop': 25, 'minClearObs': 14, 'minRadarDrop': 1.5} val_bal_acc=0.513 cov=0.89
+[2026-11-14 01:22:19] rf_s2_summary: val_auc=0.702 test bal_acc=0.701 auc=0.779 grain P/R=0.23/0.69 fit 10s
+[2026-11-14 01:22:33] rf_s2_summary_patch: val_auc=0.706 test bal_acc=0.706 auc=0.783 grain P/R=0.22/0.75 fit 10s
+[2026-11-14 01:22:46] rf_s1_only: val_auc=0.628 test bal_acc=0.666 auc=0.717 grain P/R=0.17/0.85 fit 10s
+[2026-11-14 01:23:01] rf_s2_s1: val_auc=0.701 test bal_acc=0.704 auc=0.791 grain P/R=0.21/0.75 fit 10s
+[2026-11-14 01:23:11] as-of Oct31: test bal_acc=0.701 auc=0.790
+[2026-11-14 01:23:35] simulated gap: S2 bal_acc=0.654 S1+S2=0.687
+[2026-11-14 01:23:36] models: done; selected rf_s2_summary_patch
+[2026-11-14 01:23:37] models[results_e2_train2024-2025_test2025]: train years [2024, 2025] test year 2025; fields train=4243 val=2671 test=1847; grain train=619 val=261 test=204
+[2026-11-14 01:23:51] models: rule features computed
+[2026-11-14 01:23:51] rules original test: {"coverage": 0.314, "precision_silage": 0.884, "recall_silage": 0.994, "precision_grain": 0.0, "recall_grain": 0.0, "fpr_silage": 1.0, "fpr_grain": 0.006, "accuracy": 0.879, "f1_silage": 0.936, "f1_grain": NaN, "balanced_accuracy": 0.497, "macro_f1": NaN, "roc_auc": 0.491, "pr_auc_silage": 0.863, "pr_auc_grain": 0.144, "grain_prevalence": 0.125, "unresolved_area_frac": 0.679, "area_true_silage_ha": 4929.322, "area_true_grain_ha": 598.631, "area_pred_silage_ha": 1766.412, "area_pred_grain_ha": 5.741, "area_unresolved_ha": 3755.799}
+[2026-11-14 01:24:00] adapted rule search 9s: cal=ext veto=False th={'silageMinNdvi': 0.5, 'silageMaxDryDown': 7, 'grainMinDryDown': 14, 'grainMaxNdvi': 0.65, 'maxGapAtDrop': 25, 'minClearObs': 14, 'minRadarDrop': 1.5} val_bal_acc=0.517 cov=0.78
+[2026-11-14 01:24:16] rf_s2_summary: val_auc=0.699 test bal_acc=0.694 auc=0.771 grain P/R=0.23/0.68 fit 12s
+[2026-11-14 01:24:32] rf_s2_summary_patch: val_auc=0.699 test bal_acc=0.708 auc=0.776 grain P/R=0.24/0.70 fit 12s
+[2026-11-14 01:24:46] rf_s1_only: val_auc=0.656 test bal_acc=0.680 auc=0.725 grain P/R=0.18/0.81 fit 11s
+[2026-11-14 01:25:03] rf_s2_s1: val_auc=0.712 test bal_acc=0.719 auc=0.800 grain P/R=0.24/0.73 fit 13s
+[2026-11-14 01:25:15] as-of Oct31: test bal_acc=0.695 auc=0.770
+[2026-11-14 01:25:40] simulated gap: S2 bal_acc=0.678 S1+S2=0.708
+[2026-11-14 01:25:40] models: done; selected rf_s2_s1
+[2026-11-14 01:25:42] models[results_e3_train2024_test2025]: train years [2024] test year 2025; fields train=2193 val=1399 test=1847; grain train=314 val=136 test=204
+[2026-11-14 01:25:50] models: rule features computed
+[2026-11-14 01:25:50] rules original test: {"coverage": 0.314, "precision_silage": 0.884, "recall_silage": 0.994, "precision_grain": 0.0, "recall_grain": 0.0, "fpr_silage": 1.0, "fpr_grain": 0.006, "accuracy": 0.879, "f1_silage": 0.936, "f1_grain": NaN, "balanced_accuracy": 0.497, "macro_f1": NaN, "roc_auc": 0.491, "pr_auc_silage": 0.863, "pr_auc_grain": 0.144, "grain_prevalence": 0.125, "unresolved_area_frac": 0.679, "area_true_silage_ha": 4929.322, "area_true_grain_ha": 598.631, "area_pred_silage_ha": 1766.412, "area_pred_grain_ha": 5.741, "area_unresolved_ha": 3755.799}
+[2026-11-14 01:25:56] adapted rule search 5s: cal=ext veto=False th={'silageMinNdvi': 0.5, 'silageMaxDryDown': 7, 'grainMinDryDown': 14, 'grainMaxNdvi': 0.65, 'maxGapAtDrop': 25, 'minClearObs': 14, 'minRadarDrop': 1.5} val_bal_acc=0.531 cov=0.67
+[2026-11-14 01:26:09] rf_s2_summary: val_auc=0.709 test bal_acc=0.687 auc=0.720 grain P/R=0.21/0.71 fit 10s
+[2026-11-14 01:26:23] rf_s2_summary_patch: val_auc=0.711 test bal_acc=0.684 auc=0.725 grain P/R=0.23/0.64 fit 10s
+[2026-11-14 01:26:37] rf_s1_only: val_auc=0.717 test bal_acc=0.497 auc=0.487 grain P/R=0.11/0.37 fit 10s
+[2026-11-14 01:26:51] rf_s2_s1: val_auc=0.742 test bal_acc=0.694 auc=0.747 grain P/R=0.22/0.70 fit 10s
+[2026-11-14 01:27:01] as-of Oct31: test bal_acc=0.646 auc=0.713
+[2026-11-14 01:27:25] simulated gap: S2 bal_acc=0.682 S1+S2=0.669
+[2026-11-14 01:27:26] models: done; selected rf_s2_s1
+[2026-11-14 01:27:27] models[results_e4_train2024-2025_test2024]: train years [2024, 2025] test year 2024; fields train=4243 val=2671 test=1854; grain train=619 val=261 test=229
+[2026-11-14 01:27:41] models: rule features computed
+[2026-11-14 01:27:41] rules original test: {"coverage": 0.252, "precision_silage": 0.94, "recall_silage": 0.998, "precision_grain": 0.0, "recall_grain": 0.0, "fpr_silage": 1.0, "fpr_grain": 0.002, "accuracy": 0.938, "f1_silage": 0.968, "f1_grain": NaN, "balanced_accuracy": 0.499, "macro_f1": NaN, "roc_auc": 0.569, "pr_auc_silage": 0.944, "pr_auc_grain": 0.101, "grain_prevalence": 0.067, "unresolved_area_frac": 0.756, "area_true_silage_ha": 4856.492, "area_true_grain_ha": 618.848, "area_pred_silage_ha": 1327.478, "area_pred_grain_ha": 6.511, "area_unresolved_ha": 4141.352}
+[2026-11-14 01:27:50] adapted rule search 9s: cal=ext veto=False th={'silageMinNdvi': 0.5, 'silageMaxDryDown': 7, 'grainMinDryDown': 14, 'grainMaxNdvi': 0.65, 'maxGapAtDrop': 25, 'minClearObs': 14, 'minRadarDrop': 1.5} val_bal_acc=0.517 cov=0.78
+[2026-11-14 01:28:06] rf_s2_summary: val_auc=0.699 test bal_acc=0.609 auc=0.655 grain P/R=0.18/0.59 fit 12s
+[2026-11-14 01:28:22] rf_s2_summary_patch: val_auc=0.699 test bal_acc=0.604 auc=0.658 grain P/R=0.18/0.59 fit 12s
+[2026-11-14 01:28:36] rf_s1_only: val_auc=0.656 test bal_acc=0.626 auc=0.670 grain P/R=0.21/0.54 fit 11s
+[2026-11-14 01:28:53] rf_s2_s1: val_auc=0.712 test bal_acc=0.652 auc=0.708 grain P/R=0.21/0.65 fit 13s
+[2026-11-14 01:29:05] as-of Oct31: test bal_acc=0.615 auc=0.663
+[2026-11-14 01:29:22] simulated gap: S2 bal_acc=0.611 S1+S2=0.652
+[2026-11-14 01:29:22] models: done; selected rf_s2_s1
