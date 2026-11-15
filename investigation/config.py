@@ -15,6 +15,11 @@ class Settings:
     rain_mm: float = 10.0
     frost_window_days: int = 7
     drought_percentile: float = 20.0
+    spatial_evidence: bool = False
+    spatial_max_scenes: int = 20
+    spatial_budget_seconds: float = 90
+    spatial_min_pixels: int = 20
+    spatial_min_clear: float = 0.60
     historical_weather: bool = True
     nass_context: bool = True
     baseline_start: int = 1981
@@ -75,13 +80,18 @@ class Settings:
                   nass_key=os.getenv('NASS_API_KEY', ''), agricultural_csv=os.getenv('AGRICULTURAL_CSV', ''),
                   verified_records=os.getenv('VERIFIED_HARVEST_RECORDS', ''),
                   rf_bundle=os.getenv('RF_BUNDLE', cls.rf_bundle),
+                  spatial_evidence=os.getenv('INVESTIGATION_SPATIAL_EVIDENCE', 'true').strip().lower() == 'true',
+                  spatial_max_scenes=int(os.getenv('SENTINEL_MAX_SCENES', '20')),
+                  spatial_budget_seconds=float(os.getenv('SENTINEL_BUDGET_SECONDS', '90')),
                   historical_weather=os.getenv('INVESTIGATION_HISTORICAL_WEATHER', 'true').strip().lower() == 'true',
                   nass_context=os.getenv('INVESTIGATION_NASS_CONTEXT', 'true').strip().lower() == 'true',
                   baseline_start=int(os.getenv('DAYMET_BASELINE_START', '1981')),
                   baseline_end=int(os.getenv('DAYMET_BASELINE_END', '2010')),
                   rain_mm=float(os.getenv('WEATHER_RAIN_3DAY_MM', '10')),
                   drought_percentile=float(os.getenv('WEATHER_DROUGHT_PERCENTILE', '20')))
-        for name in ('INVESTIGATION_HISTORICAL_WEATHER', 'INVESTIGATION_NASS_CONTEXT'):
+        if not 2 <= cfg.spatial_max_scenes <= 20 or not 10 <= cfg.spatial_budget_seconds <= 90:
+            raise ValueError('Sentinel limits must be 2–20 scenes and 10–90 seconds')
+        for name in ('INVESTIGATION_SPATIAL_EVIDENCE', 'INVESTIGATION_HISTORICAL_WEATHER', 'INVESTIGATION_NASS_CONTEXT'):
             if os.getenv(name, 'true').strip().lower() not in ('true', 'false'):
                 raise ValueError(name + ' must be true or false')
         if cfg.prediction_mode not in ('evidence_only', 'always_predict'):

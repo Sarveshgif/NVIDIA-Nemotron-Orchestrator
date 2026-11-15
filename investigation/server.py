@@ -38,7 +38,7 @@ def health():
             'direct_reports_configured':bool(settings.public_report_sources and (settings.root/settings.public_report_sources).is_file()),
             'quickstats_configured':bool(settings.nass_key or settings.agricultural_csv),
             'rf_bundle_exists':(settings.root/settings.rf_bundle).is_file(),
-            'satellite_retrieval_enabled':False}
+            'satellite_retrieval_enabled':settings.spatial_evidence}
 
 
 @app.post('/api/investigate')
@@ -48,6 +48,13 @@ def investigate(payload: InvestigationInput):
     folder.mkdir(parents=True,exist_ok=True)
     (folder/(report['run_id']+'.json')).write_text(json.dumps(report,indent=2,allow_nan=False)+'\n')
     return report
+
+
+# Serve the built frontend locally without an additional API origin.
+frontend = settings.root / 'dist'
+if (frontend / 'index.html').is_file():
+    from fastapi.staticfiles import StaticFiles
+    app.mount('/', StaticFiles(directory=frontend, html=True), name='frontend')
 
 
 def main():

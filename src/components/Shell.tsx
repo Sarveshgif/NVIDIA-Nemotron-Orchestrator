@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import { Check, CircleHelp, Download, FileBarChart, FlaskConical, History, Loader2, Map as MapIcon, Tags, Undo2, X, CircleDot, CircleSlash } from 'lucide-react';
-import { CROP_YEARS, DEMO_SELECTION, REGIONS, SEASONS } from '../data/geo';
+import { Check, CircleHelp, Download, FileBarChart, FlaskConical, Loader2, Map as MapIcon, Undo2, X, CircleDot, CircleSlash } from 'lucide-react';
+import { CROP_YEARS, REGIONS, SEASONS } from '../data/geo';
 import { NL_SELECTION, PREP_STEPS, regionName, seasonLabel, simulatePreparation } from '../services/analysisService';
 import { buildCsv, saveFile } from '../lib/export';
 import { mlAvailable, SOURCE_LABEL, sourceNote, fmtDate } from '../lib/format';
@@ -28,9 +28,7 @@ export function NavRail() {
   const remaining = useStore((s) => s.fields.filter((f) => f.reasons.length && !s.decisions[f.id]).length);
   const items: { v: View; label: string; icon: JSX.Element }[] = [
     { v: 'workspace', label: 'Workspace', icon: <MapIcon size={19} /> },
-    { v: 'labels', label: 'Weak labels', icon: <Tags size={19} /> },
     { v: 'reports', label: 'Reports', icon: <FileBarChart size={19} /> },
-    { v: 'history', label: 'Review history', icon: <History size={19} /> },
   ];
   return (
     <nav className="rail" aria-label="Main">
@@ -86,7 +84,7 @@ export function ContextBar({ derived }: { derived: Derived }) {
       region: regionName(selection.regionId), cropYear: selection.cropYear, season: seasonLabel(selection.seasonId),
       latestObservation: status?.latestObservation ?? null, scope, allFields: fields,
     });
-    const name = `harvest-console_tulare_${selection.cropYear}_${scope === 'all' ? 'all-fields' : 'filtered'}_${new Date().toISOString().slice(0, 10)}.csv`;
+    const name = `harvest-console_barc_${selection.cropYear}_${scope === 'all' ? 'all-fields' : 'filtered'}_${new Date().toISOString().slice(0, 10)}.csv`;
     const r = await saveFile(name, csv);
     showToast(r === 'saved' ? `Exported ${list.length} fields to ${name}` : r === 'declined' ? 'Export cancelled' : 'Export is not available in this view. Try opening the page directly.');
   };
@@ -111,7 +109,7 @@ export function ContextBar({ derived }: { derived: Derived }) {
         <label>
           <span>Crop year</span>
           <select id="sel-year" value={selection.cropYear} onChange={(e) => setSelection({ ...selection, cropYear: Number(e.target.value) })}>
-            {CROP_YEARS.map((y) => <option key={y} value={y}>{y}</option>)}
+            {(selection.regionId === 'nl-se' ? [2025] : CROP_YEARS.filter((y) => y !== 2025)).map((y) => <option key={y} value={y}>{y}</option>)}
           </select>
         </label>
         <label>
@@ -131,7 +129,7 @@ export function ContextBar({ derived }: { derived: Derived }) {
       {ready && <PredictionToggle />}
       <div className="ctx-right">
         <span className="demo-badge" title={ready ? `${activeDataset().outlineSource}; ${activeDataset().obsSource}. ${activeDataset().validated ? 'Model evaluated on held-out regions against farmer-declared labels.' : 'Rule-based weak labels; not validated.'}` : 'Prototype'}>
-          <FlaskConical size={13} aria-hidden /> {ready && activeDataset().validated ? 'Validated (NL)' : 'Prototype'}
+          <FlaskConical size={13} aria-hidden /> {ready && activeDataset().key==='barc'?'BARC · development':ready && activeDataset().validated ? 'Validated (NL)' : 'Prototype'}
         </span>
         <div className="menu-wrap" ref={menuRef}>
           <button type="button" className="btn btn-primary btn-sm" disabled={!ready} onClick={() => setExportOpen((o) => !o)} aria-expanded={exportOpen} aria-haspopup="menu">
@@ -173,7 +171,7 @@ export function PredictionToggle() {
         value={source}
         onChange={change}
         options={[
-          { value: 'rules', label: SOURCE_LABEL.rules, title: sourceNote('rules') },
+          { value: 'rules', disabled: activeDataset().key==='barc', label: SOURCE_LABEL.rules, title: sourceNote('rules') },
           { value: 'ml', label: <>{SOURCE_LABEL.ml}{!mlAvailable() && <em className="soon">not trained</em>}</>, title: sourceNote('ml'), disabled: !mlAvailable() },
         ]}
       />
@@ -269,7 +267,7 @@ export function NotPrepared() {
       <div className="np-card" role="region" aria-label="Analysis status">
         <div className={`np-badge ${processing ? 'np-proc' : ''}`}>{processing ? 'Processing' : 'Analysis not prepared'}</div>
         <h2>{area}</h2>
-        <p>{status.message} This prototype contains two prepared datasets: Tulare County 2023 (rule-based, unvalidated) and South-east Netherlands 2025 (trained and evaluated on held-out regions). It never shows one area's data under another area's name.</p>
+        <p>{status.message} This prototype contains BARC field-year data and South-east Netherlands 2025 parcels with Sentinel-1/2 observations and a trained model. It never shows one area's data under another area's name.</p>
         {processing && (
           <div className="np-progress">
             <div className="progress"><span style={{ width: `${(status.progress ?? 0) * 100}%` }} /></div>
@@ -298,7 +296,6 @@ export function NotPrepared() {
         <p className="fine">The preparation flow is simulated for demonstration. Nothing is sent or computed.</p>
         <div className="np-actions">
           <button type="button" className="btn btn-primary" onClick={() => setSelection(NL_SELECTION)}>Open South-east Netherlands 2025</button>
-          <button type="button" className="btn" onClick={() => setSelection(DEMO_SELECTION)}>Open Tulare County 2023</button>
         </div>
       </div>
     </div>

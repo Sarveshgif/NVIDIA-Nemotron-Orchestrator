@@ -1,3 +1,27 @@
+## v2.7 automatic Sentinel evidence and fixed v4 rulebook
+
+Opening a BARC field in the right drawer now requests its Sentinel observations automatically. This sends the selected field bounds to Earth Search and Microsoft Planetary Computer. The full available April-to-cutoff season is sampled within the configured 20-scene and 90-second limits; missing scenes remain explicit. Clear Sentinel-2 NDVI is averaged on a 20 m field grid, while Sentinel-1 VH and VV are averaged in linear power and converted to dB from one selected relative orbit and pass. The v4 rules run in the stated order and return a tiered advisory label or UNRESOLVED with the exact reason. They never see reference labels, RF output, or future observations. Selection is bounded; missing candidate dates can still leave the rule unresolved.
+
+Sentinel retrieval runs for every selected BARC field, regardless of RF score. Only assigned RF class scores below 0.80 trigger weather retrieval and Nemotron. The model receives compact dated trajectories, the v4 finding and source citations; full observations stay in the saved report. The v4 result is advisory evidence for Nemotron, not a verified harvest-use record or calibrated probability. Existing RF scores and binary fallback policy remain intact. The BARC panel shows Sentinel dates and the rule outcome without an Analyze button. If sources are unavailable, the panel shows the error rather than inventing imagery.
+
+The source data and backend must be available locally. Restart the backend after updating; the served frontend also needs a rebuild. BARC labels are still used only for development evaluation and never sent to inference.
+
+---
+
+## v2.6 spatial observations after RF inference
+
+The saved RF model is loaded, never retrained. In always_predict mode only assigned RF class scores below 0.80 enter investigation. The backend first retrieves fixed-field Sentinel-2 Collection-1 L2A and Sentinel-1 RTC data, then weather/elevation/public context. Nemotron receives dated field-masked indices, sub-field statistics, radar observations and differences. Usable S2/S1 trajectories must be cited in its binary choice. Its tentative GRAIN/SILAGE choice can differ from RF; original RF probabilities remain unchanged and final_probability remains null. Missing sources remain explicit and failed model calls fall back to RF.
+
+Set `INVESTIGATION_SPATIAL_EVIDENCE=true` (server default); `SENTINEL_MAX_SCENES=8` per sensor, `SENTINEL_BUDGET_SECONDS=60`. Direct Python callers opt in with Settings(spatial_evidence=True). Catalog/extraction dates are bounded to crop year and reporting cutoff; the candidate harvest window is not confirmed removal. A bounded temporal sample is extracted, not a complete season. Field masks use a 10 m interior buffer. S2 reflectance uses each asset's scale/offset; SCL classes 4/5, >=60% clear interior and >=20 usable pixels are required. NDVI is 10 m; 20 m bands remain 20 m information after nearest-neighbour alignment. S1 RTC is averaged as positive linear gamma0 before dB conversion and restricted to one orbit/pass. Unsigned scene identifiers and measurements are logged; access tokens stay in memory.
+
+Spatial data access shares field location with Earth Search/Planetary Computer and derived measurements with NVIDIA. Normal operation requires the user's authorization for these services. High-score fields make no such calls. This request authorizes a one-field BARC live verification; it does not authorize a bulk imagery acquisition for all BARC fields.
+
+Frontend BARC data uses the 44 saved label-free inputs, field polygons and frozen RF predictions, with evaluation labels kept separately. A field action sends only its saved input to the local backend. No inference endpoint consumes evaluation labels. Restart backend and frontend after updating.
+
+Sources: https://earth-search.aws.element84.com/v1 ; https://planetarycomputer.microsoft.com/dataset/sentinel-1-rtc . Contains modified Copernicus Sentinel data. New observations do not establish an accuracy gain without independent validation.
+
+---
+
 ## v2.5 historical context
 
 In always_predict mode only RF assigned-class scores below 0.80 enter the weather/Nemotron branch. `INVESTIGATION_HISTORICAL_WEATHER=true` adds 30/60/90-day matching-season comparisons of temperature, precipitation, modified corn GDD and frost exposure against the configured pre-crop-year baseline (default 1981–2010). At least 20 complete historical windows are required for numeric comparisons. Missing measurements remain unknown. Window GDD is never called planting-to-harvest development or maturity without actual planting and hybrid metadata.

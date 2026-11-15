@@ -109,6 +109,7 @@ class InvestigationInput(Strict):
     geometry: dict
     geography: Geography = Field(default_factory=Geography)
     rf: RFResult | None = None
+    rf_model: Literal['configured', 'barc_development'] = 'configured'
     features: dict[str, float | None] | None = None
     feature_contract: Literal['rf_s2s1_135_v1'] | None = None
     quality: Quality = Field(default_factory=Quality)
@@ -181,7 +182,7 @@ class NemotronHypothesis(Strict):
     reason_codes: list[Literal['RF_HYPOTHESIS', 'RF_INPUT_LIMITATIONS', 'CONTEXT_ONLY',
                               'MISSING_EVENT_INPUTS', 'FIELD_HARVEST_RECORD',
                               'CORROBORATED_PHYSICAL_EVIDENCE', 'DEVELOPMENT_TIMING',
-                              'CONFLICTING_EVIDENCE', 'NO_USABLE_EVIDENCE']] = Field(min_length=1, max_length=9)
+                              'CONFLICTING_EVIDENCE', 'NO_USABLE_EVIDENCE', 'SATELLITE_TRAJECTORY']] = Field(min_length=1, max_length=9)
 
     @model_validator(mode='after')
     def citations(self):

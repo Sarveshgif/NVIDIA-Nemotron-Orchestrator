@@ -32,7 +32,7 @@ def infer(request, settings):
         return None
     import numpy as np
     import pandas as pd
-    path = settings.root / settings.rf_bundle
+    path = settings.root / ('rf_silage_grain_models/rf_us_barc_recalibrated.joblib' if request.rf_model == 'barc_development' else settings.rf_bundle)
     bundle, checksum = inspect_bundle(str(path), str(settings.root))
     expected = set(bundle['cols'])
     if set(request.features) != expected:

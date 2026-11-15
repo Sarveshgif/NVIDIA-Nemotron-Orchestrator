@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { AlertTriangle, Loader2 } from 'lucide-react';
-import { NL_SELECTION } from './services/analysisService';
+import { BARC_SELECTION } from './services/analysisService';
 import { useStore } from './state/store';
 import { useDerived } from './state/derived';
 import { MapView } from './components/MapView';
@@ -10,8 +10,6 @@ import { ReviewQueue } from './components/ReviewQueue';
 import { FieldDrawer, neighbours } from './components/FieldDrawer';
 import { ContextBar, FirstUseHint, NavRail, NotPrepared, Toast } from './components/Shell';
 import { ReportsView } from './components/ReportsView';
-import { HistoryView } from './components/HistoryView';
-import { WeakLabelsView } from './components/WeakLabelsView';
 
 function useWidth() {
   const [w, setW] = useState(() => window.innerWidth);
@@ -36,7 +34,7 @@ export function App() {
   const width = useWidth();
 
   useEffect(() => {
-    void setSelection(NL_SELECTION);
+    void setSelection(BARC_SELECTION);
   }, [setSelection]);
 
   // keyboard shortcuts: Esc closes details, N moves to the next field
@@ -101,9 +99,7 @@ export function App() {
             {selected && <FieldDrawer key={selected.id} field={selected} derived={derived} />}
           </div>
         )}
-        {view === 'labels' && <WeakLabelsView />}
         {view === 'reports' && <ReportsView derived={derived} />}
-        {view === 'history' && <HistoryView />}
       </div>
       <Toast />
     </div>

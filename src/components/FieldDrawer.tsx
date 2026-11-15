@@ -11,6 +11,7 @@ import { ConfidenceMeter, InfoTip, StatusPill, TypePill } from './ui';
 import { EvidenceImagery } from './EvidenceImagery';
 import { EvidenceCharts } from './EvidenceCharts';
 import { PatchView } from './PatchView';
+import { BarcInvestigation } from './BarcInvestigation';
 import { DecisionPanel } from './DecisionPanel';
 
 function useEvidence(fieldId: string) {
@@ -143,6 +144,7 @@ export function FieldDrawer({ field, derived }: { field: Field; derived: Derived
           </section>
         )}
 
+        {field.barc && <BarcInvestigation field={field} />}
         <section className="summary" aria-label="Evidence summary">
           <h3>Evidence summary</h3>
           <p>{field.evidenceSummary}</p>
@@ -164,8 +166,8 @@ export function FieldDrawer({ field, derived }: { field: Field; derived: Derived
           </div>
         ) : (
           <>
-            <EvidenceImagery field={field} evidence={ev} />
-            <EvidenceCharts field={field} evidence={ev} />
+            {!field.barc && <EvidenceImagery field={field} evidence={ev} />}
+            {!field.barc && <EvidenceCharts field={field} evidence={ev} />}
             <section className="ev-block">
               <button type="button" className="disclosure" aria-expanded={patchOpen} onClick={() => setPatchOpen((o) => !o)}>
                 <ChevronDown size={16} className={patchOpen ? 'rot' : ''} aria-hidden />
@@ -173,7 +175,7 @@ export function FieldDrawer({ field, derived }: { field: Field; derived: Derived
                 {field.reasons.includes('within_field_variation') && <span className="tag tag-warn">Flagged</span>}
                 {field.subregions && <span className="tag">Reviewed subregions</span>}
               </button>
-              {patchOpen && <PatchView field={field} evidence={ev} />}
+              {patchOpen && !field.barc && <PatchView field={field} evidence={ev} />}
             </section>
           </>
         )}

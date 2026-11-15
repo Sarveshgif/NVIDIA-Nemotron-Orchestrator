@@ -17,6 +17,7 @@ from .assessment import build_assessment, validate_hypothesis
 from .rf import infer
 from .policy import routing, evaluate, prediction_decision
 from .weather import get_daymet_weather
+from .sentinel import get_sentinel_spatial_evidence
 from .tools import get_elevation_context, search_public_harvest_evidence
 from .nvidia_transport import bind_connection_trace, recovery_guard, safe_exception_types, utc_now
 
@@ -30,8 +31,8 @@ REQUIRED_EVIDENCE = frozenset({
 })
 SYSTEM = """You are Cornstellation's bounded evidence investigation planner. RF is the initial classifier.
 Only use the approved Daymet, elevation and direct public-report tools.
-NASS acreage is analyzed separately and is not available in field investigations.
-No satellite retrieval, maps, dairy proximity, training, shell or file tools are available.
+NASS crop progress and previous-year acreage may be supplied as explicitly regional context; they are not field truth.
+Sentinel observations are prefetched by the backend for the fixed field; you cannot request arbitrary imagery, training, shell or file tools.
 All calls must match the exact current field/year. Never invent dates, features, maturity information or source facts.
 Preserve the original RF probabilities and calibration status. A model score is not measured accuracy.
 Inspect weather, elevation and public harvest evidence before evaluate_evidence.
@@ -58,6 +59,9 @@ Finish after evaluate_evidence succeeds. Never emit a replacement final label yo
 
 
 PREDICTION_INSTRUCTION = """The configured operational mode is always_predict.
+When prefetched Sentinel evidence is usable, inspect the dated S2 NDVI/NDRE/LSWI/NDTI/EVI and S1 VV/VH trajectories before comparing your judgment with RF. The fixed v4 rulebook is applied to field-average 20 m clear NDVI and one-orbit radar; its first matching step, tier and reason are in satellite:rulebook_v4. Treat that as an advisory harvest signal, not confirmed use. If its label is SILAGE or GRAIN, cite satellite:rulebook_v4 and consider it before weather and RF; explain uncertainty using supported reason codes. If it is UNRESOLVED, missing satellite data does not imply GRAIN.
+Use SATELLITE_TRAJECTORY for cited satellite time-series evidence. Cite satellite:s2 and satellite:s1 whenever their summaries have at least two usable observations; the backend checks this.
+Read spatial evidence independently: neither agreement nor disagreement with RF is required. Rain, senescence, mixed pixels and data gaps can confound satellite changes. Do not invent physical removal or confirmed harvest use.
 For this low-score RF field, choose GRAIN or SILAGE as your best-effort hypothesis.
 Compare 30/60/90-day weather with historical matching seasons when supplied, and examine NASS crop progress and prior acreage as regional context.
 You may agree with or change RF's tentative label; never force agreement or disagreement.
@@ -132,6 +136,13 @@ class ToolRunner:
             hypothesis = validate_hypothesis(proposal, assessment, self.request, self.rf, decision) if proposal is not None else None
             if self.require_hypothesis and self.settings.prediction_mode == 'always_predict' and hypothesis and hypothesis['label'] not in ('GRAIN', 'SILAGE'):
                 raise ValueError('always_predict requires a GRAIN or SILAGE hypothesis; retain insufficient evidence strength when needed')
+            spatial = next((r for r in self.results if r.tool == 'get_sentinel_spatial_evidence'), None)
+            if self.require_hypothesis and hypothesis and spatial:
+                needed = ['satellite:'+sensor for sensor in ('s2','s1') if spatial.data.get(sensor, {}).get('summary', {}).get('usable_observations', 0) >= 2]
+                if spatial.data.get('rulebook_v4',{}).get('label') in ('GRAIN','SILAGE'):
+                    needed.append('satellite:rulebook_v4')
+                if any(finding not in hypothesis['evidence_ids'] for finding in needed):
+                    raise ValueError('Cite every usable satellite trajectory: '+', '.join(needed))
             self.evaluation, self.hypothesis = decision, hypothesis
             output = {'evidence_id': 'evaluation', **decision,
                       'evidence_assessment': assessment, 'nemotron_hypothesis': hypothesis}
@@ -260,7 +271,10 @@ def runtime_configuration(settings):
             'historical_weather_comparison': settings.historical_weather,
             'historical_weather_baseline': [settings.baseline_start, settings.baseline_end],
             'nass_regional_context_enabled': settings.nass_context,
-            'enabled_retrieval_tools': sorted(FUNCTIONS),
+            'enabled_retrieval_tools': sorted([*FUNCTIONS, *(['get_sentinel_spatial_evidence'] if settings.spatial_evidence else [])]),
+            'sentinel_spatial_evidence_enabled': settings.spatial_evidence,
+            'sentinel_max_scenes_per_sensor': settings.spatial_max_scenes,
+            'sentinel_budget_seconds': settings.spatial_budget_seconds,
             'aggregate_acreage_separate': True,
             'nvidia_model': settings.nvidia_model,
             'nvidia_max_attempts': settings.nvidia_max_attempts,
@@ -405,6 +419,27 @@ def compact(output):
     copy = json.loads(json.dumps(output))
     if isinstance(copy.get('data'), dict):
         copy['data'].pop('daily_rows', None)
+    def slim_sensor(sensor):
+        if not isinstance(sensor, dict):
+            return sensor
+        reduced = {key: sensor.get(key) for key in ('status','summary','selection','catalog_truncated') if key in sensor}
+        reduced['observations'] = []
+        for row in sensor.get('observations', []):
+            if not row.get('usable'):
+                continue
+            point = {key: row.get(key) for key in ('date','clear_fraction','vv_db','vh_db','relative_orbit','orbit_pass') if row.get(key) is not None}
+            if row.get('indices'):
+                point['indices'] = {key: value.get('mean') for key,value in row['indices'].items() if isinstance(value,dict) and value.get('mean') is not None}
+            reduced['observations'].append(point)
+        return reduced
+    if copy.get('tool') == 'get_sentinel_spatial_evidence':
+        copy.get('data', {}).pop('image_previews', None)
+        for sensor in ('s2','s1'):
+            if sensor in copy.get('data',{}):
+                copy['data'][sensor] = slim_sensor(copy['data'][sensor])
+    for finding in copy.get('evidence_assessment', {}).get('findings', []):
+        if finding.get('finding_id') in ('satellite:s2','satellite:s1'):
+            finding['measurements'] = slim_sensor(finding.get('measurements', {}))
     # Preserve complete excerpts in the report, but bound repeated text sent to the model.
     for finding in copy.get('evidence_assessment', {}).get('findings', []):
         text = finding.get('measurements', {}).get('text_excerpt')
@@ -440,6 +475,16 @@ def run_with_session(request, settings, mode, complete, runner_factory, session)
     agent_status, cited_ids, nvidia_calls = 'SKIPPED', [], 0
     correction_attempts, protocol_events = 0, []
     transport_attempts = []
+    if settings.spatial_evidence and mode != 'offline':
+        try:
+            spatial = get_sentinel_spatial_evidence(request, settings, http)
+        except (DataUnavailable, OSError, ValueError, KeyError):
+            spatial = ToolResult(evidence_id='sentinel', tool='get_sentinel_spatial_evidence', field_id=request.field_id,
+                year=request.year, status='UNKNOWN', errors=['Sentinel source unavailable; original RF retained if model fails'])
+        runner.results.append(spatial)
+        runner.trace.append({'tool': spatial.tool, 'arguments': {'field_id':request.field_id,'year':request.year},
+            'requested_by':'backend_prefetch','elapsed_ms':spatial.data.get('elapsed_seconds',0)*1000,
+            'result':spatial.model_dump(mode='json')})
     if route['investigate']:
         if mode == 'agent' and settings.prefetch_evidence:
             for name in FUNCTIONS:
@@ -462,7 +507,7 @@ def run_with_session(request, settings, mode, complete, runner_factory, session)
             state = request.model_dump(mode='json', exclude={'features', 'rf'})
             state['rf'] = rf.model_dump(mode='json') if rf else None
             state['routing'] = route
-            state['evidence_assessment'] = build_assessment(request, rf, runner.results)
+            state['evidence_assessment'] = compact({'evidence_assessment': build_assessment(request, rf, runner.results)})['evidence_assessment']
             if runner.results:
                 state['retrieval_mode'] = 'backend_prefetch'
                 state['retrieved_evidence'] = [compact(result.model_dump(mode='json')) for result in runner.results]
@@ -593,4 +638,5 @@ def run_with_session(request, settings, mode, complete, runner_factory, session)
             'weather_summary':{k:v for k,v in weather.items() if k != 'daily_rows'}, 'elevation_summary':elevation,
             'evidence':[r.model_dump(mode='json') for r in runner.results], 'tool_trace':runner.trace,
             'errors':errors, 'elapsed_ms':round((time.perf_counter()-started)*1000,2),
-            'generated_at_utc':datetime.now(timezone.utc).isoformat(), 'new_satellite_data_fetched':False}
+            'generated_at_utc':datetime.now(timezone.utc).isoformat(), 'new_satellite_data_fetched':any(r.data.get('new_satellite_data_fetched',False) for r in runner.results),
+            'spatial_evidence_cited': bool(runner.hypothesis and any(i.startswith('satellite:') for i in runner.hypothesis['evidence_ids']))}

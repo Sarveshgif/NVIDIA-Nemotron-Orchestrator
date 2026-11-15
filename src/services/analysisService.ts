@@ -4,6 +4,7 @@
 import type { AnalysisSelection, AnalysisStatus, Field, FieldEvidence } from '../types';
 import { DATASET, LATEST_OBSERVATION } from '../data/generate';
 import { DEMO_SELECTION, REGIONS, SEASONS } from '../data/geo';
+import { loadBarc } from '../data/barc';
 import { RULESET_VERSION } from '../lib/rules';
 import { CA_DATASET, loadNl, setActiveDataset } from '../data/datasets';
 
@@ -11,6 +12,8 @@ const latency = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
 export const selectionKey = (s: AnalysisSelection) => `${s.regionId}:${s.cropYear}:${s.seasonId}`;
 export const isDemoSelection = (s: AnalysisSelection) => selectionKey(s) === selectionKey(DEMO_SELECTION);
+export const BARC_SELECTION: AnalysisSelection = { regionId: 'barc-md', cropYear: 2023, seasonId: 'summer-fall' };
+export const isBarcSelection = (s: AnalysisSelection) => s.regionId === 'barc-md' && [2021,2022,2023].includes(s.cropYear) && s.seasonId === 'summer-fall';
 export const NL_SELECTION: AnalysisSelection = { regionId: 'nl-se', cropYear: 2025, seasonId: 'summer-fall' };
 export const isNlSelection = (s: AnalysisSelection) => selectionKey(s) === selectionKey(NL_SELECTION);
 
@@ -19,6 +22,13 @@ export const seasonLabel = (id: string) => SEASONS.find((s) => s.id === id)?.lab
 
 export async function getAnalysisStatus(sel: AnalysisSelection): Promise<AnalysisStatus> {
   await latency(220);
+  if (isBarcSelection(sel)) {
+    try {
+      const d = await loadBarc(sel.cropYear); setActiveDataset(d.info);
+      return { selection: sel, state: 'ready', latestObservation: null, modelVersion: 'rf_us_barc_recalibrated',
+        message: 'BARC development fields. Select a field to inspect RF and request Sentinel + Nemotron evidence.' };
+    } catch (e) { return { selection:sel,state:'unavailable',latestObservation:null,modelVersion:null,message:e instanceof Error?e.message:'BARC data unavailable' }; }
+  }
   if (isNlSelection(sel)) {
     try {
       const nl = await loadNl();
@@ -53,6 +63,7 @@ export async function getAnalysisStatus(sel: AnalysisSelection): Promise<Analysi
 
 export async function listFields(sel: AnalysisSelection): Promise<Field[]> {
   await latency(260);
+  if (isBarcSelection(sel)) return (await loadBarc(sel.cropYear)).fields;
   if (isNlSelection(sel)) return (await loadNl()).fields;
   if (!isDemoSelection(sel)) throw new Error('No prepared analysis for this selection.');
   return DATASET.fields;
@@ -67,6 +78,11 @@ const evidenceCache = new Map<string, FieldEvidence>();
 /** All evidence for a selection, used to run the rule set over every field at once. */
 export async function listEvidence(sel: AnalysisSelection): Promise<Record<string, FieldEvidence>> {
   await latency(120);
+  if (isBarcSelection(sel)) {
+    const d=await loadBarc(sel.cropYear);
+    Object.entries(d.evidence).forEach(([id,ev])=>evidenceCache.set(id,ev));
+    return d.evidence;
+  }
   if (isNlSelection(sel)) {
     const nl = await loadNl();
     Object.entries(nl.evidence).forEach(([id, ev]) => evidenceCache.set(id, ev));
@@ -78,6 +94,7 @@ export async function listEvidence(sel: AnalysisSelection): Promise<Record<strin
 }
 
 /** Synchronous cache read so field switching can render instantly when prefetched. */
+export const cacheFieldEvidence = (e: FieldEvidence) => evidenceCache.set(e.fieldId,e);
 export const peekEvidence = (fieldId: string) => evidenceCache.get(fieldId);
 
 export async function getFieldEvidence(fieldId: string): Promise<FieldEvidence> {

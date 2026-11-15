@@ -12,6 +12,7 @@ from .policy import physical_classification
 
 RELATIONS = ('SUPPORTS', 'CONTRADICTS', 'DOES_NOT_RESOLVE')
 REASONS = {
+    'SATELLITE_TRAJECTORY': 'Dated field-masked optical/radar trajectories are available; they do not alone confirm harvest use.',
     'RF_HYPOTHESIS': 'The original RF label is a hypothesis, not independent verification.',
     'RF_INPUT_LIMITATIONS': 'Input quality or geographic applicability limits confidence in the RF result.',
     'CONTEXT_ONLY': 'Contextual evidence alone cannot establish field harvest use.',
@@ -124,6 +125,26 @@ def build_assessment(request, rf, evidence):
                     measurements={k:v for k,v in regional.items() if k not in ('sources', 'errors')},
                     limitations=regional.get('errors', [])+['Current API estimates are not a guaranteed archived publication vintage. No field label or actual planting date is inferred.'],
                     group='nass_state_and_season', tool=result.tool)
+        elif result.tool == 'get_sentinel_spatial_evidence':
+            for sensor in ('s2', 's1'):
+                sensor_data=result.data.get(sensor, {})
+                add('satellite:'+sensor, 'satellite',
+                    'Field-masked Sentinel-2 optical indices and sub-field variation.' if sensor == 's2' else 'Field-masked Sentinel-1 RTC radar, using one relative orbit and pass.',
+                    sources=[s for s in result.sources if s.get('collection', '').startswith('sentinel-2' if sensor == 's2' else 'sentinel-1')],
+                    dates={'window':result.data.get('window')}, scope='field', status=sensor_data.get('status','UNKNOWN'),
+                    measurements=sensor_data, limitations=result.errors+['Satellite changes are not confirmed crop removal or verified harvest use.'],
+                    missing=result.missing_inputs, group='sentinel_'+sensor+'_field_trajectory', tool=result.tool)
+            rule=result.data.get('rulebook_v4')
+            if rule:
+                add('satellite:rulebook_v4', 'satellite',
+                    'Fixed first-match v4 interpretation of field-masked Sentinel observations; advisory only.',
+                    sources=result.sources, dates={'window':result.data.get('window')}, scope='field',
+                    status='OK' if rule.get('label') in ('GRAIN','SILAGE') else 'UNKNOWN',
+                    measurements={**rule, 'summary':{'usable_observations':max(
+                        result.data.get('s2',{}).get('summary',{}).get('usable_observations',0),
+                        result.data.get('s1',{}).get('summary',{}).get('usable_observations',0))}},
+                    limitations=['Rule output is not a verified harvest record or calibrated probability.'],
+                    group='sentinel_field_trajectory', tool=result.tool)
         elif result.tool == 'get_elevation_context':
             add('elevation:context', 'elevation', 'Elevation helps assess whether gridded weather is representative.',
                 sources=sources, scope='field', status=result.status, measurements=result.data,
@@ -190,6 +211,7 @@ def validate_hypothesis(proposal, assessment, request, rf, decision):
     statuses = [f['measurements'].get('status') for f in cited if f['finding_id'] == 'weather:development_timing']
     labels = {f['inferred_harvest_use'] for f in findings.values() if f['eligible_for_final_decision']}
     allowed = {
+        'SATELLITE_TRAJECTORY': any(f['category']=='satellite' and f['measurements'].get('summary',{}).get('usable_observations',0)>=2 for f in cited),
         'RF_HYPOTHESIS': 'rf' in categories and rf is not None,
         'RF_INPUT_LIMITATIONS': 'quality' in categories and (bool(request.quality.flags) or request.quality.observations_adequate is not True or request.quality.geographic_applicability != 'validated'),
         'CONTEXT_ONLY': bool(categories & {'weather', 'elevation', 'public_document', 'agriculture'}) and not labels,

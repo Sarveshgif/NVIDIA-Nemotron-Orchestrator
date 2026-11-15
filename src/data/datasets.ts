@@ -8,7 +8,7 @@ import type { Field, FieldEvidence, PatchSeries, ReviewReason } from '../types';
 import { CA_SEASON, setSeason, type SeasonConfig } from './season';
 import { SENTINEL_ATTRIBUTION as CA_ATTR, chipDates as caChipDates } from './generate';
 
-export type DatasetKey = 'ca2023' | 'nl2025';
+export type DatasetKey = 'ca2023' | 'nl2025' | 'barc';
 
 export interface EvalRow {
   model: string; label: string; n: number; coverage: number; accuracy: number; balanced_accuracy: number;

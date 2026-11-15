@@ -156,7 +156,7 @@ export function MapView({ derived }: { derived: Derived }) {
     group.clearLayers();
     layers.current.clear();
     for (const f of fields) {
-      const poly = L.polygon(f.polygon, { renderer: rendererRef.current ?? undefined, bubblingMouseEvents: false });
+      const poly = L.polygon(f.geometryRings ?? f.polygon, { renderer: rendererRef.current ?? undefined, bubblingMouseEvents: false });
       poly.on('click', () => useStore.getState().select(f.id));
       poly.on('mouseover', () => useStore.getState().hover(f.id));
       poly.on('mouseout', () => useStore.getState().hover(null));
@@ -248,9 +248,9 @@ export function MapView({ derived }: { derived: Derived }) {
     hg.clearLayers();
     const f = fields.find((x) => x.id === selectedId);
     if (!f) return;
-    L.polygon(f.polygon, { interactive: false, fill: false, color: '#ffffff', weight: 7, opacity: 0.95 }).addTo(hg);
-    L.polygon(f.polygon, { interactive: false, fill: false, color: '#173b2c', weight: 3, opacity: 1 }).addTo(hg);
-    const b = L.latLngBounds(f.polygon);
+    L.polygon(f.geometryRings ?? f.polygon, { interactive: false, fill: false, color: '#ffffff', weight: 7, opacity: 0.95 }).addTo(hg);
+    L.polygon(f.geometryRings ?? f.polygon, { interactive: false, fill: false, color: '#173b2c', weight: 3, opacity: 1 }).addTo(hg);
+    const b = L.latLngBounds(f.geometryRings ? f.geometryRings.flat(2) : f.polygon);
     // wait for the drawer to resize the map first
     const t = setTimeout(() => {
       map.invalidateSize({ animate: false });
@@ -269,11 +269,11 @@ export function MapView({ derived }: { derived: Derived }) {
     if (fitRequest.kind === 'county' && outlineRef.current) {
       map.flyToBounds(outlineRef.current.getBounds(), { padding: [24, 24], duration: 0.6 });
     } else if (fitRequest.kind === 'fields' && fields.length) {
-      const b = L.latLngBounds(fields.flatMap((f) => f.polygon));
+      const b = L.latLngBounds(fields.flatMap((f) => f.geometryRings ? f.geometryRings.flat(2) : f.polygon));
       map.fitBounds(b, { padding: [40, 40] });
     } else if (fitRequest.kind === 'field') {
       const f = fields.find((x) => x.id === useStore.getState().selectedId);
-      if (f) map.flyToBounds(L.latLngBounds(f.polygon), { maxZoom: 15, padding: [60, 60], duration: 0.5 });
+      if (f) map.flyToBounds(L.latLngBounds(f.geometryRings ? f.geometryRings.flat(2) : f.polygon), { maxZoom: 15, padding: [60, 60], duration: 0.5 });
     }
   }, [fitRequest]); // eslint-disable-line react-hooks/exhaustive-deps
 

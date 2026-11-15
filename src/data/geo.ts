@@ -2,79 +2,18 @@ import type { Region, Season } from '../types';
 
 // Approximate outlines for display only. Not survey-grade boundaries.
 export const REGIONS: Region[] = [
-  {
-    id: 'nl-se',
-    name: 'South-east Netherlands (validation)',
-    state: 'NL',
-    center: [51.4, 5.9],
-    defaultYear: 2025,
-    // filled from the dataset's block outline at load; rough hull of Limburg / Noord-Brabant / Achterhoek blocks
-    outline: [[50.83, 5.64], [50.83, 6.03], [51.2, 6.06], [51.74, 6.13], [52.03, 6.78], [51.9, 6.78], [51.77, 5.48], [51.63, 5.02], [51.36, 5.02], [51.2, 5.7]],
-  },
-  {
-    id: 'tulare-ca',
-    name: 'Tulare County',
-    state: 'CA',
-    center: [36.22, -119.0],
-    outline: [
-      [36.744, -119.305], [36.665, -119.312], [36.585, -119.462], [36.49, -119.545],
-      [36.27, -119.545], [35.79, -119.545], [35.79, -118.005], [36.03, -117.985],
-      [36.2, -118.06], [36.38, -118.13], [36.55, -118.35], [36.66, -118.37],
-      [36.744, -118.66], [36.744, -118.98],
-    ],
-  },
-  {
-    id: 'kings-ca',
-    name: 'Kings County',
-    state: 'CA',
-    center: [36.07, -119.82],
-    outline: [
-      [36.49, -119.96], [36.49, -119.545], [35.79, -119.545], [35.79, -119.96],
-      [35.98, -120.19], [36.2, -120.14], [36.4, -119.96],
-    ],
-  },
-  {
-    id: 'fresno-ca',
-    name: 'Fresno County',
-    state: 'CA',
-    center: [36.75, -119.65],
-    outline: [
-      [37.1, -120.5], [37.22, -119.65], [37.4, -119.3], [37.45, -118.8], [36.95, -118.4],
-      [36.744, -118.66], [36.744, -119.305], [36.49, -119.545], [36.4, -119.96], [36.2, -120.14],
-      [36.0, -120.6], [36.48, -120.92], [36.9, -120.65],
-    ],
-  },
-  {
-    id: 'kern-ca',
-    name: 'Kern County',
-    state: 'CA',
-    center: [35.34, -118.73],
-    outline: [
-      [35.79, -119.96], [35.79, -117.63], [34.82, -117.63], [34.82, -118.88],
-      [35.0, -119.47], [35.43, -119.88],
-    ],
-  },
-  {
-    id: 'merced-ca',
-    name: 'Merced County',
-    state: 'CA',
-    center: [37.19, -120.72],
-    outline: [
-      [37.63, -120.39], [37.18, -120.05], [37.1, -120.5], [36.9, -120.65], [36.75, -120.92],
-      [36.95, -121.23], [37.18, -121.23], [37.42, -120.95],
-    ],
-  },
+  { id: 'barc-md', name: 'BARC corn fields', state: 'MD', defaultYear: 2023, center: [39.03, -76.85], outline: [[39.00,-76.90],[39.00,-76.80],[39.07,-76.80],[39.07,-76.90]] },
+  { id: 'nl-se', name: 'South-east Netherlands', state: 'NL', defaultYear: 2025, center: [51.43, 6.21], outline: [[50.80,5.60],[50.80,6.82],[52.06,6.82],[52.06,5.60]] },
 ];
 
 export const SEASONS: Season[] = [
   { id: 'summer-fall', label: 'Main season', start: '04-01', end: '12-31' },
-  { id: 'spring', label: 'Spring silage', start: '04-01', end: '06-30' },
 ];
 
 export const CROP_YEARS = [2025, 2023, 2022, 2021];
 
 /** The single fully prepared demonstration selection. */
-export const DEMO_SELECTION = { regionId: 'tulare-ca', cropYear: 2023, seasonId: 'summer-fall' };
+export const DEMO_SELECTION = { regionId: 'barc-md', cropYear: 2023, seasonId: 'summer-fall' };
 
 // Reference lines for the offline schematic basemap.
 export const HIGHWAYS: { name: string; path: [number, number][] }[] = [
@@ -93,20 +32,7 @@ export const HIGHWAYS: { name: string; path: [number, number][] }[] = [
   { name: 'SR 63', path: [[36.6, -119.42], [36.33, -119.29], [36.21, -119.31]] },
 ];
 
-export const TOWNS: { name: string; at: [number, number]; size: number }[] = [
-  { name: 'Visalia', at: [36.33, -119.29], size: 3 },
-  { name: 'Tulare', at: [36.21, -119.345], size: 2.4 },
-  { name: 'Porterville', at: [36.065, -119.02], size: 2.2 },
-  { name: 'Hanford', at: [36.327, -119.645], size: 2.2 },
-  { name: 'Dinuba', at: [36.543, -119.387], size: 1.4 },
-  { name: 'Lindsay', at: [36.203, -119.088], size: 1.2 },
-  { name: 'Exeter', at: [36.296, -119.142], size: 1.1 },
-  { name: 'Tipton', at: [36.059, -119.312], size: 0.7 },
-  { name: 'Pixley', at: [35.969, -119.291], size: 0.8 },
-  { name: 'Earlimart', at: [35.884, -119.271], size: 0.9 },
-  { name: 'Traver', at: [36.455, -119.483], size: 0.6 },
-  { name: 'Delano', at: [35.769, -119.247], size: 2 },
-];
+export const TOWNS: { name: string; at: [number, number]; size: number }[] = [];
 
 // --- geometry helpers ---
 const M_PER_DEG_LAT = 110574;

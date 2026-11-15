@@ -3,8 +3,7 @@ import type {
   Allocation, AnalysisSelection, AnalysisStatus, Decision, DecisionClass, Field, FieldEvidence, HistoryEntry, PredictionSource,
   ReviewReason, ReviewStatus,
 } from '../types';
-import { DEMO_SELECTION } from '../data/geo';
-import { getAnalysisStatus, getSeedDecisions, listEvidence, listFields, selectionKey } from '../services/analysisService';
+import { getAnalysisStatus, getSeedDecisions, listEvidence, listFields, selectionKey, cacheFieldEvidence } from '../services/analysisService';
 import { DEFAULT_THRESHOLDS, runRules, withPrediction, type RuleResult, type RuleThresholds } from '../lib/rules';
 import type { EffectiveClass } from '../lib/acreage';
 import { mlAvailable } from '../lib/format';
@@ -80,6 +79,7 @@ interface State {
   hintDismissed: boolean;
   toast: Toast | null;
 
+  applyInvestigation: (id: string, label: 'grain' | 'silage', model: string, evidence: FieldEvidence) => void;
   setView: (v: View) => void;
   setPredictionSource: (s: PredictionSource) => void;
   setRuleThresholds: (patch: Partial<RuleThresholds>) => void;
@@ -168,7 +168,7 @@ function seedHistory(fields: Field[], seeds: Decision[]): HistoryEntry[] {
 
 const viewFromHash = (): View => {
   const h = location.hash.replace('#', '');
-  return h === 'reports' || h === 'history' || h === 'labels' ? h : 'workspace';
+  return h === 'reports' ? h : 'workspace';
 };
 
 const effectiveFields = (base: Field[], src: PredictionSource, rules: Record<string, RuleResult>) =>
@@ -186,7 +186,7 @@ export const useStore = create<State>((set, get) => {
 
   return {
     view: viewFromHash(),
-    selection: DEMO_SELECTION,
+    selection: { regionId:'barc-md', cropYear:2023, seasonId:'summer-fall' },
     status: null,
     loading: true,
     loadError: null,
@@ -218,6 +218,11 @@ export const useStore = create<State>((set, get) => {
     hintDismissed: prefs.hintDismissed ?? false,
     toast: null,
 
+    applyInvestigation: (id, label, model, evidence) => {
+      cacheFieldEvidence(evidence);
+      const baseFields=get().baseFields.map(f=>f.id===id?{...f,prediction:{...f.prediction,source:'ml' as const,predicted:label,confidence:null,pSilage:null,modelVersion:model},evidenceSummary:'Nemotron prediction from the current evidence. Original RF scores are shown separately.'}:f);
+      set({baseFields,fields:effectiveFields(baseFields,get().predictionSource,get().ruleResults),evidence:{...get().evidence,[id]:evidence}});
+    },
     setView: (view) => {
       set({ view });
       const target = view === 'workspace' ? '' : `#${view}`;
@@ -229,7 +234,7 @@ export const useStore = create<State>((set, get) => {
 
     setSelection: async (selection) => {
       const seq = ++loadSeq;
-      set({ selection, loading: true, loadError: null, status: null, baseFields: [], fields: [], evidence: {}, ruleResults: {}, selectedId: null, hoveredId: null, undoStack: [] });
+      set({ selection, basemap:'imagery', loading: true, loadError: null, status: null, baseFields: [], fields: [], evidence: {}, ruleResults: {}, selectedId: null, hoveredId: null, undoStack: [] });
       try {
         const status = await getAnalysisStatus(selection);
         if (seq !== loadSeq) return;
@@ -241,7 +246,7 @@ export const useStore = create<State>((set, get) => {
         if (seq !== loadSeq) return;
         const ruleResults = runRules(evidence, get().ruleThresholds);
         // Datasets with a trained model open on its predictions; others can only show rules.
-        const predictionSource: PredictionSource = mlAvailable() ? (prefs.predictionSource === 'rules' ? 'rules' : 'ml') : 'rules';
+        const predictionSource: PredictionSource = selection.regionId==='barc-md' ? 'ml' : mlAvailable() ? (prefs.predictionSource === 'rules' ? 'rules' : 'ml') : 'rules';
         const fields = effectiveFields(baseFields, predictionSource, ruleResults);
         const saved = readJSON<Persisted>(storeKey(selection));
         let decisions: Record<string, Decision>;

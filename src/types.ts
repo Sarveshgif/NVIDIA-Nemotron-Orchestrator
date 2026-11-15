@@ -88,6 +88,8 @@ export interface Field {
   polygon: [number, number][];
   /** Source ID of the outline (DWR UniqueID or BRP parcel UUID). */
   sourceId?: string;
+  geometryRings?: [number, number][][][];
+  barc?: { year: number; rfLabel: 'grain' | 'silage'; rfConfidence: number; pSilage: number; pGrain: number };
   centroid: [number, number];
   acres: number;
   cluster: string;
