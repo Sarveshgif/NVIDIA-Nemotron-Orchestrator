@@ -1,0 +1,29 @@
+{
+  "date": "2025-12-29",
+  "rows": {
+    "US25-CONUS-5km-38_422-00014": {
+      "date": "2025-12-29",
+      "ndvi": 0.0677,
+      "lswi": 0.5831,
+      "clear_fraction": 0.6522,
+      "valid_pixels": 105,
+      "scene_ids": [
+        "S2B_15TVG_20251229_0_L2A"
+      ]
+    },
+    "US25-CONUS-5km-38_422-00025": {
+      "date": "2025-12-29",
+      "ndvi": 0.0864,
+      "lswi": 0.5135,
+      "clear_fraction": 0.8106,
+      "valid_pixels": 8523,
+      "scene_ids": [
+        "S2B_15TVG_20251229_0_L2A"
+      ]
+    }
+  },
+  "scene_ids": [
+    "S2B_15TVG_20251229_0_L2A"
+  ],
+  "patch_limit": null
+}

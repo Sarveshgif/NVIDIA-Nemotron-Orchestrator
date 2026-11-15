@@ -1,0 +1,39 @@
+{
+  "request_url": "https://pdi.scinet.usda.gov/image/rest/services/CDL_WM/ImageServer/exportImage",
+  "query": {
+    "f": "json",
+    "bbox": "700000,920000,720000,940000",
+    "bboxSR": 5070,
+    "imageSR": 5070,
+    "size": "2000,2000",
+    "adjustAspectRatio": "false",
+    "format": "tiff",
+    "pixelType": "U8",
+    "interpolation": "RSP_NearestNeighbor",
+    "renderingRule": "{\"rasterFunction\": \"None\"}",
+    "mosaicRule": "{\"mosaicMethod\": \"esriMosaicLockRaster\", \"lockRasterIds\": [40], \"mosaicOperation\": \"MT_FIRST\"}"
+  },
+  "response": {
+    "href": "https://pdi.scinet.usda.gov/image/rest/directories/arcgisoutput/CDL_WM_ImageServer/_ags_f3386019_81ba_40bd_810a_08a42609ba5e.tif",
+    "width": 2000,
+    "height": 2000,
+    "extent": {
+      "xmin": 700000,
+      "ymin": 920000,
+      "xmax": 720000,
+      "ymax": 940000,
+      "spatialReference": {
+        "wkid": 5070,
+        "latestWkid": 5070
+      }
+    },
+    "scale": 0
+  },
+  "downloaded_at": "2026-11-15T04:49:48.912254+00:00",
+  "layer": {
+    "OBJECTID": 40,
+    "Name": "2025_10m_cdls",
+    "Year": 2025
+  },
+  "sha256": "f677962e1577266e6f71d0eb6856cea370f669302d8dc039b6ff69d5aea22cf2"
+}

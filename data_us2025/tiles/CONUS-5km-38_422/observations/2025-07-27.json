@@ -1,0 +1,169 @@
+{
+  "date": "2025-07-27",
+  "rows": {
+    "US25-CONUS-5km-38_422-00005": {
+      "date": "2025-07-27",
+      "ndvi": 1.5058,
+      "lswi": 0.6961,
+      "clear_fraction": 1.0,
+      "valid_pixels": 220,
+      "scene_ids": [
+        "S2C_15TVG_20250727_0_L2A"
+      ]
+    },
+    "US25-CONUS-5km-38_422-00006": {
+      "date": "2025-07-27",
+      "ndvi": 1.6056,
+      "lswi": 0.5705,
+      "clear_fraction": 0.9425,
+      "valid_pixels": 82,
+      "scene_ids": [
+        "S2C_15TVG_20250727_0_L2A"
+      ]
+    },
+    "US25-CONUS-5km-38_422-00007": {
+      "date": "2025-07-27",
+      "ndvi": 1.5481,
+      "lswi": 0.694,
+      "clear_fraction": 0.7422,
+      "valid_pixels": 95,
+      "scene_ids": [
+        "S2C_15TVG_20250727_0_L2A"
+      ]
+    },
+    "US25-CONUS-5km-38_422-00010": {
+      "date": "2025-07-27",
+      "ndvi": 1.7417,
+      "lswi": 0.6603,
+      "clear_fraction": 1.0,
+      "valid_pixels": 363,
+      "scene_ids": [
+        "S2C_15TVG_20250727_0_L2A"
+      ]
+    },
+    "US25-CONUS-5km-38_422-00011": {
+      "date": "2025-07-27",
+      "ndvi": 1.4951,
+      "lswi": 0.6709,
+      "clear_fraction": 1.0,
+      "valid_pixels": 239,
+      "scene_ids": [
+        "S2C_15TVG_20250727_0_L2A"
+      ]
+    },
+    "US25-CONUS-5km-38_422-00012": {
+      "date": "2025-07-27",
+      "ndvi": 1.5764,
+      "lswi": 0.5601,
+      "clear_fraction": 1.0,
+      "valid_pixels": 81,
+      "scene_ids": [
+        "S2C_15TVG_20250727_0_L2A"
+      ]
+    },
+    "US25-CONUS-5km-38_422-00015": {
+      "date": "2025-07-27",
+      "ndvi": 1.6429,
+      "lswi": 0.7601,
+      "clear_fraction": 0.634,
+      "valid_pixels": 622,
+      "scene_ids": [
+        "S2C_15TVG_20250727_0_L2A"
+      ]
+    },
+    "US25-CONUS-5km-38_422-00016": {
+      "date": "2025-07-27",
+      "ndvi": 1.4531,
+      "lswi": 0.6504,
+      "clear_fraction": 1.0,
+      "valid_pixels": 82,
+      "scene_ids": [
+        "S2C_15TVG_20250727_0_L2A"
+      ]
+    },
+    "US25-CONUS-5km-38_422-00017": {
+      "date": "2025-07-27",
+      "ndvi": 1.5076,
+      "lswi": 0.7333,
+      "clear_fraction": 1.0,
+      "valid_pixels": 1361,
+      "scene_ids": [
+        "S2C_15TVG_20250727_0_L2A"
+      ]
+    },
+    "US25-CONUS-5km-38_422-00020": {
+      "date": "2025-07-27",
+      "ndvi": 1.464,
+      "lswi": 0.7112,
+      "clear_fraction": 0.8389,
+      "valid_pixels": 6488,
+      "scene_ids": [
+        "S2C_15TVG_20250727_0_L2A"
+      ]
+    },
+    "US25-CONUS-5km-38_422-00021": {
+      "date": "2025-07-27",
+      "ndvi": 1.6184,
+      "lswi": 0.7304,
+      "clear_fraction": 0.9635,
+      "valid_pixels": 4116,
+      "scene_ids": [
+        "S2C_15TVG_20250727_0_L2A"
+      ]
+    },
+    "US25-CONUS-5km-38_422-00023": {
+      "date": "2025-07-27",
+      "ndvi": 1.4968,
+      "lswi": 0.7173,
+      "clear_fraction": 0.9689,
+      "valid_pixels": 2057,
+      "scene_ids": [
+        "S2C_15TVG_20250727_0_L2A"
+      ]
+    },
+    "US25-CONUS-5km-38_422-00024": {
+      "date": "2025-07-27",
+      "ndvi": 1.5393,
+      "lswi": 0.7122,
+      "clear_fraction": 0.9708,
+      "valid_pixels": 6028,
+      "scene_ids": [
+        "S2C_15TVG_20250727_0_L2A"
+      ]
+    },
+    "US25-CONUS-5km-38_422-00026": {
+      "date": "2025-07-27",
+      "ndvi": 1.485,
+      "lswi": 0.7568,
+      "clear_fraction": 0.9594,
+      "valid_pixels": 661,
+      "scene_ids": [
+        "S2C_15TVG_20250727_0_L2A"
+      ]
+    },
+    "US25-CONUS-5km-38_422-00027": {
+      "date": "2025-07-27",
+      "ndvi": 1.5068,
+      "lswi": 0.7359,
+      "clear_fraction": 1.0,
+      "valid_pixels": 294,
+      "scene_ids": [
+        "S2C_15TVG_20250727_0_L2A"
+      ]
+    },
+    "US25-CONUS-5km-38_422-00028": {
+      "date": "2025-07-27",
+      "ndvi": 1.4962,
+      "lswi": 0.6987,
+      "clear_fraction": 0.8741,
+      "valid_pixels": 5014,
+      "scene_ids": [
+        "S2C_15TVG_20250727_0_L2A"
+      ]
+    }
+  },
+  "scene_ids": [
+    "S2C_15TVG_20250727_0_L2A"
+  ],
+  "patch_limit": null
+}

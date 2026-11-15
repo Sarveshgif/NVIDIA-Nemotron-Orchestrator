@@ -1,0 +1,179 @@
+{
+  "date": "2025-08-03",
+  "rows": {
+    "US25-CONUS-5km-38_422-00001": {
+      "date": "2025-08-03",
+      "ndvi": 1.5133,
+      "lswi": 0.7037,
+      "clear_fraction": 1.0,
+      "valid_pixels": 104,
+      "scene_ids": [
+        "S2C_15TVG_20250803_0_L2A"
+      ]
+    },
+    "US25-CONUS-5km-38_422-00003": {
+      "date": "2025-08-03",
+      "ndvi": 0.9363,
+      "lswi": 0.3868,
+      "clear_fraction": 0.6089,
+      "valid_pixels": 123,
+      "scene_ids": [
+        "S2C_15TVG_20250803_0_L2A"
+      ]
+    },
+    "US25-CONUS-5km-38_422-00004": {
+      "date": "2025-08-03",
+      "ndvi": 1.4641,
+      "lswi": 0.6464,
+      "clear_fraction": 1.0,
+      "valid_pixels": 120,
+      "scene_ids": [
+        "S2C_15TVG_20250803_0_L2A"
+      ]
+    },
+    "US25-CONUS-5km-38_422-00005": {
+      "date": "2025-08-03",
+      "ndvi": 1.4506,
+      "lswi": 0.6961,
+      "clear_fraction": 1.0,
+      "valid_pixels": 220,
+      "scene_ids": [
+        "S2C_15TVG_20250803_0_L2A"
+      ]
+    },
+    "US25-CONUS-5km-38_422-00007": {
+      "date": "2025-08-03",
+      "ndvi": 1.481,
+      "lswi": 0.6878,
+      "clear_fraction": 1.0,
+      "valid_pixels": 128,
+      "scene_ids": [
+        "S2C_15TVG_20250803_0_L2A"
+      ]
+    },
+    "US25-CONUS-5km-38_422-00008": {
+      "date": "2025-08-03",
+      "ndvi": 1.4539,
+      "lswi": 0.6328,
+      "clear_fraction": 1.0,
+      "valid_pixels": 217,
+      "scene_ids": [
+        "S2C_15TVG_20250803_0_L2A"
+      ]
+    },
+    "US25-CONUS-5km-38_422-00010": {
+      "date": "2025-08-03",
+      "ndvi": 1.506,
+      "lswi": 0.6445,
+      "clear_fraction": 1.0,
+      "valid_pixels": 363,
+      "scene_ids": [
+        "S2C_15TVG_20250803_0_L2A"
+      ]
+    },
+    "US25-CONUS-5km-38_422-00011": {
+      "date": "2025-08-03",
+      "ndvi": 1.3784,
+      "lswi": 0.6492,
+      "clear_fraction": 1.0,
+      "valid_pixels": 239,
+      "scene_ids": [
+        "S2C_15TVG_20250803_0_L2A"
+      ]
+    },
+    "US25-CONUS-5km-38_422-00012": {
+      "date": "2025-08-03",
+      "ndvi": 1.366,
+      "lswi": 0.5124,
+      "clear_fraction": 1.0,
+      "valid_pixels": 81,
+      "scene_ids": [
+        "S2C_15TVG_20250803_0_L2A"
+      ]
+    },
+    "US25-CONUS-5km-38_422-00013": {
+      "date": "2025-08-03",
+      "ndvi": 1.4219,
+      "lswi": 0.7058,
+      "clear_fraction": 1.0,
+      "valid_pixels": 608,
+      "scene_ids": [
+        "S2C_15TVG_20250803_0_L2A"
+      ]
+    },
+    "US25-CONUS-5km-38_422-00014": {
+      "date": "2025-08-03",
+      "ndvi": 1.3152,
+      "lswi": 0.5629,
+      "clear_fraction": 1.0,
+      "valid_pixels": 161,
+      "scene_ids": [
+        "S2C_15TVG_20250803_0_L2A"
+      ]
+    },
+    "US25-CONUS-5km-38_422-00017": {
+      "date": "2025-08-03",
+      "ndvi": 1.3884,
+      "lswi": 0.6837,
+      "clear_fraction": 1.0,
+      "valid_pixels": 1361,
+      "scene_ids": [
+        "S2C_15TVG_20250803_0_L2A"
+      ]
+    },
+    "US25-CONUS-5km-38_422-00021": {
+      "date": "2025-08-03",
+      "ndvi": 1.4215,
+      "lswi": 0.6589,
+      "clear_fraction": 0.6674,
+      "valid_pixels": 2851,
+      "scene_ids": [
+        "S2C_15TVG_20250803_0_L2A"
+      ]
+    },
+    "US25-CONUS-5km-38_422-00022": {
+      "date": "2025-08-03",
+      "ndvi": 1.4855,
+      "lswi": 0.7306,
+      "clear_fraction": 0.9974,
+      "valid_pixels": 7417,
+      "scene_ids": [
+        "S2C_15TVG_20250803_0_L2A"
+      ]
+    },
+    "US25-CONUS-5km-38_422-00026": {
+      "date": "2025-08-03",
+      "ndvi": 1.3216,
+      "lswi": 0.6809,
+      "clear_fraction": 0.9942,
+      "valid_pixels": 685,
+      "scene_ids": [
+        "S2C_15TVG_20250803_0_L2A"
+      ]
+    },
+    "US25-CONUS-5km-38_422-00027": {
+      "date": "2025-08-03",
+      "ndvi": 0.7827,
+      "lswi": 0.3618,
+      "clear_fraction": 0.8163,
+      "valid_pixels": 240,
+      "scene_ids": [
+        "S2C_15TVG_20250803_0_L2A"
+      ]
+    },
+    "US25-CONUS-5km-38_422-00028": {
+      "date": "2025-08-03",
+      "ndvi": 1.4272,
+      "lswi": 0.7014,
+      "clear_fraction": 1.0,
+      "valid_pixels": 5736,
+      "scene_ids": [
+        "S2C_15TVG_20250803_0_L2A"
+      ]
+    }
+  },
+  "scene_ids": [
+    "S2C_15TVG_20250803_0_L2A"
+  ],
+  "patch_limit": null
+}

@@ -10,3 +10,7 @@ dist-artifact/
 __pycache__/
 *.pyc
 .DS_Store
+
+# Scoped investigation runtime and audit output
+.venv-investigation/
+.agent-runs/investigation/

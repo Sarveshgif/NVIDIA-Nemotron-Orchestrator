@@ -1,0 +1,1 @@
+{"date": "2021-08-13", "rows": {"BARC-2021-OBJ548": {"date": "2021-08-13", "ndvi": 0.633, "ndre": 0.5455, "lswi": 0.2192, "clear_fraction": 0.9341, "valid_pixels": 241, "scene_ids": ["S2A_18SUJ_20210813_0_L2A", "S2A_18SUJ_20210813_1_L2A"]}}, "source_scene_ids": ["S2A_18SUJ_20210813_0_L2A", "S2A_18SUJ_20210813_1_L2A"], "radiometry_version": "earthsearch-cog-offset-v2"}

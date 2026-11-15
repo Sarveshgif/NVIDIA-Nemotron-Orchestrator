@@ -1,0 +1,11 @@
+{
+  "partial": true,
+  "blocks_this_run": [
+    {
+      "block": "AL25-35_46-B143_184",
+      "status": "optical_only",
+      "clear_optical_dates": 38,
+      "radar_status": "not_completed; remote raster reads failed and pilot was stopped"
+    }
+  ]
+}

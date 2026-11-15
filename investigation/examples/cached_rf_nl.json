@@ -1,0 +1,91 @@
+{
+  "field_id": "NL-ACH-0001",
+  "year": 2025,
+  "reporting_cutoff": "2025-12-31",
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          6.512557,
+          51.95511
+        ],
+        [
+          6.514087,
+          51.955935
+        ],
+        [
+          6.512976,
+          51.956542
+        ],
+        [
+          6.512184,
+          51.956983
+        ],
+        [
+          6.511746,
+          51.957238
+        ],
+        [
+          6.511171,
+          51.957554
+        ],
+        [
+          6.510021,
+          51.956995
+        ],
+        [
+          6.510816,
+          51.956552
+        ],
+        [
+          6.510973,
+          51.956468
+        ],
+        [
+          6.511229,
+          51.956345
+        ],
+        [
+          6.511561,
+          51.956071
+        ],
+        [
+          6.511509,
+          51.956046
+        ],
+        [
+          6.511649,
+          51.955929
+        ],
+        [
+          6.512557,
+          51.95511
+        ]
+      ]
+    ]
+  },
+  "geography": {
+    "country": "NL"
+  },
+  "rf": {
+    "p_silage": 0.6169,
+    "p_grain": 0.3831,
+    "model_version": "rf_s2_s1-2025.1",
+    "calibration_scope": "Netherlands validation regions; cached original console score",
+    "decision_threshold": 0.8799999999999999,
+    "review_band": [
+      0.832373255793456,
+      0.9154690727495013
+    ]
+  },
+  "quality": {
+    "observations_adequate": false,
+    "geographic_applicability": "validated",
+    "flags": []
+  },
+  "harvest": {
+    "start": "2025-10-01",
+    "end": "2025-10-18"
+  }
+}

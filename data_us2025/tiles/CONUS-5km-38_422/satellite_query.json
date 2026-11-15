@@ -1,0 +1,23 @@
+{
+  "catalog": "https://earth-search.aws.element84.com/v1/search",
+  "query": {
+    "collections": [
+      "sentinel-2-l2a"
+    ],
+    "bbox": [
+      -93.69114967197896,
+      41.9701102177233,
+      -93.6288996841667,
+      42.01589449677337
+    ],
+    "datetime": "2025-03-01T00:00:00Z/2025-12-31T23:59:59Z",
+    "query": {
+      "eo:cloud_cover": {
+        "lt": 80
+      }
+    },
+    "limit": 100
+  },
+  "queried_at": "2026-11-15T02:17:33.874749+00:00",
+  "scene_count": 90
+}

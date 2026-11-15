@@ -1,0 +1,625 @@
+{
+  "runId": "c27df406-5c60-4820-bac9-dd7fb0d3b9a4",
+  "fieldId": "NL-SIT-0030",
+  "dataset": "nl2025",
+  "year": 2025,
+  "mode": "nemotron",
+  "model": "nvidia/nemotron-3.5-super-vl-120b-a12b",
+  "status": "needs_review",
+  "label": "uncertain",
+  "confidence": null,
+  "decidedBy": "deterministic",
+  "rationale": "Cached RF: grain; P(silage) 0.564, cutoff 0.880. No weak label: radar does not confirm the harvest. Needs an analyst. Source sensor-disagreement flag Retain uncertainty and review.",
+  "agentSummary": {
+    "text": "Field NL-SIT-0030 (2025, Mar–Dec) shows NDVI peaking at 0.85 in early August then declining from 2025-09-06 to 2025-09-13 with 16 dry-down days and a radar drop of 0.6 dB. Rules-v1 abstained due to sensor conflict: radar drop (0.6 dB) is below the 1.5 dB minimum and dry-down days (16) are below the 25-day grain threshold, so radar does not confirm harvest. The cached RF model predicted grain with pSilage=0.564, below the 0.88 confidence threshold and outside the review band. Fusion labeled the field uncertain/needs_review due to source sensor disagreement. Limitations include no weather/GDD data, no independent harvest confirmation, and Dutch reference classes that are farmer declarations, not verified outcomes.",
+    "evidenceIds": [
+      "observations",
+      "rules",
+      "ml",
+      "fusion"
+    ],
+    "verified": false
+  },
+  "limitations": [
+    "Netherlands reference classes are spring farmer declarations, not verified harvest outcomes. No US accuracy is implied.",
+    "Additional observations tool inspects cache only; no new satellite/weather data is downloaded.",
+    "Agent summary is generated text; evidence references are checked, but factual entailment is not automatically verified.",
+    "New review policy is unvalidated. Existing model and analyst decisions remain separate."
+  ],
+  "harvestWindow": {
+    "start": "2025-09-06",
+    "end": "2025-09-13",
+    "gapDays": 7
+  },
+  "versions": {
+    "rules": "rules-v1",
+    "policy": "conservative-review-v1",
+    "prompt": "cornstellation-agent-v1"
+  },
+  "evidenceHash": "cf29df85b363f5cf090ca52a621ddd70fe804bea02b8ce8e5ae6d125fa81b119",
+  "trace": [
+    {
+      "tool": "get_field_evidence",
+      "arguments": {},
+      "result": {
+        "evidence_id": "observations",
+        "field_id": "NL-SIT-0030",
+        "year": 2025,
+        "source": "Prepared Sentinel-2 L2A / Sentinel-1 RTC; cached NL console RF predictions",
+        "limitation": "Netherlands reference classes are spring farmer declarations, not verified harvest outcomes. No US accuracy is implied.",
+        "season": {
+          "year": 2025,
+          "start": "2025-03-01",
+          "end": "2025-12-31",
+          "label": "Mar – Dec 2025",
+          "largeAcres": 13.4,
+          "peakFrom": "06-01",
+          "peakTo": "09-30",
+          "dropTo": "11-15"
+        },
+        "optical": [
+          {
+            "date": "2025-03-02",
+            "ndvi": 0.288,
+            "lswi": -0.061
+          },
+          {
+            "date": "2025-03-05",
+            "ndvi": 0.269,
+            "lswi": -0.104
+          },
+          {
+            "date": "2025-03-07",
+            "ndvi": 0.241,
+            "lswi": -0.113
+          },
+          {
+            "date": "2025-03-10",
+            "ndvi": 0.244,
+            "lswi": -0.11
+          },
+          {
+            "date": "2025-03-20",
+            "ndvi": 0.233,
+            "lswi": -0.116
+          },
+          {
+            "date": "2025-03-25",
+            "ndvi": 0.286,
+            "lswi": -0.065
+          },
+          {
+            "date": "2025-03-27",
+            "ndvi": 0.281,
+            "lswi": -0.088
+          },
+          {
+            "date": "2025-04-01",
+            "ndvi": 0.25,
+            "lswi": -0.096
+          },
+          {
+            "date": "2025-04-03",
+            "ndvi": 0.225,
+            "lswi": -0.125
+          },
+          {
+            "date": "2025-04-04",
+            "ndvi": 0.235,
+            "lswi": -0.129
+          },
+          {
+            "date": "2025-04-06",
+            "ndvi": 0.228,
+            "lswi": -0.124
+          },
+          {
+            "date": "2025-04-09",
+            "ndvi": 0.234,
+            "lswi": -0.1
+          },
+          {
+            "date": "2025-04-11",
+            "ndvi": 0.231,
+            "lswi": -0.115
+          },
+          {
+            "date": "2025-04-14",
+            "ndvi": 0.299,
+            "lswi": -0.014
+          },
+          {
+            "date": "2025-04-19",
+            "ndvi": 0.255,
+            "lswi": -0.053
+          },
+          {
+            "date": "2025-04-26",
+            "ndvi": 0.267,
+            "lswi": -0.071
+          },
+          {
+            "date": "2025-04-29",
+            "ndvi": 0.253,
+            "lswi": -0.072
+          },
+          {
+            "date": "2025-05-01",
+            "ndvi": 0.211,
+            "lswi": -0.113
+          },
+          {
+            "date": "2025-05-04",
+            "ndvi": 0.305,
+            "lswi": 0.001
+          },
+          {
+            "date": "2025-05-06",
+            "ndvi": 0.211,
+            "lswi": -0.11
+          },
+          {
+            "date": "2025-05-09",
+            "ndvi": 0.224,
+            "lswi": -0.125
+          },
+          {
+            "date": "2025-05-11",
+            "ndvi": 0.197,
+            "lswi": -0.146
+          },
+          {
+            "date": "2025-05-13",
+            "ndvi": 0.192,
+            "lswi": -0.126
+          },
+          {
+            "date": "2025-05-16",
+            "ndvi": 0.198,
+            "lswi": -0.119
+          },
+          {
+            "date": "2025-06-02",
+            "ndvi": 0.29,
+            "lswi": -0.047
+          },
+          {
+            "date": "2025-06-12",
+            "ndvi": 0.465,
+            "lswi": 0.039
+          },
+          {
+            "date": "2025-06-13",
+            "ndvi": 0.489,
+            "lswi": 0.063
+          },
+          {
+            "date": "2025-06-25",
+            "ndvi": 0.742,
+            "lswi": 0.333
+          },
+          {
+            "date": "2025-06-30",
+            "ndvi": 0.841,
+            "lswi": 0.389
+          },
+          {
+            "date": "2025-07-02",
+            "ndvi": 0.744,
+            "lswi": 0.312
+          },
+          {
+            "date": "2025-07-10",
+            "ndvi": 0.759,
+            "lswi": 0.376
+          },
+          {
+            "date": "2025-07-15",
+            "ndvi": 0.842,
+            "lswi": 0.5
+          },
+          {
+            "date": "2025-08-07",
+            "ndvi": 0.849,
+            "lswi": 0.435
+          },
+          {
+            "date": "2025-08-11",
+            "ndvi": 0.835,
+            "lswi": 0.404
+          },
+          {
+            "date": "2025-08-12",
+            "ndvi": 0.79,
+            "lswi": 0.399
+          },
+          {
+            "date": "2025-08-21",
+            "ndvi": 0.67,
+            "lswi": 0.229
+          },
+          {
+            "date": "2025-08-24",
+            "ndvi": 0.668,
+            "lswi": 0.26
+          },
+          {
+            "date": "2025-08-27",
+            "ndvi": 0.661,
+            "lswi": 0.278
+          },
+          {
+            "date": "2025-08-29",
+            "ndvi": 0.564,
+            "lswi": 0.195
+          },
+          {
+            "date": "2025-09-06",
+            "ndvi": 0.51,
+            "lswi": 0.05
+          },
+          {
+            "date": "2025-09-13",
+            "ndvi": 0.353,
+            "lswi": -0.014
+          },
+          {
+            "date": "2025-09-28",
+            "ndvi": 0.301,
+            "lswi": -0.116
+          },
+          {
+            "date": "2025-10-01",
+            "ndvi": 0.346,
+            "lswi": -0.107
+          },
+          {
+            "date": "2025-10-30",
+            "ndvi": 0.22,
+            "lswi": -0.109
+          },
+          {
+            "date": "2025-11-02",
+            "ndvi": 0.296,
+            "lswi": 0.067
+          },
+          {
+            "date": "2025-11-07",
+            "ndvi": 0.233,
+            "lswi": -0.17
+          },
+          {
+            "date": "2025-12-15",
+            "ndvi": 0.324,
+            "lswi": -0.003
+          }
+        ],
+        "radar": [
+          {
+            "date": "2025-03-03",
+            "vv": -12.49,
+            "vh": -18.71
+          },
+          {
+            "date": "2025-03-15",
+            "vv": -13.54,
+            "vh": -19.12
+          },
+          {
+            "date": "2025-03-27",
+            "vv": -14.52,
+            "vh": -18.31
+          },
+          {
+            "date": "2025-04-08",
+            "vv": -13.41,
+            "vh": -18.48
+          },
+          {
+            "date": "2025-04-20",
+            "vv": -12.28,
+            "vh": -17.91
+          },
+          {
+            "date": "2025-05-02",
+            "vv": -10.18,
+            "vh": -17.19
+          },
+          {
+            "date": "2025-05-08",
+            "vv": -14.44,
+            "vh": -20.9
+          },
+          {
+            "date": "2025-05-14",
+            "vv": -13.31,
+            "vh": -18.08
+          },
+          {
+            "date": "2025-05-20",
+            "vv": -14.43,
+            "vh": -18.94
+          },
+          {
+            "date": "2025-05-26",
+            "vv": -14.09,
+            "vh": -18.18
+          },
+          {
+            "date": "2025-06-01",
+            "vv": -11.87,
+            "vh": -17.14
+          },
+          {
+            "date": "2025-06-07",
+            "vv": -10.49,
+            "vh": -15.03
+          },
+          {
+            "date": "2025-06-13",
+            "vv": -13.23,
+            "vh": -17.84
+          },
+          {
+            "date": "2025-06-19",
+            "vv": -12.06,
+            "vh": -15.54
+          },
+          {
+            "date": "2025-06-25",
+            "vv": -13.46,
+            "vh": -17.36
+          },
+          {
+            "date": "2025-07-01",
+            "vv": -11.83,
+            "vh": -15.38
+          },
+          {
+            "date": "2025-07-07",
+            "vv": -13.08,
+            "vh": -15.46
+          },
+          {
+            "date": "2025-07-13",
+            "vv": -12.19,
+            "vh": -15.22
+          },
+          {
+            "date": "2025-07-19",
+            "vv": -12.68,
+            "vh": -17.29
+          },
+          {
+            "date": "2025-07-25",
+            "vv": -9.45,
+            "vh": -14.88
+          },
+          {
+            "date": "2025-07-31",
+            "vv": -12.22,
+            "vh": -16.93
+          },
+          {
+            "date": "2025-08-06",
+            "vv": -10.74,
+            "vh": -16.15
+          },
+          {
+            "date": "2025-08-12",
+            "vv": -12.19,
+            "vh": -16.86
+          },
+          {
+            "date": "2025-08-18",
+            "vv": -11.68,
+            "vh": -16.47
+          },
+          {
+            "date": "2025-08-24",
+            "vv": -13.37,
+            "vh": -18.62
+          },
+          {
+            "date": "2025-08-30",
+            "vv": -11.9,
+            "vh": -17.51
+          },
+          {
+            "date": "2025-09-05",
+            "vv": -12.22,
+            "vh": -16.8
+          },
+          {
+            "date": "2025-09-11",
+            "vv": -11.33,
+            "vh": -15.13
+          },
+          {
+            "date": "2025-09-17",
+            "vv": -12.63,
+            "vh": -18.29
+          },
+          {
+            "date": "2025-09-23",
+            "vv": -13.32,
+            "vh": -17.2
+          },
+          {
+            "date": "2025-09-29",
+            "vv": -12.46,
+            "vh": -17.71
+          },
+          {
+            "date": "2025-10-05",
+            "vv": -10.73,
+            "vh": -16.38
+          },
+          {
+            "date": "2025-10-11",
+            "vv": -13.72,
+            "vh": -17.34
+          },
+          {
+            "date": "2025-10-17",
+            "vv": -12.36,
+            "vh": -17.88
+          },
+          {
+            "date": "2025-10-23",
+            "vv": -10.58,
+            "vh": -16.58
+          },
+          {
+            "date": "2025-10-29",
+            "vv": -9.07,
+            "vh": -15.12
+          },
+          {
+            "date": "2025-11-04",
+            "vv": -11.64,
+            "vh": -18.03
+          },
+          {
+            "date": "2025-11-10",
+            "vv": -11.69,
+            "vh": -17.05
+          },
+          {
+            "date": "2025-11-16",
+            "vv": -11.59,
+            "vh": -17.05
+          },
+          {
+            "date": "2025-11-22",
+            "vv": -12.45,
+            "vh": -18.64
+          },
+          {
+            "date": "2025-11-28",
+            "vv": -10.19,
+            "vh": -16.73
+          },
+          {
+            "date": "2025-12-04",
+            "vv": -10.63,
+            "vh": -16.93
+          },
+          {
+            "date": "2025-12-10",
+            "vv": -11.35,
+            "vh": -17.96
+          },
+          {
+            "date": "2025-12-16",
+            "vv": -10.03,
+            "vh": -16.8
+          },
+          {
+            "date": "2025-12-22",
+            "vv": -11.99,
+            "vh": -18.35
+          },
+          {
+            "date": "2025-12-28",
+            "vv": -12.93,
+            "vh": -17.41
+          }
+        ],
+        "radar_units": "VV and VH in dB; retained orbit selected by original extraction",
+        "unavailable": [
+          "weather/GDD",
+          "NDTI/residue cover",
+          "dairy proximity",
+          "independent harvest confirmation"
+        ]
+      },
+      "elapsedMs": 0
+    },
+    {
+      "tool": "get_rule_assessment",
+      "arguments": {},
+      "result": {
+        "evidence_id": "rules",
+        "rules_version": "rules-v1",
+        "thresholds": {
+          "silageMinNdvi": 0.6,
+          "silageMaxDryDown": 14,
+          "grainMinDryDown": 25,
+          "grainMaxNdvi": 0.55,
+          "minClearObs": 14,
+          "maxGapAtDrop": 15,
+          "minRadarDrop": 1.5
+        },
+        "calendar": {
+          "year": 2025,
+          "start": "2025-03-01",
+          "end": "2025-12-31",
+          "label": "Mar – Dec 2025",
+          "largeAcres": 13.4,
+          "peakFrom": "06-01",
+          "peakTo": "09-30",
+          "dropTo": "11-15"
+        },
+        "features": {
+          "clearObs": 47,
+          "peakNdvi": 0.85,
+          "dropStart": "2025-09-06",
+          "dropEnd": "2025-09-13",
+          "gapAtDrop": 7,
+          "ndviBeforeDrop": 0.51,
+          "lswiBeforeDrop": 0.05,
+          "dryDownDays": 16,
+          "radarDrop": 0.6
+        },
+        "label": "abstain",
+        "abstain_reason": "sensor_conflict",
+        "explanation": "No weak label: radar does not confirm the harvest. Needs an analyst.",
+        "note": "Existing rules-v1, unmodified. The agent uses the strict label, never the low-confidence lean. Largest-decline and radar-veto limitations remain."
+      },
+      "elapsedMs": 0
+    },
+    {
+      "tool": "get_ml_prediction",
+      "arguments": {},
+      "result": {
+        "evidence_id": "ml",
+        "available": true,
+        "pSilage": 0.5638,
+        "predicted": "grain",
+        "threshold": 0.8799999999999999,
+        "review": false,
+        "reviewBand": [
+          0.832373255793456,
+          0.9154690727495013
+        ],
+        "modelVersion": "rf_s2_s1-2025.1",
+        "calibration_scope": "NL validation regions only; not a validated US probability"
+      },
+      "elapsedMs": 0
+    },
+    {
+      "tool": "fuse_evidence",
+      "arguments": {},
+      "result": {
+        "evidence_id": "fusion",
+        "label": "uncertain",
+        "status": "needs_review",
+        "confidence": null,
+        "policy_version": "conservative-review-v1",
+        "issues": [
+          "Source sensor-disagreement flag"
+        ],
+        "note": "No new probability is calculated. This additional review policy is unvalidated; evaluate it separately from the existing model."
+      },
+      "elapsedMs": 0
+    }
+  ],
+  "usage": {
+    "calls": 3,
+    "promptTokens": 10228,
+    "completionTokens": 2131
+  },
+  "elapsedMs": 12750,
+  "createdAt": "2026-11-15T01:53:51.626Z"
+}

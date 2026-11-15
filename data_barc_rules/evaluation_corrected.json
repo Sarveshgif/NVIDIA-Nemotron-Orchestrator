@@ -1,0 +1,329 @@
+{
+  "scope": "BARC fields in Prince George's County, Maryland; not a county-wide survey",
+  "years": [
+    2021,
+    2022,
+    2023
+  ],
+  "protocol": "Fixed rules, no fitting or threshold selection on BARC. All 44 labeled field-years are evaluation records. Blank labels excluded. Repeated physical fields across years are not independent.",
+  "prediction_sha256": "7f229307d5cefccb89517cb536ed4cbd450aea95995ae62396e251124a077f5a",
+  "reference_source_sha256": "9647257991ab9466d578743bc407093232fab40606bc8c5d90113039a6a50c40",
+  "radiometry_version": "earthsearch-cog-offset-v2",
+  "radiometry_policy": "Already-harmonized COGs receive scale only. Ambiguous post-baseline-4 offset metadata scenes excluded; recorded in per-year radiometry.json.",
+  "workflow_version": "harvest-workflow-v2",
+  "thresholds": {
+    "greenNdvi": 0.6,
+    "dryNdvi": 0.5,
+    "greenNdreRatio": 0.7,
+    "dryNdreRatio": 0.5,
+    "sustainedDeclineDays": 25,
+    "minClearObs": 14,
+    "maxHarvestGapDays": 15,
+    "maxPreHarvestAgeDays": 10,
+    "maxPostHarvestAgeDays": 10
+  },
+  "legacy_thresholds": {
+    "silageMinNdvi": 0.6,
+    "silageMaxDryDown": 14,
+    "grainMinDryDown": 25,
+    "grainMaxNdvi": 0.55,
+    "minClearObs": 14,
+    "maxGapAtDrop": 15,
+    "minRadarDrop": 1.5
+  },
+  "workflow": {
+    "n": 44,
+    "classified": 0,
+    "unresolved": 44,
+    "coverage": 0,
+    "accuracy_on_classified": null,
+    "correct_fraction_all": 0,
+    "confusion": {
+      "grain": {
+        "grain": 0,
+        "silage": 0,
+        "uncertain": 32
+      },
+      "silage": {
+        "grain": 0,
+        "silage": 0,
+        "uncertain": 12
+      }
+    },
+    "classes": {
+      "grain": {
+        "n": 32,
+        "precision": null,
+        "recall": 0,
+        "f1": null
+      },
+      "silage": {
+        "n": 12,
+        "precision": null,
+        "recall": 0,
+        "f1": null
+      }
+    },
+    "note": "Recall denominator includes unresolved references; accuracy on classified excludes abstentions. Undefined precision/F1 is null."
+  },
+  "legacy_ndvi_baseline": {
+    "n": 44,
+    "classified": 24,
+    "unresolved": 20,
+    "coverage": 0.5454545454545454,
+    "accuracy_on_classified": 0.2916666666666667,
+    "correct_fraction_all": 0.1590909090909091,
+    "confusion": {
+      "grain": {
+        "grain": 0,
+        "silage": 17,
+        "uncertain": 15
+      },
+      "silage": {
+        "grain": 0,
+        "silage": 7,
+        "uncertain": 5
+      }
+    },
+    "classes": {
+      "grain": {
+        "n": 32,
+        "precision": null,
+        "recall": 0,
+        "f1": null
+      },
+      "silage": {
+        "n": 12,
+        "precision": 0.2916666666666667,
+        "recall": 0.5833333333333334,
+        "f1": 0.38888888888888895
+      }
+    },
+    "note": "Recall denominator includes unresolved references; accuracy on classified excludes abstentions. Undefined precision/F1 is null."
+  },
+  "by_year": {
+    "2021": {
+      "workflow": {
+        "n": 18,
+        "classified": 0,
+        "unresolved": 18,
+        "coverage": 0,
+        "accuracy_on_classified": null,
+        "correct_fraction_all": 0,
+        "confusion": {
+          "grain": {
+            "grain": 0,
+            "silage": 0,
+            "uncertain": 14
+          },
+          "silage": {
+            "grain": 0,
+            "silage": 0,
+            "uncertain": 4
+          }
+        },
+        "classes": {
+          "grain": {
+            "n": 14,
+            "precision": null,
+            "recall": 0,
+            "f1": null
+          },
+          "silage": {
+            "n": 4,
+            "precision": null,
+            "recall": 0,
+            "f1": null
+          }
+        },
+        "note": "Recall denominator includes unresolved references; accuracy on classified excludes abstentions. Undefined precision/F1 is null."
+      },
+      "legacy_ndvi_baseline": {
+        "n": 18,
+        "classified": 15,
+        "unresolved": 3,
+        "coverage": 0.8333333333333334,
+        "accuracy_on_classified": 0.26666666666666666,
+        "correct_fraction_all": 0.2222222222222222,
+        "confusion": {
+          "grain": {
+            "grain": 0,
+            "silage": 11,
+            "uncertain": 3
+          },
+          "silage": {
+            "grain": 0,
+            "silage": 4,
+            "uncertain": 0
+          }
+        },
+        "classes": {
+          "grain": {
+            "n": 14,
+            "precision": null,
+            "recall": 0,
+            "f1": null
+          },
+          "silage": {
+            "n": 4,
+            "precision": 0.26666666666666666,
+            "recall": 1,
+            "f1": 0.4210526315789474
+          }
+        },
+        "note": "Recall denominator includes unresolved references; accuracy on classified excludes abstentions. Undefined precision/F1 is null."
+      }
+    },
+    "2022": {
+      "workflow": {
+        "n": 7,
+        "classified": 0,
+        "unresolved": 7,
+        "coverage": 0,
+        "accuracy_on_classified": null,
+        "correct_fraction_all": 0,
+        "confusion": {
+          "grain": {
+            "grain": 0,
+            "silage": 0,
+            "uncertain": 3
+          },
+          "silage": {
+            "grain": 0,
+            "silage": 0,
+            "uncertain": 4
+          }
+        },
+        "classes": {
+          "grain": {
+            "n": 3,
+            "precision": null,
+            "recall": 0,
+            "f1": null
+          },
+          "silage": {
+            "n": 4,
+            "precision": null,
+            "recall": 0,
+            "f1": null
+          }
+        },
+        "note": "Recall denominator includes unresolved references; accuracy on classified excludes abstentions. Undefined precision/F1 is null."
+      },
+      "legacy_ndvi_baseline": {
+        "n": 7,
+        "classified": 1,
+        "unresolved": 6,
+        "coverage": 0.14285714285714285,
+        "accuracy_on_classified": 0,
+        "correct_fraction_all": 0,
+        "confusion": {
+          "grain": {
+            "grain": 0,
+            "silage": 1,
+            "uncertain": 2
+          },
+          "silage": {
+            "grain": 0,
+            "silage": 0,
+            "uncertain": 4
+          }
+        },
+        "classes": {
+          "grain": {
+            "n": 3,
+            "precision": null,
+            "recall": 0,
+            "f1": null
+          },
+          "silage": {
+            "n": 4,
+            "precision": 0,
+            "recall": 0,
+            "f1": 0
+          }
+        },
+        "note": "Recall denominator includes unresolved references; accuracy on classified excludes abstentions. Undefined precision/F1 is null."
+      }
+    },
+    "2023": {
+      "workflow": {
+        "n": 19,
+        "classified": 0,
+        "unresolved": 19,
+        "coverage": 0,
+        "accuracy_on_classified": null,
+        "correct_fraction_all": 0,
+        "confusion": {
+          "grain": {
+            "grain": 0,
+            "silage": 0,
+            "uncertain": 15
+          },
+          "silage": {
+            "grain": 0,
+            "silage": 0,
+            "uncertain": 4
+          }
+        },
+        "classes": {
+          "grain": {
+            "n": 15,
+            "precision": null,
+            "recall": 0,
+            "f1": null
+          },
+          "silage": {
+            "n": 4,
+            "precision": null,
+            "recall": 0,
+            "f1": null
+          }
+        },
+        "note": "Recall denominator includes unresolved references; accuracy on classified excludes abstentions. Undefined precision/F1 is null."
+      },
+      "legacy_ndvi_baseline": {
+        "n": 19,
+        "classified": 8,
+        "unresolved": 11,
+        "coverage": 0.42105263157894735,
+        "accuracy_on_classified": 0.375,
+        "correct_fraction_all": 0.15789473684210525,
+        "confusion": {
+          "grain": {
+            "grain": 0,
+            "silage": 5,
+            "uncertain": 10
+          },
+          "silage": {
+            "grain": 0,
+            "silage": 3,
+            "uncertain": 1
+          }
+        },
+        "classes": {
+          "grain": {
+            "n": 15,
+            "precision": null,
+            "recall": 0,
+            "f1": null
+          },
+          "silage": {
+            "n": 4,
+            "precision": 0.375,
+            "recall": 0.75,
+            "f1": 0.5
+          }
+        },
+        "note": "Recall denominator includes unresolved references; accuracy on classified excludes abstentions. Undefined precision/F1 is null."
+      }
+    }
+  },
+  "limitations": [
+    "No independent physical-removal verification, weather/GDD, surface or radar evidence has been ingested.",
+    "Ground-truth labels are never used as direct-harvest evidence.",
+    "NDRE extracted at native 20 m information content, aligned to 10 m grid; resampling adds no detail.",
+    "This tests transfer at one research site; it does not establish nationwide accuracy."
+  ],
+  "ml_called": false
+}

@@ -67,3 +67,9 @@ predictions are served (`ML_AVAILABLE` in `src/lib/format.ts`).
 The **Weak labels** tab runs the same rules as a labelling function. Analyst silage/grain decisions override weak labels,
 and the export (`training_label`, `label_source`) is the starting training set for the first model. Weak labels are not
 ground truth: test any model on analyst-reviewed fields held out by area and year.
+
+## RF + Nemotron investigation backend
+
+The scoped investigation backend adds Daymet weather, USGS elevation, public-record search around existing RF predictions, with NASS acreage comparisons kept separate. Setup, inputs, credentials, limitations and evaluation commands: [investigation/README.md](investigation/README.md).
+
+After setup, start `npm run agent:server` and open `http://127.0.0.1:8788/docs`. The existing dashboard is unchanged.

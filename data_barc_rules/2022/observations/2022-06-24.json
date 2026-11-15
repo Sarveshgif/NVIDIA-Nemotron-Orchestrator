@@ -1,0 +1,1 @@
+{"date": "2022-06-24", "rows": {"BARC-2022-OBJ251": {"date": "2022-06-24", "ndvi": 0.3595, "ndre": 0.2581, "lswi": -0.0336, "clear_fraction": 0.8391, "valid_pixels": 266, "scene_ids": ["S2B_18SUJ_20220624_0_L2A"]}}, "source_scene_ids": ["S2B_18SUJ_20220624_0_L2A"], "radiometry_version": "earthsearch-cog-offset-v2"}

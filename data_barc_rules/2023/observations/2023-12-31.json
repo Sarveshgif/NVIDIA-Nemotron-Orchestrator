@@ -1,0 +1,1 @@
+{"date": "2023-12-31", "rows": {"BARC-2023-OBJ292": {"date": "2023-12-31", "ndvi": 0.3547, "ndre": 0.2403, "lswi": 0.0062, "clear_fraction": 0.6914, "valid_pixels": 914, "scene_ids": ["S2A_18SUJ_20231231_0_L2A"]}}, "source_scene_ids": ["S2A_18SUJ_20231231_0_L2A"], "radiometry_version": "earthsearch-cog-offset-v2"}

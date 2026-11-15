@@ -1,0 +1,1579 @@
+{
+  "runId": "ef3d7998-1e81-4cae-8334-7efa9cd5da64",
+  "fieldId": "BARC-2021-OBJ1",
+  "dataset": "barc",
+  "year": 2021,
+  "mode": "nemotron",
+  "model": "nvidia/nemotron-3.5-super-vl-120b-a12b",
+  "status": "needs_review",
+  "workflow": {
+    "version": "harvest-workflow-v3-soft-s1",
+    "thresholds": {
+      "greenNdvi": 0.6,
+      "dryNdvi": 0.5,
+      "greenNdreRatio": 0.7,
+      "dryNdreRatio": 0.5,
+      "sustainedDeclineDays": 25,
+      "minClearObs": 14,
+      "maxHarvestGapDays": 15,
+      "maxPreHarvestAgeDays": 25,
+      "maxPostHarvestAgeDays": 10
+    },
+    "provisional": true,
+    "fieldId": "BARC-2021-OBJ1",
+    "year": 2021,
+    "cycleId": "corn-2021",
+    "classification": "LIKELY SILAGE",
+    "reviewStatus": "REVIEW",
+    "harvestInterval": {
+      "start": "2021-07-04",
+      "end": "2021-07-09"
+    },
+    "candidateInterval": {
+      "start": "2021-07-04",
+      "end": "2021-07-09"
+    },
+    "softEvidence": {
+      "interval": {
+        "start": "2021-07-04",
+        "end": "2021-07-09"
+      },
+      "radarInterval": {
+        "start": "2021-06-18",
+        "end": "2021-07-12"
+      },
+      "pre": {
+        "date": "2021-07-04",
+        "ndvi": 0.8113,
+        "ndre": 0.6555,
+        "lswi": 0.3386,
+        "clear_fraction": 1,
+        "valid_pixels": 494,
+        "scene_ids": [
+          "S2A_18SUJ_20210704_0_L2A",
+          "S2A_18SUJ_20210704_1_L2A"
+        ]
+      },
+      "ageDays": 5,
+      "ndreRatio": 1,
+      "declineDays": 0,
+      "greenStrength": 1,
+      "dryStrength": 0,
+      "condition": "GREEN LEAN",
+      "radarChecked": true,
+      "radarCorroborated": true,
+      "opticalPersistent": true,
+      "radarDetails": {
+        "orbit": "4",
+        "direction": "ascending",
+        "before": 2,
+        "after": 2,
+        "vhChangeDb": 1.090250000000001,
+        "vvChangeDb": 0.2958999999999996,
+        "ratioChangeDb": 0.7943499999999997,
+        "persistent": true
+      },
+      "evidence": [
+        "observations",
+        "sentinel1"
+      ],
+      "limitations": [
+        "Structural removal is inferred from persistent optical change plus radar; it is not directly confirmed.",
+        "Weather/irrigation/tillage confounders have not been excluded.",
+        "Rule support is uncalibrated, not a class probability."
+      ],
+      "rank": 3.3822
+    },
+    "harvestBasis": "optical_radar_inference",
+    "evidenceUsed": [
+      "observations",
+      "sentinel1"
+    ],
+    "missingEvidence": [
+      "Dated evidence of physical canopy removal",
+      "Fresh pre-removal canopy observation",
+      "NDRE relative to seasonal peak (senescence may provide alternative support)",
+      "Locally justified emergence/GDD/maturity assessment",
+      "Unconfounded immediate post-harvest surface evidence",
+      "Documented radar structural corroboration"
+    ],
+    "exceptionFlags": [
+      "Satellite-inferred removal; independent harvest confirmation absent",
+      "Rain/irrigation/tillage confounders not excluded"
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "name": "Field and corn cycle",
+        "status": "CORN CANDIDATE",
+        "detail": "corn-2021: 2021-03-01 to 2021-12-31. CDL identity remains provisional; distinct zones need separate polygons.",
+        "evidenceIds": []
+      },
+      {
+        "step": 2,
+        "name": "Observation quality",
+        "status": "OPTICAL ADEQUATE",
+        "detail": "33 clear interior observations. Radar needs a documented orbit and full coverage; absence of optical data is not itself evidence of harvest.",
+        "evidenceIds": [
+          "observations"
+        ]
+      },
+      {
+        "step": 3,
+        "name": "Direct harvest evidence",
+        "status": "NO QUALIFYING RECORD",
+        "detail": "Only reviewed actual harvest/use records matching this field and crop cycle qualify. Intentions and general descriptions do not.",
+        "evidenceIds": []
+      },
+      {
+        "step": 4,
+        "name": "Physical harvest",
+        "status": "REMOVAL INFERRED",
+        "detail": "Persistent optical change overlaps multi-date, multi-polarization Sentinel-1 change: 2021-07-04 to 2021-07-09. Inference requires review.",
+        "evidenceIds": [
+          "observations",
+          "sentinel1"
+        ]
+      },
+      {
+        "step": 5,
+        "name": "Pre-removal canopy",
+        "status": "GREEN LEAN",
+        "detail": "Last clear NDVI 0.81; NDRE/peak 1.00; decline 0 days; green/dry rule support 1.00/0.00 (not probabilities). Optical interval 5 days.",
+        "evidenceIds": [
+          "observations"
+        ]
+      },
+      {
+        "step": 6,
+        "name": "Development timing",
+        "status": "TIMING UNKNOWN",
+        "detail": "Requires emergence, accumulated GDD with base/cap, a public local maturity reference, and sufficiently known maturity. Calendar date alone is insufficient.",
+        "evidenceIds": []
+      },
+      {
+        "step": 7,
+        "name": "Immediate post-harvest surface",
+        "status": "SURFACE UNKNOWN",
+        "detail": "Use dated surface evidence before tillage, manure, irrigation or residue removal; no residue percentage is inferred from NDVI.",
+        "evidenceIds": []
+      },
+      {
+        "step": 8,
+        "name": "Radar corroboration",
+        "status": "STRUCTURAL SUPPORT",
+        "detail": "Orbit 4 ascending; 2 pre and 2 post observations; VV change 0.30 dB, VH 1.09 dB; persistence true. Weather confounders are unknown.",
+        "evidenceIds": [
+          "sentinel1"
+        ]
+      },
+      {
+        "step": 9,
+        "name": "Exceptions",
+        "status": "NO REPORTED EXCEPTION",
+        "detail": "Stress without removal does not establish harvest. Actual chopped silage records override planting intention. Grain followed by baling/tillage retains documented grain use.",
+        "evidenceIds": []
+      },
+      {
+        "step": 10,
+        "name": "First classification",
+        "status": "UNRESOLVED",
+        "detail": "Evidence does not yet meet a harvest-use decision rule.",
+        "evidenceIds": []
+      },
+      {
+        "step": 11,
+        "name": "Contextual investigation",
+        "status": "LIKELY SILAGE",
+        "detail": "Order: field-linked livestock records / forage relationship, field history, winter-forage rotation, active facilities and routes, county prevalence. Context alone never classifies.",
+        "evidenceIds": []
+      },
+      {
+        "step": 12,
+        "name": "Final export",
+        "status": "LIKELY SILAGE",
+        "detail": "Green canopy evidence and persistent Sentinel-1/optical structural change support likely silage. Thresholds are graded; local maturity and weather confounders remain unverified.",
+        "evidenceIds": []
+      }
+    ],
+    "rationale": "Green canopy evidence and persistent Sentinel-1/optical structural change support likely silage. Thresholds are graded; local maturity and weather confounders remain unverified.",
+    "confidence": null
+  },
+  "label": "silage",
+  "confidence": null,
+  "decidedBy": "deterministic",
+  "rationale": "Green canopy evidence and persistent Sentinel-1/optical structural change support likely silage. Thresholds are graded; local maturity and weather confounders remain unverified.",
+  "agentSummary": {
+    "text": "BARC-2021-OBJ1 (barc, 2021) is classified LIKELY SILAGE by fuse_evidence under harvest-workflow-v3-soft-s1. A green pre-removal canopy (NDVI 0.8113 on 2021-07-04, NDRE/peak ratio 1.00, decline 0 days, GREEN LEAN) overlaps a persistent multi-date, multi-polarization Sentinel-1/optical structural change across 2021-07-04 to 2021-07-09 (VV +0.30 dB, VH +1.09 dB, persistence true). No direct harvest record exists; removal is inferred rather than confirmed. Development timing, immediate post-harvest surface, and weather confounders remain unverified. Contextual investigation supports LIKELY SILAGE but context alone does not classify. Status: needs_review.",
+    "evidenceIds": [
+      "observations",
+      "check_identity_quality",
+      "check_direct_harvest",
+      "check_removal_condition",
+      "check_development_timing",
+      "check_surface_radar",
+      "check_exceptions_context",
+      "rules",
+      "fusion"
+    ],
+    "verified": false
+  },
+  "limitations": [
+    "BARC evaluation fields only. Harvest-use references are excluded from tools. Physical removal is inferred where optical/radar agree. GDD, surface, weather confounders and public harvest records remain missing.",
+    "Additional observations tool inspects cache only; no new satellite/weather data is downloaded.",
+    "Agent summary is generated text; evidence references are checked, but factual entailment is not automatically verified.",
+    "New review policy is unvalidated. Existing model and analyst decisions remain separate."
+  ],
+  "harvestWindow": {
+    "start": "2021-07-04",
+    "end": "2021-07-09",
+    "gapDays": 5
+  },
+  "versions": {
+    "rules": "harvest-workflow-v3-soft-s1",
+    "policy": "harvest-workflow-v3-soft-s1",
+    "prompt": "cornstellation-workflow-v2"
+  },
+  "evidenceHash": "1099421c0a5fecd2c23842d079d50bc8c0162e9fef1f172069a6fd86d8843886",
+  "trace": [
+    {
+      "tool": "get_field_evidence",
+      "arguments": {},
+      "result": {
+        "evidence_id": "observations",
+        "field_id": "BARC-2021-OBJ1",
+        "year": 2021,
+        "source": "BARC polygons + public Sentinel-2 L2A and Sentinel-1 RTC",
+        "limitation": "BARC evaluation fields only. Harvest-use references are excluded from tools. Physical removal is inferred where optical/radar agree. GDD, surface, weather confounders and public harvest records remain missing.",
+        "season": {
+          "year": 2021,
+          "start": "2021-03-01",
+          "end": "2021-12-31",
+          "label": "March–December",
+          "largeAcres": 300,
+          "peakFrom": "06-01",
+          "peakTo": "09-30",
+          "dropTo": "12-31"
+        },
+        "optical": [
+          {
+            "date": "2021-03-11",
+            "ndvi": 0.3338,
+            "ndre": 0.2083,
+            "lswi": -0.0873,
+            "clear_fraction": 1,
+            "valid_pixels": 494,
+            "scene_ids": [
+              "S2B_18SUJ_20210311_0_L2A",
+              "S2B_18SUJ_20210311_1_L2A"
+            ]
+          },
+          {
+            "date": "2021-03-21",
+            "ndvi": 0.381,
+            "ndre": 0.2437,
+            "lswi": -0.0542,
+            "clear_fraction": 1,
+            "valid_pixels": 494,
+            "scene_ids": [
+              "S2B_18SUJ_20210321_0_L2A",
+              "S2B_18SUJ_20210321_1_L2A"
+            ]
+          },
+          {
+            "date": "2021-04-05",
+            "ndvi": 0.4295,
+            "ndre": 0.2538,
+            "lswi": 0.0021,
+            "clear_fraction": 1,
+            "valid_pixels": 494,
+            "scene_ids": [
+              "S2A_18SUJ_20210405_1_L2A",
+              "S2A_18SUJ_20210405_2_L2A",
+              "S2A_18SUJ_20210405_0_L2A"
+            ]
+          },
+          {
+            "date": "2021-04-15",
+            "ndvi": 0.4497,
+            "ndre": 0.2651,
+            "lswi": 0.0572,
+            "clear_fraction": 0.919,
+            "valid_pixels": 454,
+            "scene_ids": [
+              "S2A_18SUJ_20210415_0_L2A",
+              "S2A_18SUJ_20210415_2_L2A",
+              "S2A_18SUJ_20210415_1_L2A"
+            ]
+          },
+          {
+            "date": "2021-04-20",
+            "ndvi": 0.4566,
+            "ndre": 0.2626,
+            "lswi": 0.0286,
+            "clear_fraction": 1,
+            "valid_pixels": 494,
+            "scene_ids": [
+              "S2B_18SUJ_20210420_0_L2A",
+              "S2B_18SUJ_20210420_1_L2A",
+              "S2B_18SUJ_20210420_2_L2A"
+            ]
+          },
+          {
+            "date": "2021-05-05",
+            "ndvi": 0.2838,
+            "ndre": 0.2213,
+            "lswi": 0.0062,
+            "clear_fraction": 0.917,
+            "valid_pixels": 453,
+            "scene_ids": [
+              "S2A_18SUJ_20210505_0_L2A",
+              "S2A_18SUJ_20210505_1_L2A"
+            ]
+          },
+          {
+            "date": "2021-05-10",
+            "ndvi": 0.2336,
+            "ndre": 0.1665,
+            "lswi": -0.1688,
+            "clear_fraction": 1,
+            "valid_pixels": 494,
+            "scene_ids": [
+              "S2B_18SUJ_20210510_0_L2A",
+              "S2B_18SUJ_20210510_1_L2A"
+            ]
+          },
+          {
+            "date": "2021-05-20",
+            "ndvi": 0.2121,
+            "ndre": 0.1532,
+            "lswi": -0.1907,
+            "clear_fraction": 1,
+            "valid_pixels": 494,
+            "scene_ids": [
+              "S2B_18SUJ_20210520_0_L2A",
+              "S2B_18SUJ_20210520_1_L2A"
+            ]
+          },
+          {
+            "date": "2021-06-14",
+            "ndvi": 0.5838,
+            "ndre": 0.4277,
+            "lswi": -0.0034,
+            "clear_fraction": 1,
+            "valid_pixels": 494,
+            "scene_ids": [
+              "S2A_18SUJ_20210614_0_L2A",
+              "S2A_18SUJ_20210614_1_L2A"
+            ]
+          },
+          {
+            "date": "2021-06-29",
+            "ndvi": 0.7905,
+            "ndre": 0.6213,
+            "lswi": 0.2357,
+            "clear_fraction": 1,
+            "valid_pixels": 494,
+            "scene_ids": [
+              "S2B_18SUJ_20210629_0_L2A",
+              "S2B_18SUJ_20210629_1_L2A"
+            ]
+          },
+          {
+            "date": "2021-07-04",
+            "ndvi": 0.8113,
+            "ndre": 0.6555,
+            "lswi": 0.3386,
+            "clear_fraction": 1,
+            "valid_pixels": 494,
+            "scene_ids": [
+              "S2A_18SUJ_20210704_0_L2A",
+              "S2A_18SUJ_20210704_1_L2A"
+            ]
+          },
+          {
+            "date": "2021-07-09",
+            "ndvi": 0.6291,
+            "ndre": 0.4882,
+            "lswi": 0.2671,
+            "clear_fraction": 0.7652,
+            "valid_pixels": 378,
+            "scene_ids": [
+              "S2B_18SUJ_20210709_0_L2A",
+              "S2B_18SUJ_20210709_1_L2A"
+            ]
+          },
+          {
+            "date": "2021-07-14",
+            "ndvi": 0.6148,
+            "ndre": 0.491,
+            "lswi": 0.2116,
+            "clear_fraction": 0.8988,
+            "valid_pixels": 444,
+            "scene_ids": [
+              "S2A_18SUJ_20210714_0_L2A",
+              "S2A_18SUJ_20210714_1_L2A"
+            ]
+          },
+          {
+            "date": "2021-07-24",
+            "ndvi": 0.5387,
+            "ndre": 0.424,
+            "lswi": 0.1719,
+            "clear_fraction": 0.9291,
+            "valid_pixels": 459,
+            "scene_ids": [
+              "S2A_18SUJ_20210724_0_L2A",
+              "S2A_18SUJ_20210724_1_L2A"
+            ]
+          },
+          {
+            "date": "2021-08-08",
+            "ndvi": 0.7493,
+            "ndre": 0.5845,
+            "lswi": 0.2004,
+            "clear_fraction": 1,
+            "valid_pixels": 494,
+            "scene_ids": [
+              "S2B_18SUJ_20210808_0_L2A",
+              "S2B_18SUJ_20210808_1_L2A"
+            ]
+          },
+          {
+            "date": "2021-08-23",
+            "ndvi": 0.7525,
+            "ndre": 0.5451,
+            "lswi": 0.1763,
+            "clear_fraction": 1,
+            "valid_pixels": 494,
+            "scene_ids": [
+              "S2A_18SUJ_20210823_0_L2A",
+              "S2A_18SUJ_20210823_1_L2A"
+            ]
+          },
+          {
+            "date": "2021-09-02",
+            "ndvi": 0.6861,
+            "ndre": 0.4857,
+            "lswi": 0.1242,
+            "clear_fraction": 1,
+            "valid_pixels": 494,
+            "scene_ids": [
+              "S2A_18SUJ_20210902_1_L2A",
+              "S2A_18SUJ_20210902_0_L2A"
+            ]
+          },
+          {
+            "date": "2021-09-07",
+            "ndvi": 0.584,
+            "ndre": 0.4141,
+            "lswi": 0.0131,
+            "clear_fraction": 1,
+            "valid_pixels": 494,
+            "scene_ids": [
+              "S2B_18SUJ_20210907_1_L2A",
+              "S2B_18SUJ_20210907_0_L2A"
+            ]
+          },
+          {
+            "date": "2021-09-12",
+            "ndvi": 0.363,
+            "ndre": 0.2684,
+            "lswi": -0.1453,
+            "clear_fraction": 1,
+            "valid_pixels": 494,
+            "scene_ids": [
+              "S2A_18SUJ_20210912_1_L2A",
+              "S2A_18SUJ_20210912_0_L2A"
+            ]
+          },
+          {
+            "date": "2021-09-27",
+            "ndvi": 0.2299,
+            "ndre": 0.1642,
+            "lswi": -0.1844,
+            "clear_fraction": 1,
+            "valid_pixels": 494,
+            "scene_ids": [
+              "S2B_18SUJ_20210927_0_L2A",
+              "S2B_18SUJ_20210927_1_L2A"
+            ]
+          },
+          {
+            "date": "2021-10-02",
+            "ndvi": 0.2092,
+            "ndre": 0.148,
+            "lswi": -0.1678,
+            "clear_fraction": 1,
+            "valid_pixels": 494,
+            "scene_ids": [
+              "S2A_18SUJ_20211002_0_L2A",
+              "S2A_18SUJ_20211002_3_L2A"
+            ]
+          },
+          {
+            "date": "2021-10-07",
+            "ndvi": 0.2284,
+            "ndre": 0.1827,
+            "lswi": -0.1028,
+            "clear_fraction": 1,
+            "valid_pixels": 494,
+            "scene_ids": [
+              "S2B_18SUJ_20211007_0_L2A",
+              "S2B_18SUJ_20211007_1_L2A"
+            ]
+          },
+          {
+            "date": "2021-10-17",
+            "ndvi": 0.3345,
+            "ndre": 0.2165,
+            "lswi": -0.1346,
+            "clear_fraction": 1,
+            "valid_pixels": 494,
+            "scene_ids": [
+              "S2B_18SUJ_20211017_0_L2A",
+              "S2B_18SUJ_20211017_1_L2A"
+            ]
+          },
+          {
+            "date": "2021-10-22",
+            "ndvi": 0.3716,
+            "ndre": 0.2425,
+            "lswi": -0.1231,
+            "clear_fraction": 1,
+            "valid_pixels": 494,
+            "scene_ids": [
+              "S2A_18SUJ_20211022_0_L2A",
+              "S2A_18SUJ_20211022_1_L2A"
+            ]
+          },
+          {
+            "date": "2021-10-27",
+            "ndvi": 0.4619,
+            "ndre": 0.2951,
+            "lswi": -0.0383,
+            "clear_fraction": 1,
+            "valid_pixels": 494,
+            "scene_ids": [
+              "S2B_18SUJ_20211027_1_L2A",
+              "S2B_18SUJ_20211027_0_L2A"
+            ]
+          },
+          {
+            "date": "2021-11-01",
+            "ndvi": 0.5312,
+            "ndre": 0.3156,
+            "lswi": 0.0429,
+            "clear_fraction": 1,
+            "valid_pixels": 494,
+            "scene_ids": [
+              "S2A_18SUJ_20211101_1_L2A",
+              "S2A_18SUJ_20211101_0_L2A"
+            ]
+          },
+          {
+            "date": "2021-11-06",
+            "ndvi": 0.5222,
+            "ndre": 0.3117,
+            "lswi": 0.061,
+            "clear_fraction": 1,
+            "valid_pixels": 494,
+            "scene_ids": [
+              "S2B_18SUJ_20211106_0_L2A",
+              "S2B_18SUJ_20211106_1_L2A"
+            ]
+          },
+          {
+            "date": "2021-11-16",
+            "ndvi": 0.5451,
+            "ndre": 0.3132,
+            "lswi": 0.0492,
+            "clear_fraction": 1,
+            "valid_pixels": 494,
+            "scene_ids": [
+              "S2B_18SUJ_20211116_0_L2A",
+              "S2B_18SUJ_20211116_1_L2A"
+            ]
+          },
+          {
+            "date": "2021-11-21",
+            "ndvi": 0.5197,
+            "ndre": 0.2937,
+            "lswi": 0.0652,
+            "clear_fraction": 1,
+            "valid_pixels": 494,
+            "scene_ids": [
+              "S2A_18SUJ_20211121_0_L2A",
+              "S2A_18SUJ_20211121_1_L2A"
+            ]
+          },
+          {
+            "date": "2021-11-26",
+            "ndvi": 0.5605,
+            "ndre": 0.3157,
+            "lswi": 0.0852,
+            "clear_fraction": 1,
+            "valid_pixels": 494,
+            "scene_ids": [
+              "S2B_18SUJ_20211126_0_L2A",
+              "S2B_18SUJ_20211126_1_L2A"
+            ]
+          },
+          {
+            "date": "2021-12-01",
+            "ndvi": 0.5585,
+            "ndre": 0.3028,
+            "lswi": 0.0573,
+            "clear_fraction": 1,
+            "valid_pixels": 494,
+            "scene_ids": [
+              "S2A_18SUJ_20211201_0_L2A",
+              "S2A_18SUJ_20211201_1_L2A"
+            ]
+          },
+          {
+            "date": "2021-12-16",
+            "ndvi": 0.5543,
+            "ndre": 0.3215,
+            "lswi": 0.0372,
+            "clear_fraction": 1,
+            "valid_pixels": 494,
+            "scene_ids": [
+              "S2B_18SUJ_20211216_0_L2A",
+              "S2B_18SUJ_20211216_1_L2A"
+            ]
+          },
+          {
+            "date": "2021-12-26",
+            "ndvi": 0.5384,
+            "ndre": 0.3123,
+            "lswi": 0.1169,
+            "clear_fraction": 1,
+            "valid_pixels": 494,
+            "scene_ids": [
+              "S2B_18SUJ_20211226_1_L2A",
+              "S2B_18SUJ_20211226_2_L2A",
+              "S2B_18SUJ_20211226_0_L2A"
+            ]
+          }
+        ],
+        "radar": [
+          {
+            "date": "2021-03-02",
+            "vv": -9.3712,
+            "vh": -16.4061,
+            "ratio_db": -7.0349,
+            "orbit": "4",
+            "direction": "ascending",
+            "fullCoverage": true,
+            "valid_fraction": 1,
+            "valid_pixels": 494,
+            "scene_id": "S1A_IW_GRDH_1SDV_20210302T230717_20210302T230742_036826_045482_rtc",
+            "platform": "SENTINEL-1A"
+          },
+          {
+            "date": "2021-03-14",
+            "vv": -10.644,
+            "vh": -17.4991,
+            "ratio_db": -6.8552,
+            "orbit": "4",
+            "direction": "ascending",
+            "fullCoverage": true,
+            "valid_fraction": 1,
+            "valid_pixels": 494,
+            "scene_id": "S1A_IW_GRDH_1SDV_20210314T230717_20210314T230742_037001_045AA0_rtc",
+            "platform": "SENTINEL-1A"
+          },
+          {
+            "date": "2021-03-26",
+            "vv": -8.8626,
+            "vh": -15.8638,
+            "ratio_db": -7.0012,
+            "orbit": "4",
+            "direction": "ascending",
+            "fullCoverage": true,
+            "valid_fraction": 1,
+            "valid_pixels": 494,
+            "scene_id": "S1A_IW_GRDH_1SDV_20210326T230717_20210326T230742_037176_0460AC_rtc",
+            "platform": "SENTINEL-1A"
+          },
+          {
+            "date": "2021-04-19",
+            "vv": -9.6086,
+            "vh": -16.3896,
+            "ratio_db": -6.781,
+            "orbit": "4",
+            "direction": "ascending",
+            "fullCoverage": true,
+            "valid_fraction": 1,
+            "valid_pixels": 494,
+            "scene_id": "S1A_IW_GRDH_1SDV_20210419T230718_20210419T230743_037526_046CC6_rtc",
+            "platform": "SENTINEL-1A"
+          },
+          {
+            "date": "2021-05-01",
+            "vv": -11.1868,
+            "vh": -17.361,
+            "ratio_db": -6.1742,
+            "orbit": "4",
+            "direction": "ascending",
+            "fullCoverage": true,
+            "valid_fraction": 1,
+            "valid_pixels": 494,
+            "scene_id": "S1A_IW_GRDH_1SDV_20210501T230718_20210501T230743_037701_0472DA_rtc",
+            "platform": "SENTINEL-1A"
+          },
+          {
+            "date": "2021-05-25",
+            "vv": -11.2114,
+            "vh": -17.9122,
+            "ratio_db": -6.7009,
+            "orbit": "4",
+            "direction": "ascending",
+            "fullCoverage": true,
+            "valid_fraction": 1,
+            "valid_pixels": 494,
+            "scene_id": "S1A_IW_GRDH_1SDV_20210525T230720_20210525T230745_038051_047DAA_rtc",
+            "platform": "SENTINEL-1A"
+          },
+          {
+            "date": "2021-06-06",
+            "vv": -10.8971,
+            "vh": -17.3102,
+            "ratio_db": -6.4131,
+            "orbit": "4",
+            "direction": "ascending",
+            "fullCoverage": true,
+            "valid_fraction": 1,
+            "valid_pixels": 494,
+            "scene_id": "S1A_IW_GRDH_1SDV_20210606T230721_20210606T230746_038226_0482DE_rtc",
+            "platform": "SENTINEL-1A"
+          },
+          {
+            "date": "2021-06-18",
+            "vv": -9.4736,
+            "vh": -15.0216,
+            "ratio_db": -5.548,
+            "orbit": "4",
+            "direction": "ascending",
+            "fullCoverage": true,
+            "valid_fraction": 1,
+            "valid_pixels": 494,
+            "scene_id": "S1A_IW_GRDH_1SDV_20210618T230721_20210618T230746_038401_048812_rtc",
+            "platform": "SENTINEL-1A"
+          },
+          {
+            "date": "2021-07-12",
+            "vv": -9.923,
+            "vh": -15.0351,
+            "ratio_db": -5.1122,
+            "orbit": "4",
+            "direction": "ascending",
+            "fullCoverage": true,
+            "valid_fraction": 1,
+            "valid_pixels": 494,
+            "scene_id": "S1A_IW_GRDH_1SDV_20210712T230723_20210712T230748_038751_049299_rtc",
+            "platform": "SENTINEL-1A"
+          },
+          {
+            "date": "2021-08-05",
+            "vv": -9.8559,
+            "vh": -15.1162,
+            "ratio_db": -5.2603,
+            "orbit": "4",
+            "direction": "ascending",
+            "fullCoverage": true,
+            "valid_fraction": 1,
+            "valid_pixels": 494,
+            "scene_id": "S1A_IW_GRDH_1SDV_20210805T230724_20210805T230749_039101_049D2E_rtc",
+            "platform": "SENTINEL-1A"
+          },
+          {
+            "date": "2021-08-17",
+            "vv": -8.6354,
+            "vh": -14.3232,
+            "ratio_db": -5.6878,
+            "orbit": "4",
+            "direction": "ascending",
+            "fullCoverage": true,
+            "valid_fraction": 1,
+            "valid_pixels": 494,
+            "scene_id": "S1A_IW_GRDH_1SDV_20210817T230725_20210817T230750_039276_04A33E_rtc",
+            "platform": "SENTINEL-1A"
+          },
+          {
+            "date": "2021-08-29",
+            "vv": -9.245,
+            "vh": -14.8086,
+            "ratio_db": -5.5637,
+            "orbit": "4",
+            "direction": "ascending",
+            "fullCoverage": true,
+            "valid_fraction": 1,
+            "valid_pixels": 494,
+            "scene_id": "S1A_IW_GRDH_1SDV_20210829T230725_20210829T230750_039451_04A92E_rtc",
+            "platform": "SENTINEL-1A"
+          },
+          {
+            "date": "2021-09-10",
+            "vv": -8.2619,
+            "vh": -15.2953,
+            "ratio_db": -7.0334,
+            "orbit": "4",
+            "direction": "ascending",
+            "fullCoverage": true,
+            "valid_fraction": 1,
+            "valid_pixels": 494,
+            "scene_id": "S1A_IW_GRDH_1SDV_20210910T230726_20210910T230751_039626_04AF44_rtc",
+            "platform": "SENTINEL-1A"
+          },
+          {
+            "date": "2021-09-22",
+            "vv": -6.8193,
+            "vh": -12.5,
+            "ratio_db": -5.6808,
+            "orbit": "4",
+            "direction": "ascending",
+            "fullCoverage": true,
+            "valid_fraction": 1,
+            "valid_pixels": 494,
+            "scene_id": "S1A_IW_GRDH_1SDV_20210922T230726_20210922T230751_039801_04B528_rtc",
+            "platform": "SENTINEL-1A"
+          },
+          {
+            "date": "2021-10-16",
+            "vv": -9.0879,
+            "vh": -15.4903,
+            "ratio_db": -6.4024,
+            "orbit": "4",
+            "direction": "ascending",
+            "fullCoverage": true,
+            "valid_fraction": 1,
+            "valid_pixels": 494,
+            "scene_id": "S1A_IW_GRDH_1SDV_20211016T230727_20211016T230752_040151_04C151_rtc",
+            "platform": "SENTINEL-1A"
+          },
+          {
+            "date": "2021-10-28",
+            "vv": -10.0603,
+            "vh": -16.7459,
+            "ratio_db": -6.6856,
+            "orbit": "4",
+            "direction": "ascending",
+            "fullCoverage": true,
+            "valid_fraction": 1,
+            "valid_pixels": 494,
+            "scene_id": "S1A_IW_GRDH_1SDV_20211028T230727_20211028T230752_040326_04C765_rtc",
+            "platform": "SENTINEL-1A"
+          },
+          {
+            "date": "2021-11-09",
+            "vv": -10.946,
+            "vh": -17.1661,
+            "ratio_db": -6.2202,
+            "orbit": "4",
+            "direction": "ascending",
+            "fullCoverage": true,
+            "valid_fraction": 1,
+            "valid_pixels": 494,
+            "scene_id": "S1A_IW_GRDH_1SDV_20211109T230726_20211109T230751_040501_04CD85_rtc",
+            "platform": "SENTINEL-1A"
+          },
+          {
+            "date": "2021-11-21",
+            "vv": -11.0976,
+            "vh": -17.341,
+            "ratio_db": -6.2434,
+            "orbit": "4",
+            "direction": "ascending",
+            "fullCoverage": true,
+            "valid_fraction": 1,
+            "valid_pixels": 494,
+            "scene_id": "S1A_IW_GRDH_1SDV_20211121T230726_20211121T230751_040676_04D389_rtc",
+            "platform": "SENTINEL-1A"
+          },
+          {
+            "date": "2021-12-03",
+            "vv": -11.7263,
+            "vh": -17.6362,
+            "ratio_db": -5.9099,
+            "orbit": "4",
+            "direction": "ascending",
+            "fullCoverage": true,
+            "valid_fraction": 1,
+            "valid_pixels": 494,
+            "scene_id": "S1A_IW_GRDH_1SDV_20211203T230726_20211203T230751_040851_04D9A5_rtc",
+            "platform": "SENTINEL-1A"
+          },
+          {
+            "date": "2021-12-15",
+            "vv": -11.9284,
+            "vh": -17.5693,
+            "ratio_db": -5.6409,
+            "orbit": "4",
+            "direction": "ascending",
+            "fullCoverage": true,
+            "valid_fraction": 1,
+            "valid_pixels": 494,
+            "scene_id": "S1A_IW_GRDH_1SDV_20211215T230725_20211215T230750_041026_04DFA1_rtc",
+            "platform": "SENTINEL-1A"
+          },
+          {
+            "date": "2021-12-27",
+            "vv": -11.2209,
+            "vh": -17.5307,
+            "ratio_db": -6.3099,
+            "orbit": "4",
+            "direction": "ascending",
+            "fullCoverage": true,
+            "valid_fraction": 1,
+            "valid_pixels": 494,
+            "scene_id": "S1A_IW_GRDH_1SDV_20211227T230724_20211227T230749_041201_04E566_rtc",
+            "platform": "SENTINEL-1A"
+          }
+        ],
+        "radar_units": "VV and VH in dB; retained orbit selected by original extraction",
+        "unavailable": [
+          "Dated evidence of physical canopy removal",
+          "Fresh pre-removal canopy observation",
+          "NDRE relative to seasonal peak (senescence may provide alternative support)",
+          "Locally justified emergence/GDD/maturity assessment",
+          "Unconfounded immediate post-harvest surface evidence",
+          "Documented radar structural corroboration"
+        ]
+      },
+      "elapsedMs": 0
+    },
+    {
+      "tool": "get_rule_assessment",
+      "arguments": {},
+      "result": {
+        "error": "Inspect all workflow evidence families before assessment"
+      },
+      "elapsedMs": 0
+    },
+    {
+      "tool": "check_identity_quality",
+      "arguments": {},
+      "result": {
+        "evidence_id": "check_identity_quality",
+        "steps": [
+          {
+            "step": 1,
+            "name": "Field and corn cycle",
+            "status": "CORN CANDIDATE",
+            "detail": "corn-2021: 2021-03-01 to 2021-12-31. CDL identity remains provisional; distinct zones need separate polygons.",
+            "evidenceIds": []
+          },
+          {
+            "step": 2,
+            "name": "Observation quality",
+            "status": "OPTICAL ADEQUATE",
+            "detail": "33 clear interior observations. Radar needs a documented orbit and full coverage; absence of optical data is not itself evidence of harvest.",
+            "evidenceIds": [
+              "observations"
+            ]
+          }
+        ],
+        "sources": [],
+        "missing_evidence": [
+          "Dated evidence of physical canopy removal",
+          "Fresh pre-removal canopy observation",
+          "NDRE relative to seasonal peak (senescence may provide alternative support)",
+          "Locally justified emergence/GDD/maturity assessment",
+          "Unconfounded immediate post-harvest surface evidence",
+          "Documented radar structural corroboration"
+        ],
+        "remote_search_performed": false
+      },
+      "elapsedMs": 0
+    },
+    {
+      "tool": "check_direct_harvest",
+      "arguments": {},
+      "result": {
+        "evidence_id": "check_direct_harvest",
+        "steps": [
+          {
+            "step": 3,
+            "name": "Direct harvest evidence",
+            "status": "NO QUALIFYING RECORD",
+            "detail": "Only reviewed actual harvest/use records matching this field and crop cycle qualify. Intentions and general descriptions do not.",
+            "evidenceIds": []
+          }
+        ],
+        "sources": [],
+        "missing_evidence": [
+          "Dated evidence of physical canopy removal",
+          "Fresh pre-removal canopy observation",
+          "NDRE relative to seasonal peak (senescence may provide alternative support)",
+          "Locally justified emergence/GDD/maturity assessment",
+          "Unconfounded immediate post-harvest surface evidence",
+          "Documented radar structural corroboration"
+        ],
+        "remote_search_performed": false
+      },
+      "elapsedMs": 0
+    },
+    {
+      "tool": "check_removal_condition",
+      "arguments": {},
+      "result": {
+        "evidence_id": "check_removal_condition",
+        "steps": [
+          {
+            "step": 4,
+            "name": "Physical harvest",
+            "status": "REMOVAL INFERRED",
+            "detail": "Persistent optical change overlaps multi-date, multi-polarization Sentinel-1 change: 2021-07-04 to 2021-07-09. Inference requires review.",
+            "evidenceIds": [
+              "observations",
+              "sentinel1"
+            ]
+          },
+          {
+            "step": 5,
+            "name": "Pre-removal canopy",
+            "status": "GREEN LEAN",
+            "detail": "Last clear NDVI 0.81; NDRE/peak 1.00; decline 0 days; green/dry rule support 1.00/0.00 (not probabilities). Optical interval 5 days.",
+            "evidenceIds": [
+              "observations"
+            ]
+          }
+        ],
+        "sources": [],
+        "missing_evidence": [
+          "Dated evidence of physical canopy removal",
+          "Fresh pre-removal canopy observation",
+          "NDRE relative to seasonal peak (senescence may provide alternative support)",
+          "Locally justified emergence/GDD/maturity assessment",
+          "Unconfounded immediate post-harvest surface evidence",
+          "Documented radar structural corroboration"
+        ],
+        "remote_search_performed": false
+      },
+      "elapsedMs": 0
+    },
+    {
+      "tool": "check_development_timing",
+      "arguments": {},
+      "result": {
+        "evidence_id": "check_development_timing",
+        "steps": [
+          {
+            "step": 6,
+            "name": "Development timing",
+            "status": "TIMING UNKNOWN",
+            "detail": "Requires emergence, accumulated GDD with base/cap, a public local maturity reference, and sufficiently known maturity. Calendar date alone is insufficient.",
+            "evidenceIds": []
+          }
+        ],
+        "sources": [],
+        "missing_evidence": [
+          "Dated evidence of physical canopy removal",
+          "Fresh pre-removal canopy observation",
+          "NDRE relative to seasonal peak (senescence may provide alternative support)",
+          "Locally justified emergence/GDD/maturity assessment",
+          "Unconfounded immediate post-harvest surface evidence",
+          "Documented radar structural corroboration"
+        ],
+        "remote_search_performed": false
+      },
+      "elapsedMs": 0
+    },
+    {
+      "tool": "check_surface_radar",
+      "arguments": {},
+      "result": {
+        "evidence_id": "check_surface_radar",
+        "steps": [
+          {
+            "step": 7,
+            "name": "Immediate post-harvest surface",
+            "status": "SURFACE UNKNOWN",
+            "detail": "Use dated surface evidence before tillage, manure, irrigation or residue removal; no residue percentage is inferred from NDVI.",
+            "evidenceIds": []
+          },
+          {
+            "step": 8,
+            "name": "Radar corroboration",
+            "status": "STRUCTURAL SUPPORT",
+            "detail": "Orbit 4 ascending; 2 pre and 2 post observations; VV change 0.30 dB, VH 1.09 dB; persistence true. Weather confounders are unknown.",
+            "evidenceIds": [
+              "sentinel1"
+            ]
+          }
+        ],
+        "sources": [],
+        "missing_evidence": [
+          "Dated evidence of physical canopy removal",
+          "Fresh pre-removal canopy observation",
+          "NDRE relative to seasonal peak (senescence may provide alternative support)",
+          "Locally justified emergence/GDD/maturity assessment",
+          "Unconfounded immediate post-harvest surface evidence",
+          "Documented radar structural corroboration"
+        ],
+        "remote_search_performed": false
+      },
+      "elapsedMs": 0
+    },
+    {
+      "tool": "check_exceptions_context",
+      "arguments": {},
+      "result": {
+        "evidence_id": "check_exceptions_context",
+        "steps": [
+          {
+            "step": 9,
+            "name": "Exceptions",
+            "status": "NO REPORTED EXCEPTION",
+            "detail": "Stress without removal does not establish harvest. Actual chopped silage records override planting intention. Grain followed by baling/tillage retains documented grain use.",
+            "evidenceIds": []
+          },
+          {
+            "step": 10,
+            "name": "First classification",
+            "status": "UNRESOLVED",
+            "detail": "Evidence does not yet meet a harvest-use decision rule.",
+            "evidenceIds": []
+          },
+          {
+            "step": 11,
+            "name": "Contextual investigation",
+            "status": "LIKELY SILAGE",
+            "detail": "Order: field-linked livestock records / forage relationship, field history, winter-forage rotation, active facilities and routes, county prevalence. Context alone never classifies.",
+            "evidenceIds": []
+          }
+        ],
+        "sources": [],
+        "missing_evidence": [
+          "Dated evidence of physical canopy removal",
+          "Fresh pre-removal canopy observation",
+          "NDRE relative to seasonal peak (senescence may provide alternative support)",
+          "Locally justified emergence/GDD/maturity assessment",
+          "Unconfounded immediate post-harvest surface evidence",
+          "Documented radar structural corroboration"
+        ],
+        "remote_search_performed": false
+      },
+      "elapsedMs": 0
+    },
+    {
+      "tool": "get_rule_assessment",
+      "arguments": {},
+      "result": {
+        "evidence_id": "rules",
+        "version": "harvest-workflow-v3-soft-s1",
+        "thresholds": {
+          "greenNdvi": 0.6,
+          "dryNdvi": 0.5,
+          "greenNdreRatio": 0.7,
+          "dryNdreRatio": 0.5,
+          "sustainedDeclineDays": 25,
+          "minClearObs": 14,
+          "maxHarvestGapDays": 15,
+          "maxPreHarvestAgeDays": 25,
+          "maxPostHarvestAgeDays": 10
+        },
+        "provisional": true,
+        "fieldId": "BARC-2021-OBJ1",
+        "year": 2021,
+        "cycleId": "corn-2021",
+        "classification": "LIKELY SILAGE",
+        "reviewStatus": "REVIEW",
+        "harvestInterval": {
+          "start": "2021-07-04",
+          "end": "2021-07-09"
+        },
+        "candidateInterval": {
+          "start": "2021-07-04",
+          "end": "2021-07-09"
+        },
+        "softEvidence": {
+          "interval": {
+            "start": "2021-07-04",
+            "end": "2021-07-09"
+          },
+          "radarInterval": {
+            "start": "2021-06-18",
+            "end": "2021-07-12"
+          },
+          "pre": {
+            "date": "2021-07-04",
+            "ndvi": 0.8113,
+            "ndre": 0.6555,
+            "lswi": 0.3386,
+            "clear_fraction": 1,
+            "valid_pixels": 494,
+            "scene_ids": [
+              "S2A_18SUJ_20210704_0_L2A",
+              "S2A_18SUJ_20210704_1_L2A"
+            ]
+          },
+          "ageDays": 5,
+          "ndreRatio": 1,
+          "declineDays": 0,
+          "greenStrength": 1,
+          "dryStrength": 0,
+          "condition": "GREEN LEAN",
+          "radarChecked": true,
+          "radarCorroborated": true,
+          "opticalPersistent": true,
+          "radarDetails": {
+            "orbit": "4",
+            "direction": "ascending",
+            "before": 2,
+            "after": 2,
+            "vhChangeDb": 1.090250000000001,
+            "vvChangeDb": 0.2958999999999996,
+            "ratioChangeDb": 0.7943499999999997,
+            "persistent": true
+          },
+          "evidence": [
+            "observations",
+            "sentinel1"
+          ],
+          "limitations": [
+            "Structural removal is inferred from persistent optical change plus radar; it is not directly confirmed.",
+            "Weather/irrigation/tillage confounders have not been excluded.",
+            "Rule support is uncalibrated, not a class probability."
+          ],
+          "rank": 3.3822
+        },
+        "harvestBasis": "optical_radar_inference",
+        "evidenceUsed": [
+          "observations",
+          "sentinel1"
+        ],
+        "missingEvidence": [
+          "Dated evidence of physical canopy removal",
+          "Fresh pre-removal canopy observation",
+          "NDRE relative to seasonal peak (senescence may provide alternative support)",
+          "Locally justified emergence/GDD/maturity assessment",
+          "Unconfounded immediate post-harvest surface evidence",
+          "Documented radar structural corroboration"
+        ],
+        "exceptionFlags": [
+          "Satellite-inferred removal; independent harvest confirmation absent",
+          "Rain/irrigation/tillage confounders not excluded"
+        ],
+        "steps": [
+          {
+            "step": 1,
+            "name": "Field and corn cycle",
+            "status": "CORN CANDIDATE",
+            "detail": "corn-2021: 2021-03-01 to 2021-12-31. CDL identity remains provisional; distinct zones need separate polygons.",
+            "evidenceIds": []
+          },
+          {
+            "step": 2,
+            "name": "Observation quality",
+            "status": "OPTICAL ADEQUATE",
+            "detail": "33 clear interior observations. Radar needs a documented orbit and full coverage; absence of optical data is not itself evidence of harvest.",
+            "evidenceIds": [
+              "observations"
+            ]
+          },
+          {
+            "step": 3,
+            "name": "Direct harvest evidence",
+            "status": "NO QUALIFYING RECORD",
+            "detail": "Only reviewed actual harvest/use records matching this field and crop cycle qualify. Intentions and general descriptions do not.",
+            "evidenceIds": []
+          },
+          {
+            "step": 4,
+            "name": "Physical harvest",
+            "status": "REMOVAL INFERRED",
+            "detail": "Persistent optical change overlaps multi-date, multi-polarization Sentinel-1 change: 2021-07-04 to 2021-07-09. Inference requires review.",
+            "evidenceIds": [
+              "observations",
+              "sentinel1"
+            ]
+          },
+          {
+            "step": 5,
+            "name": "Pre-removal canopy",
+            "status": "GREEN LEAN",
+            "detail": "Last clear NDVI 0.81; NDRE/peak 1.00; decline 0 days; green/dry rule support 1.00/0.00 (not probabilities). Optical interval 5 days.",
+            "evidenceIds": [
+              "observations"
+            ]
+          },
+          {
+            "step": 6,
+            "name": "Development timing",
+            "status": "TIMING UNKNOWN",
+            "detail": "Requires emergence, accumulated GDD with base/cap, a public local maturity reference, and sufficiently known maturity. Calendar date alone is insufficient.",
+            "evidenceIds": []
+          },
+          {
+            "step": 7,
+            "name": "Immediate post-harvest surface",
+            "status": "SURFACE UNKNOWN",
+            "detail": "Use dated surface evidence before tillage, manure, irrigation or residue removal; no residue percentage is inferred from NDVI.",
+            "evidenceIds": []
+          },
+          {
+            "step": 8,
+            "name": "Radar corroboration",
+            "status": "STRUCTURAL SUPPORT",
+            "detail": "Orbit 4 ascending; 2 pre and 2 post observations; VV change 0.30 dB, VH 1.09 dB; persistence true. Weather confounders are unknown.",
+            "evidenceIds": [
+              "sentinel1"
+            ]
+          },
+          {
+            "step": 9,
+            "name": "Exceptions",
+            "status": "NO REPORTED EXCEPTION",
+            "detail": "Stress without removal does not establish harvest. Actual chopped silage records override planting intention. Grain followed by baling/tillage retains documented grain use.",
+            "evidenceIds": []
+          },
+          {
+            "step": 10,
+            "name": "First classification",
+            "status": "UNRESOLVED",
+            "detail": "Evidence does not yet meet a harvest-use decision rule.",
+            "evidenceIds": []
+          },
+          {
+            "step": 11,
+            "name": "Contextual investigation",
+            "status": "LIKELY SILAGE",
+            "detail": "Order: field-linked livestock records / forage relationship, field history, winter-forage rotation, active facilities and routes, county prevalence. Context alone never classifies.",
+            "evidenceIds": []
+          },
+          {
+            "step": 12,
+            "name": "Final export",
+            "status": "LIKELY SILAGE",
+            "detail": "Green canopy evidence and persistent Sentinel-1/optical structural change support likely silage. Thresholds are graded; local maturity and weather confounders remain unverified.",
+            "evidenceIds": []
+          }
+        ],
+        "rationale": "Green canopy evidence and persistent Sentinel-1/optical structural change support likely silage. Thresholds are graded; local maturity and weather confounders remain unverified.",
+        "confidence": null
+      },
+      "elapsedMs": 0
+    },
+    {
+      "tool": "fuse_evidence",
+      "arguments": {},
+      "result": {
+        "evidence_id": "fusion",
+        "label": "silage",
+        "classification": "LIKELY SILAGE",
+        "status": "needs_review",
+        "confidence": null,
+        "policy_version": "harvest-workflow-v3-soft-s1",
+        "issues": [
+          "Satellite-inferred removal; independent harvest confirmation absent",
+          "Rain/irrigation/tillage confounders not excluded"
+        ],
+        "workflow": {
+          "version": "harvest-workflow-v3-soft-s1",
+          "thresholds": {
+            "greenNdvi": 0.6,
+            "dryNdvi": 0.5,
+            "greenNdreRatio": 0.7,
+            "dryNdreRatio": 0.5,
+            "sustainedDeclineDays": 25,
+            "minClearObs": 14,
+            "maxHarvestGapDays": 15,
+            "maxPreHarvestAgeDays": 25,
+            "maxPostHarvestAgeDays": 10
+          },
+          "provisional": true,
+          "fieldId": "BARC-2021-OBJ1",
+          "year": 2021,
+          "cycleId": "corn-2021",
+          "classification": "LIKELY SILAGE",
+          "reviewStatus": "REVIEW",
+          "harvestInterval": {
+            "start": "2021-07-04",
+            "end": "2021-07-09"
+          },
+          "candidateInterval": {
+            "start": "2021-07-04",
+            "end": "2021-07-09"
+          },
+          "softEvidence": {
+            "interval": {
+              "start": "2021-07-04",
+              "end": "2021-07-09"
+            },
+            "radarInterval": {
+              "start": "2021-06-18",
+              "end": "2021-07-12"
+            },
+            "pre": {
+              "date": "2021-07-04",
+              "ndvi": 0.8113,
+              "ndre": 0.6555,
+              "lswi": 0.3386,
+              "clear_fraction": 1,
+              "valid_pixels": 494,
+              "scene_ids": [
+                "S2A_18SUJ_20210704_0_L2A",
+                "S2A_18SUJ_20210704_1_L2A"
+              ]
+            },
+            "ageDays": 5,
+            "ndreRatio": 1,
+            "declineDays": 0,
+            "greenStrength": 1,
+            "dryStrength": 0,
+            "condition": "GREEN LEAN",
+            "radarChecked": true,
+            "radarCorroborated": true,
+            "opticalPersistent": true,
+            "radarDetails": {
+              "orbit": "4",
+              "direction": "ascending",
+              "before": 2,
+              "after": 2,
+              "vhChangeDb": 1.090250000000001,
+              "vvChangeDb": 0.2958999999999996,
+              "ratioChangeDb": 0.7943499999999997,
+              "persistent": true
+            },
+            "evidence": [
+              "observations",
+              "sentinel1"
+            ],
+            "limitations": [
+              "Structural removal is inferred from persistent optical change plus radar; it is not directly confirmed.",
+              "Weather/irrigation/tillage confounders have not been excluded.",
+              "Rule support is uncalibrated, not a class probability."
+            ],
+            "rank": 3.3822
+          },
+          "harvestBasis": "optical_radar_inference",
+          "evidenceUsed": [
+            "observations",
+            "sentinel1"
+          ],
+          "missingEvidence": [
+            "Dated evidence of physical canopy removal",
+            "Fresh pre-removal canopy observation",
+            "NDRE relative to seasonal peak (senescence may provide alternative support)",
+            "Locally justified emergence/GDD/maturity assessment",
+            "Unconfounded immediate post-harvest surface evidence",
+            "Documented radar structural corroboration"
+          ],
+          "exceptionFlags": [
+            "Satellite-inferred removal; independent harvest confirmation absent",
+            "Rain/irrigation/tillage confounders not excluded"
+          ],
+          "steps": [
+            {
+              "step": 1,
+              "name": "Field and corn cycle",
+              "status": "CORN CANDIDATE",
+              "detail": "corn-2021: 2021-03-01 to 2021-12-31. CDL identity remains provisional; distinct zones need separate polygons.",
+              "evidenceIds": []
+            },
+            {
+              "step": 2,
+              "name": "Observation quality",
+              "status": "OPTICAL ADEQUATE",
+              "detail": "33 clear interior observations. Radar needs a documented orbit and full coverage; absence of optical data is not itself evidence of harvest.",
+              "evidenceIds": [
+                "observations"
+              ]
+            },
+            {
+              "step": 3,
+              "name": "Direct harvest evidence",
+              "status": "NO QUALIFYING RECORD",
+              "detail": "Only reviewed actual harvest/use records matching this field and crop cycle qualify. Intentions and general descriptions do not.",
+              "evidenceIds": []
+            },
+            {
+              "step": 4,
+              "name": "Physical harvest",
+              "status": "REMOVAL INFERRED",
+              "detail": "Persistent optical change overlaps multi-date, multi-polarization Sentinel-1 change: 2021-07-04 to 2021-07-09. Inference requires review.",
+              "evidenceIds": [
+                "observations",
+                "sentinel1"
+              ]
+            },
+            {
+              "step": 5,
+              "name": "Pre-removal canopy",
+              "status": "GREEN LEAN",
+              "detail": "Last clear NDVI 0.81; NDRE/peak 1.00; decline 0 days; green/dry rule support 1.00/0.00 (not probabilities). Optical interval 5 days.",
+              "evidenceIds": [
+                "observations"
+              ]
+            },
+            {
+              "step": 6,
+              "name": "Development timing",
+              "status": "TIMING UNKNOWN",
+              "detail": "Requires emergence, accumulated GDD with base/cap, a public local maturity reference, and sufficiently known maturity. Calendar date alone is insufficient.",
+              "evidenceIds": []
+            },
+            {
+              "step": 7,
+              "name": "Immediate post-harvest surface",
+              "status": "SURFACE UNKNOWN",
+              "detail": "Use dated surface evidence before tillage, manure, irrigation or residue removal; no residue percentage is inferred from NDVI.",
+              "evidenceIds": []
+            },
+            {
+              "step": 8,
+              "name": "Radar corroboration",
+              "status": "STRUCTURAL SUPPORT",
+              "detail": "Orbit 4 ascending; 2 pre and 2 post observations; VV change 0.30 dB, VH 1.09 dB; persistence true. Weather confounders are unknown.",
+              "evidenceIds": [
+                "sentinel1"
+              ]
+            },
+            {
+              "step": 9,
+              "name": "Exceptions",
+              "status": "NO REPORTED EXCEPTION",
+              "detail": "Stress without removal does not establish harvest. Actual chopped silage records override planting intention. Grain followed by baling/tillage retains documented grain use.",
+              "evidenceIds": []
+            },
+            {
+              "step": 10,
+              "name": "First classification",
+              "status": "UNRESOLVED",
+              "detail": "Evidence does not yet meet a harvest-use decision rule.",
+              "evidenceIds": []
+            },
+            {
+              "step": 11,
+              "name": "Contextual investigation",
+              "status": "LIKELY SILAGE",
+              "detail": "Order: field-linked livestock records / forage relationship, field history, winter-forage rotation, active facilities and routes, county prevalence. Context alone never classifies.",
+              "evidenceIds": []
+            },
+            {
+              "step": 12,
+              "name": "Final export",
+              "status": "LIKELY SILAGE",
+              "detail": "Green canopy evidence and persistent Sentinel-1/optical structural change support likely silage. Thresholds are graded; local maturity and weather confounders remain unverified.",
+              "evidenceIds": []
+            }
+          ],
+          "rationale": "Green canopy evidence and persistent Sentinel-1/optical structural change support likely silage. Thresholds are graded; local maturity and weather confounders remain unverified.",
+          "confidence": null
+        },
+        "note": "Provisional workflow; no calibrated probability. Missing evidence stays explicit."
+      },
+      "elapsedMs": 0
+    }
+  ],
+  "usage": {
+    "calls": 5,
+    "promptTokens": 44394,
+    "completionTokens": 1129
+  },
+  "elapsedMs": 8761,
+  "createdAt": "2026-11-15T03:27:33.261Z"
+}

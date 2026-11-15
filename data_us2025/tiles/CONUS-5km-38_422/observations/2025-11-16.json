@@ -1,0 +1,87 @@
+{
+  "date": "2025-11-16",
+  "rows": {
+    "US25-CONUS-5km-38_422-00001": {
+      "date": "2025-11-16",
+      "ndvi": 0.2427,
+      "lswi": -0.1327,
+      "clear_fraction": 1.0,
+      "valid_pixels": 104,
+      "scene_ids": [
+        "S2A_15TVG_20251116_0_L2A",
+        "S2B_15TVG_20251116_1_L2A"
+      ]
+    },
+    "US25-CONUS-5km-38_422-00003": {
+      "date": "2025-11-16",
+      "ndvi": 0.4223,
+      "lswi": -0.0375,
+      "clear_fraction": 1.0,
+      "valid_pixels": 202,
+      "scene_ids": [
+        "S2A_15TVG_20251116_0_L2A",
+        "S2B_15TVG_20251116_1_L2A"
+      ]
+    },
+    "US25-CONUS-5km-38_422-00005": {
+      "date": "2025-11-16",
+      "ndvi": 0.2902,
+      "lswi": -0.1326,
+      "clear_fraction": 1.0,
+      "valid_pixels": 220,
+      "scene_ids": [
+        "S2A_15TVG_20251116_0_L2A",
+        "S2B_15TVG_20251116_1_L2A"
+      ]
+    },
+    "US25-CONUS-5km-38_422-00006": {
+      "date": "2025-11-16",
+      "ndvi": 0.8088,
+      "lswi": -0.3406,
+      "clear_fraction": 0.7931,
+      "valid_pixels": 69,
+      "scene_ids": [
+        "S2A_15TVG_20251116_0_L2A",
+        "S2B_15TVG_20251116_1_L2A"
+      ]
+    },
+    "US25-CONUS-5km-38_422-00007": {
+      "date": "2025-11-16",
+      "ndvi": 0.3274,
+      "lswi": -0.1175,
+      "clear_fraction": 1.0,
+      "valid_pixels": 128,
+      "scene_ids": [
+        "S2A_15TVG_20251116_0_L2A",
+        "S2B_15TVG_20251116_1_L2A"
+      ]
+    },
+    "US25-CONUS-5km-38_422-00010": {
+      "date": "2025-11-16",
+      "ndvi": 0.439,
+      "lswi": -0.246,
+      "clear_fraction": 0.6419,
+      "valid_pixels": 233,
+      "scene_ids": [
+        "S2A_15TVG_20251116_0_L2A",
+        "S2B_15TVG_20251116_1_L2A"
+      ]
+    },
+    "US25-CONUS-5km-38_422-00013": {
+      "date": "2025-11-16",
+      "ndvi": 0.7478,
+      "lswi": -0.3657,
+      "clear_fraction": 0.6645,
+      "valid_pixels": 404,
+      "scene_ids": [
+        "S2A_15TVG_20251116_0_L2A",
+        "S2B_15TVG_20251116_1_L2A"
+      ]
+    }
+  },
+  "scene_ids": [
+    "S2A_15TVG_20251116_0_L2A",
+    "S2B_15TVG_20251116_1_L2A"
+  ],
+  "patch_limit": null
+}

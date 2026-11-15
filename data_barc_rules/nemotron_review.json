@@ -1,0 +1,1032 @@
+{
+  "runId": "1428cf2a-a5c4-4525-bef1-74af8551ee55",
+  "fieldId": "BARC-2023-OBJ231",
+  "dataset": "barc",
+  "year": 2023,
+  "mode": "nemotron",
+  "model": "nvidia/nemotron-3.5-super-vl-120b-a12b",
+  "status": "needs_review",
+  "workflow": {
+    "version": "harvest-workflow-v2",
+    "thresholds": {
+      "greenNdvi": 0.6,
+      "dryNdvi": 0.5,
+      "greenNdreRatio": 0.7,
+      "dryNdreRatio": 0.5,
+      "sustainedDeclineDays": 25,
+      "minClearObs": 14,
+      "maxHarvestGapDays": 15,
+      "maxPreHarvestAgeDays": 10,
+      "maxPostHarvestAgeDays": 10
+    },
+    "provisional": true,
+    "fieldId": "BARC-2023-OBJ231",
+    "year": 2023,
+    "cycleId": "corn-2023",
+    "classification": "UNRESOLVED",
+    "reviewStatus": "UNRESOLVED",
+    "harvestInterval": null,
+    "candidateInterval": {
+      "start": "2023-10-12",
+      "end": "2023-10-27"
+    },
+    "evidenceUsed": [
+      "observations"
+    ],
+    "missingEvidence": [
+      "Dated evidence of physical canopy removal",
+      "Fresh pre-removal canopy observation",
+      "NDRE relative to seasonal peak (senescence may provide alternative support)",
+      "Locally justified emergence/GDD/maturity assessment",
+      "Unconfounded immediate post-harvest surface evidence",
+      "Documented radar structural corroboration",
+      "Decisive harvest-use evidence; proximity, rotation or county prevalence alone cannot decide"
+    ],
+    "exceptionFlags": [],
+    "steps": [
+      {
+        "step": 1,
+        "name": "Field and corn cycle",
+        "status": "CORN CANDIDATE",
+        "detail": "corn-2023: 2023-03-01 to 2023-12-31. CDL identity remains provisional; distinct zones need separate polygons.",
+        "evidenceIds": []
+      },
+      {
+        "step": 2,
+        "name": "Observation quality",
+        "status": "OPTICAL ADEQUATE",
+        "detail": "30 clear interior observations. Radar needs a documented orbit and full coverage; absence of optical data is not itself evidence of harvest.",
+        "evidenceIds": [
+          "observations"
+        ]
+      },
+      {
+        "step": 3,
+        "name": "Direct harvest evidence",
+        "status": "NO QUALIFYING RECORD",
+        "detail": "Only reviewed actual harvest/use records matching this field and crop cycle qualify. Intentions and general descriptions do not.",
+        "evidenceIds": []
+      },
+      {
+        "step": 4,
+        "name": "Physical harvest",
+        "status": "SENESCENCE ONLY",
+        "detail": "NDVI decline detected; physical canopy removal is unconfirmed.",
+        "evidenceIds": []
+      },
+      {
+        "step": 5,
+        "name": "Pre-removal canopy",
+        "status": "UNCERTAIN CONDITION",
+        "detail": "A clear observation close to confirmed removal is missing.",
+        "evidenceIds": [
+          "observations"
+        ]
+      },
+      {
+        "step": 6,
+        "name": "Development timing",
+        "status": "TIMING UNKNOWN",
+        "detail": "Requires emergence, accumulated GDD with base/cap, a public local maturity reference, and sufficiently known maturity. Calendar date alone is insufficient.",
+        "evidenceIds": []
+      },
+      {
+        "step": 7,
+        "name": "Immediate post-harvest surface",
+        "status": "SURFACE UNKNOWN",
+        "detail": "Use dated surface evidence before tillage, manure, irrigation or residue removal; no residue percentage is inferred from NDVI.",
+        "evidenceIds": []
+      },
+      {
+        "step": 8,
+        "name": "Radar corroboration",
+        "status": "RADAR UNKNOWN",
+        "detail": "Requires one orbit, full coverage, an overlapping structural-change interval and confounder checks. Backscatter drop magnitude alone does not classify.",
+        "evidenceIds": []
+      },
+      {
+        "step": 9,
+        "name": "Exceptions",
+        "status": "NO REPORTED EXCEPTION",
+        "detail": "Stress without removal does not establish harvest. Actual chopped silage records override planting intention. Grain followed by baling/tillage retains documented grain use.",
+        "evidenceIds": []
+      },
+      {
+        "step": 10,
+        "name": "First classification",
+        "status": "UNRESOLVED",
+        "detail": "Evidence does not yet meet a harvest-use decision rule.",
+        "evidenceIds": []
+      },
+      {
+        "step": 11,
+        "name": "Contextual investigation",
+        "status": "UNRESOLVED",
+        "detail": "Order: field-linked livestock records / forage relationship, field history, winter-forage rotation, active facilities and routes, county prevalence. Context alone never classifies.",
+        "evidenceIds": []
+      },
+      {
+        "step": 12,
+        "name": "Final export",
+        "status": "UNRESOLVED",
+        "detail": "Evidence does not yet meet a harvest-use decision rule.",
+        "evidenceIds": []
+      }
+    ],
+    "rationale": "Evidence does not yet meet a harvest-use decision rule.",
+    "confidence": null
+  },
+  "label": "uncertain",
+  "confidence": null,
+  "decidedBy": "deterministic",
+  "rationale": "Evidence does not yet meet a harvest-use decision rule.",
+  "agentSummary": {
+    "text": "BARC-2023-OBJ231 (2023 corn cycle, March–December) shows 30 clear optical observations with an NDVI decline from peak (~1.37 in July–September) to ~0.90–0.75 by October–November, but no physical canopy removal is confirmed, no direct harvest record exists, no pre-removal canopy observation is available, development timing (emergence/GDD/maturity) is unknown, surface and radar evidence are absent, and no exceptions or contextual factors resolve the classification. The candidate harvest interval is 2023-10-12 to 2023-10-27 based on the largest NDVI decline, but this is only a candidate event, not confirmed harvest. All twelve workflow steps remain UNRESOLVED. Evidence is insufficient to classify as silage or grain.",
+    "evidenceIds": [
+      "observations",
+      "rules",
+      "fusion"
+    ],
+    "verified": false
+  },
+  "limitations": [
+    "BARC evaluation fields only. Harvest-use references are excluded from tools. Physical removal, GDD, surface, radar and public harvest records are not ingested.",
+    "Additional observations tool inspects cache only; no new satellite/weather data is downloaded.",
+    "Agent summary is generated text; evidence references are checked, but factual entailment is not automatically verified.",
+    "New review policy is unvalidated. Existing model and analyst decisions remain separate."
+  ],
+  "harvestWindow": null,
+  "versions": {
+    "rules": "harvest-workflow-v2",
+    "policy": "harvest-workflow-v2",
+    "prompt": "cornstellation-workflow-v2"
+  },
+  "evidenceHash": "9785c2eda03591e7e2ff3510f853aec0696955a2c4698c65d1697f0b5057e730",
+  "trace": [
+    {
+      "tool": "get_field_evidence",
+      "arguments": {},
+      "result": {
+        "evidence_id": "observations",
+        "field_id": "BARC-2023-OBJ231",
+        "year": 2023,
+        "source": "BARC polygons + public Sentinel-2 L2A",
+        "limitation": "BARC evaluation fields only. Harvest-use references are excluded from tools. Physical removal, GDD, surface, radar and public harvest records are not ingested.",
+        "season": {
+          "year": 2023,
+          "start": "2023-03-01",
+          "end": "2023-12-31",
+          "label": "March–December",
+          "largeAcres": 300,
+          "peakFrom": "06-01",
+          "peakTo": "09-30",
+          "dropTo": "12-31"
+        },
+        "optical": [
+          {
+            "date": "2023-03-01",
+            "ndvi": 0.9986,
+            "ndre": 0.5639,
+            "lswi": 0.2886,
+            "clear_fraction": 1,
+            "valid_pixels": 309,
+            "scene_ids": [
+              "S2B_18SUJ_20230301_0_L2A"
+            ]
+          },
+          {
+            "date": "2023-03-06",
+            "ndvi": 1.0409,
+            "ndre": 0.572,
+            "lswi": 0.3384,
+            "clear_fraction": 1,
+            "valid_pixels": 309,
+            "scene_ids": [
+              "S2A_18SUJ_20230306_0_L2A"
+            ]
+          },
+          {
+            "date": "2023-03-11",
+            "ndvi": 1.1117,
+            "ndre": 0.6209,
+            "lswi": 0.5369,
+            "clear_fraction": 0.8123,
+            "valid_pixels": 251,
+            "scene_ids": [
+              "S2B_18SUJ_20230311_0_L2A"
+            ]
+          },
+          {
+            "date": "2023-03-16",
+            "ndvi": 1.0285,
+            "ndre": 0.5602,
+            "lswi": 0.3032,
+            "clear_fraction": 1,
+            "valid_pixels": 309,
+            "scene_ids": [
+              "S2A_18SUJ_20230316_0_L2A"
+            ]
+          },
+          {
+            "date": "2023-03-26",
+            "ndvi": 1.2043,
+            "ndre": 0.6486,
+            "lswi": 0.454,
+            "clear_fraction": 1,
+            "valid_pixels": 309,
+            "scene_ids": [
+              "S2A_18SUJ_20230326_0_L2A"
+            ]
+          },
+          {
+            "date": "2023-04-10",
+            "ndvi": 1.2023,
+            "ndre": 0.6557,
+            "lswi": 0.521,
+            "clear_fraction": 1,
+            "valid_pixels": 309,
+            "scene_ids": [
+              "S2B_18SUJ_20230410_0_L2A"
+            ]
+          },
+          {
+            "date": "2023-04-20",
+            "ndvi": 1.0754,
+            "ndre": 0.6131,
+            "lswi": 0.3757,
+            "clear_fraction": 1,
+            "valid_pixels": 309,
+            "scene_ids": [
+              "S2B_18SUJ_20230420_0_L2A"
+            ]
+          },
+          {
+            "date": "2023-05-05",
+            "ndvi": 0.7011,
+            "ndre": 0.4012,
+            "lswi": 0.21,
+            "clear_fraction": 1,
+            "valid_pixels": 309,
+            "scene_ids": [
+              "S2A_18SUJ_20230505_0_L2A"
+            ]
+          },
+          {
+            "date": "2023-05-10",
+            "ndvi": 0.7185,
+            "ndre": 0.4579,
+            "lswi": 0.0498,
+            "clear_fraction": 1,
+            "valid_pixels": 309,
+            "scene_ids": [
+              "S2B_18SUJ_20230510_0_L2A"
+            ]
+          },
+          {
+            "date": "2023-05-15",
+            "ndvi": 0.5048,
+            "ndre": 0.3047,
+            "lswi": -0.0589,
+            "clear_fraction": 1,
+            "valid_pixels": 309,
+            "scene_ids": [
+              "S2A_18SUJ_20230515_0_L2A"
+            ]
+          },
+          {
+            "date": "2023-05-25",
+            "ndvi": 0.3707,
+            "ndre": 0.2322,
+            "lswi": -0.1405,
+            "clear_fraction": 1,
+            "valid_pixels": 309,
+            "scene_ids": [
+              "S2A_18SUJ_20230525_0_L2A"
+            ]
+          },
+          {
+            "date": "2023-05-30",
+            "ndvi": 0.3367,
+            "ndre": 0.2167,
+            "lswi": -0.1286,
+            "clear_fraction": 1,
+            "valid_pixels": 309,
+            "scene_ids": [
+              "S2B_18SUJ_20230530_0_L2A"
+            ]
+          },
+          {
+            "date": "2023-06-04",
+            "ndvi": 0.3236,
+            "ndre": 0.2017,
+            "lswi": -0.1017,
+            "clear_fraction": 0.7605,
+            "valid_pixels": 235,
+            "scene_ids": [
+              "S2A_18SUJ_20230604_0_L2A"
+            ]
+          },
+          {
+            "date": "2023-06-29",
+            "ndvi": 0.7298,
+            "ndre": 0.4521,
+            "lswi": -0.1373,
+            "clear_fraction": 1,
+            "valid_pixels": 309,
+            "scene_ids": [
+              "S2B_18SUJ_20230629_0_L2A"
+            ]
+          },
+          {
+            "date": "2023-07-14",
+            "ndvi": 0.9058,
+            "ndre": 0.6149,
+            "lswi": -0.0202,
+            "clear_fraction": 1,
+            "valid_pixels": 309,
+            "scene_ids": [
+              "S2A_18SUJ_20230714_0_L2A"
+            ]
+          },
+          {
+            "date": "2023-07-19",
+            "ndvi": 1.3697,
+            "ndre": 0.9118,
+            "lswi": 0.2276,
+            "clear_fraction": 1,
+            "valid_pixels": 309,
+            "scene_ids": [
+              "S2B_18SUJ_20230719_0_L2A"
+            ]
+          },
+          {
+            "date": "2023-07-24",
+            "ndvi": 1.2611,
+            "ndre": 0.8538,
+            "lswi": 0.3146,
+            "clear_fraction": 1,
+            "valid_pixels": 309,
+            "scene_ids": [
+              "S2A_18SUJ_20230724_0_L2A"
+            ]
+          },
+          {
+            "date": "2023-07-29",
+            "ndvi": 1.322,
+            "ndre": 0.9063,
+            "lswi": 0.3174,
+            "clear_fraction": 1,
+            "valid_pixels": 309,
+            "scene_ids": [
+              "S2B_18SUJ_20230729_0_L2A"
+            ]
+          },
+          {
+            "date": "2023-08-08",
+            "ndvi": 1.1115,
+            "ndre": 0.7518,
+            "lswi": 0.2758,
+            "clear_fraction": 0.8576,
+            "valid_pixels": 265,
+            "scene_ids": [
+              "S2B_18SUJ_20230808_0_L2A"
+            ]
+          },
+          {
+            "date": "2023-09-02",
+            "ndvi": 1.3703,
+            "ndre": 0.9101,
+            "lswi": 0.3777,
+            "clear_fraction": 1,
+            "valid_pixels": 309,
+            "scene_ids": [
+              "S2A_18SUJ_20230902_0_L2A"
+            ]
+          },
+          {
+            "date": "2023-09-07",
+            "ndvi": 1.2731,
+            "ndre": 0.8382,
+            "lswi": 0.3026,
+            "clear_fraction": 1,
+            "valid_pixels": 309,
+            "scene_ids": [
+              "S2B_18SUJ_20230907_0_L2A"
+            ]
+          },
+          {
+            "date": "2023-09-12",
+            "ndvi": 1.173,
+            "ndre": 0.7595,
+            "lswi": 0.3608,
+            "clear_fraction": 1,
+            "valid_pixels": 309,
+            "scene_ids": [
+              "S2A_18SUJ_20230912_0_L2A"
+            ]
+          },
+          {
+            "date": "2023-10-02",
+            "ndvi": 1.1679,
+            "ndre": 0.6125,
+            "lswi": -0.1071,
+            "clear_fraction": 1,
+            "valid_pixels": 309,
+            "scene_ids": [
+              "S2A_18SUJ_20231002_0_L2A"
+            ]
+          },
+          {
+            "date": "2023-10-12",
+            "ndvi": 1.2467,
+            "ndre": 0.6668,
+            "lswi": -0.0527,
+            "clear_fraction": 1,
+            "valid_pixels": 309,
+            "scene_ids": [
+              "S2A_18SUJ_20231012_0_L2A"
+            ]
+          },
+          {
+            "date": "2023-10-27",
+            "ndvi": 0.9029,
+            "ndre": 0.5194,
+            "lswi": -0.0975,
+            "clear_fraction": 0.9935,
+            "valid_pixels": 307,
+            "scene_ids": [
+              "S2B_18SUJ_20231027_0_L2A"
+            ]
+          },
+          {
+            "date": "2023-11-01",
+            "ndvi": 0.9088,
+            "ndre": 0.5122,
+            "lswi": -0.0058,
+            "clear_fraction": 1,
+            "valid_pixels": 309,
+            "scene_ids": [
+              "S2A_18SUJ_20231101_0_L2A"
+            ]
+          },
+          {
+            "date": "2023-11-06",
+            "ndvi": 0.7541,
+            "ndre": 0.4545,
+            "lswi": -0.0724,
+            "clear_fraction": 1,
+            "valid_pixels": 309,
+            "scene_ids": [
+              "S2B_18SUJ_20231106_0_L2A"
+            ]
+          },
+          {
+            "date": "2023-11-11",
+            "ndvi": 0.9148,
+            "ndre": 0.5159,
+            "lswi": 0.1233,
+            "clear_fraction": 1,
+            "valid_pixels": 309,
+            "scene_ids": [
+              "S2A_18SUJ_20231111_0_L2A"
+            ]
+          },
+          {
+            "date": "2023-11-16",
+            "ndvi": 0.8063,
+            "ndre": 0.4747,
+            "lswi": -0.053,
+            "clear_fraction": 1,
+            "valid_pixels": 309,
+            "scene_ids": [
+              "S2B_18SUJ_20231116_0_L2A"
+            ]
+          },
+          {
+            "date": "2023-12-21",
+            "ndvi": 0.9634,
+            "ndre": 0.5199,
+            "lswi": 0.0316,
+            "clear_fraction": 1,
+            "valid_pixels": 309,
+            "scene_ids": [
+              "S2A_18SUJ_20231221_0_L2A"
+            ]
+          }
+        ],
+        "radar": [],
+        "radar_units": "VV and VH in dB; retained orbit selected by original extraction",
+        "unavailable": [
+          "weather/GDD",
+          "NDTI/residue cover",
+          "dairy proximity",
+          "independent harvest confirmation"
+        ]
+      },
+      "elapsedMs": 0
+    },
+    {
+      "tool": "get_rule_assessment",
+      "arguments": {},
+      "result": {
+        "error": "Inspect all workflow evidence families before assessment"
+      },
+      "elapsedMs": 0
+    },
+    {
+      "tool": "check_identity_quality",
+      "arguments": {},
+      "result": {
+        "evidence_id": "check_identity_quality",
+        "steps": [
+          {
+            "step": 1,
+            "name": "Field and corn cycle",
+            "status": "CORN CANDIDATE",
+            "detail": "corn-2023: 2023-03-01 to 2023-12-31. CDL identity remains provisional; distinct zones need separate polygons.",
+            "evidenceIds": []
+          },
+          {
+            "step": 2,
+            "name": "Observation quality",
+            "status": "OPTICAL ADEQUATE",
+            "detail": "30 clear interior observations. Radar needs a documented orbit and full coverage; absence of optical data is not itself evidence of harvest.",
+            "evidenceIds": [
+              "observations"
+            ]
+          }
+        ],
+        "sources": [],
+        "missing_evidence": [
+          "Dated evidence of physical canopy removal",
+          "Fresh pre-removal canopy observation",
+          "NDRE relative to seasonal peak (senescence may provide alternative support)",
+          "Locally justified emergence/GDD/maturity assessment",
+          "Unconfounded immediate post-harvest surface evidence",
+          "Documented radar structural corroboration",
+          "Decisive harvest-use evidence; proximity, rotation or county prevalence alone cannot decide"
+        ],
+        "remote_search_performed": false
+      },
+      "elapsedMs": 0
+    },
+    {
+      "tool": "check_direct_harvest",
+      "arguments": {},
+      "result": {
+        "evidence_id": "check_direct_harvest",
+        "steps": [
+          {
+            "step": 3,
+            "name": "Direct harvest evidence",
+            "status": "NO QUALIFYING RECORD",
+            "detail": "Only reviewed actual harvest/use records matching this field and crop cycle qualify. Intentions and general descriptions do not.",
+            "evidenceIds": []
+          }
+        ],
+        "sources": [],
+        "missing_evidence": [
+          "Dated evidence of physical canopy removal",
+          "Fresh pre-removal canopy observation",
+          "NDRE relative to seasonal peak (senescence may provide alternative support)",
+          "Locally justified emergence/GDD/maturity assessment",
+          "Unconfounded immediate post-harvest surface evidence",
+          "Documented radar structural corroboration",
+          "Decisive harvest-use evidence; proximity, rotation or county prevalence alone cannot decide"
+        ],
+        "remote_search_performed": false
+      },
+      "elapsedMs": 0
+    },
+    {
+      "tool": "check_removal_condition",
+      "arguments": {},
+      "result": {
+        "evidence_id": "check_removal_condition",
+        "steps": [
+          {
+            "step": 4,
+            "name": "Physical harvest",
+            "status": "SENESCENCE ONLY",
+            "detail": "NDVI decline detected; physical canopy removal is unconfirmed.",
+            "evidenceIds": []
+          },
+          {
+            "step": 5,
+            "name": "Pre-removal canopy",
+            "status": "UNCERTAIN CONDITION",
+            "detail": "A clear observation close to confirmed removal is missing.",
+            "evidenceIds": [
+              "observations"
+            ]
+          }
+        ],
+        "sources": [],
+        "missing_evidence": [
+          "Dated evidence of physical canopy removal",
+          "Fresh pre-removal canopy observation",
+          "NDRE relative to seasonal peak (senescence may provide alternative support)",
+          "Locally justified emergence/GDD/maturity assessment",
+          "Unconfounded immediate post-harvest surface evidence",
+          "Documented radar structural corroboration",
+          "Decisive harvest-use evidence; proximity, rotation or county prevalence alone cannot decide"
+        ],
+        "remote_search_performed": false
+      },
+      "elapsedMs": 0
+    },
+    {
+      "tool": "check_development_timing",
+      "arguments": {},
+      "result": {
+        "evidence_id": "check_development_timing",
+        "steps": [
+          {
+            "step": 6,
+            "name": "Development timing",
+            "status": "TIMING UNKNOWN",
+            "detail": "Requires emergence, accumulated GDD with base/cap, a public local maturity reference, and sufficiently known maturity. Calendar date alone is insufficient.",
+            "evidenceIds": []
+          }
+        ],
+        "sources": [],
+        "missing_evidence": [
+          "Dated evidence of physical canopy removal",
+          "Fresh pre-removal canopy observation",
+          "NDRE relative to seasonal peak (senescence may provide alternative support)",
+          "Locally justified emergence/GDD/maturity assessment",
+          "Unconfounded immediate post-harvest surface evidence",
+          "Documented radar structural corroboration",
+          "Decisive harvest-use evidence; proximity, rotation or county prevalence alone cannot decide"
+        ],
+        "remote_search_performed": false
+      },
+      "elapsedMs": 0
+    },
+    {
+      "tool": "check_surface_radar",
+      "arguments": {},
+      "result": {
+        "evidence_id": "check_surface_radar",
+        "steps": [
+          {
+            "step": 7,
+            "name": "Immediate post-harvest surface",
+            "status": "SURFACE UNKNOWN",
+            "detail": "Use dated surface evidence before tillage, manure, irrigation or residue removal; no residue percentage is inferred from NDVI.",
+            "evidenceIds": []
+          },
+          {
+            "step": 8,
+            "name": "Radar corroboration",
+            "status": "RADAR UNKNOWN",
+            "detail": "Requires one orbit, full coverage, an overlapping structural-change interval and confounder checks. Backscatter drop magnitude alone does not classify.",
+            "evidenceIds": []
+          }
+        ],
+        "sources": [],
+        "missing_evidence": [
+          "Dated evidence of physical canopy removal",
+          "Fresh pre-removal canopy observation",
+          "NDRE relative to seasonal peak (senescence may provide alternative support)",
+          "Locally justified emergence/GDD/maturity assessment",
+          "Unconfounded immediate post-harvest surface evidence",
+          "Documented radar structural corroboration",
+          "Decisive harvest-use evidence; proximity, rotation or county prevalence alone cannot decide"
+        ],
+        "remote_search_performed": false
+      },
+      "elapsedMs": 0
+    },
+    {
+      "tool": "check_exceptions_context",
+      "arguments": {},
+      "result": {
+        "evidence_id": "check_exceptions_context",
+        "steps": [
+          {
+            "step": 9,
+            "name": "Exceptions",
+            "status": "NO REPORTED EXCEPTION",
+            "detail": "Stress without removal does not establish harvest. Actual chopped silage records override planting intention. Grain followed by baling/tillage retains documented grain use.",
+            "evidenceIds": []
+          },
+          {
+            "step": 10,
+            "name": "First classification",
+            "status": "UNRESOLVED",
+            "detail": "Evidence does not yet meet a harvest-use decision rule.",
+            "evidenceIds": []
+          },
+          {
+            "step": 11,
+            "name": "Contextual investigation",
+            "status": "UNRESOLVED",
+            "detail": "Order: field-linked livestock records / forage relationship, field history, winter-forage rotation, active facilities and routes, county prevalence. Context alone never classifies.",
+            "evidenceIds": []
+          }
+        ],
+        "sources": [],
+        "missing_evidence": [
+          "Dated evidence of physical canopy removal",
+          "Fresh pre-removal canopy observation",
+          "NDRE relative to seasonal peak (senescence may provide alternative support)",
+          "Locally justified emergence/GDD/maturity assessment",
+          "Unconfounded immediate post-harvest surface evidence",
+          "Documented radar structural corroboration",
+          "Decisive harvest-use evidence; proximity, rotation or county prevalence alone cannot decide"
+        ],
+        "remote_search_performed": false
+      },
+      "elapsedMs": 0
+    },
+    {
+      "tool": "get_rule_assessment",
+      "arguments": {},
+      "result": {
+        "evidence_id": "rules",
+        "version": "harvest-workflow-v2",
+        "thresholds": {
+          "greenNdvi": 0.6,
+          "dryNdvi": 0.5,
+          "greenNdreRatio": 0.7,
+          "dryNdreRatio": 0.5,
+          "sustainedDeclineDays": 25,
+          "minClearObs": 14,
+          "maxHarvestGapDays": 15,
+          "maxPreHarvestAgeDays": 10,
+          "maxPostHarvestAgeDays": 10
+        },
+        "provisional": true,
+        "fieldId": "BARC-2023-OBJ231",
+        "year": 2023,
+        "cycleId": "corn-2023",
+        "classification": "UNRESOLVED",
+        "reviewStatus": "UNRESOLVED",
+        "harvestInterval": null,
+        "candidateInterval": {
+          "start": "2023-10-12",
+          "end": "2023-10-27"
+        },
+        "evidenceUsed": [
+          "observations"
+        ],
+        "missingEvidence": [
+          "Dated evidence of physical canopy removal",
+          "Fresh pre-removal canopy observation",
+          "NDRE relative to seasonal peak (senescence may provide alternative support)",
+          "Locally justified emergence/GDD/maturity assessment",
+          "Unconfounded immediate post-harvest surface evidence",
+          "Documented radar structural corroboration",
+          "Decisive harvest-use evidence; proximity, rotation or county prevalence alone cannot decide"
+        ],
+        "exceptionFlags": [],
+        "steps": [
+          {
+            "step": 1,
+            "name": "Field and corn cycle",
+            "status": "CORN CANDIDATE",
+            "detail": "corn-2023: 2023-03-01 to 2023-12-31. CDL identity remains provisional; distinct zones need separate polygons.",
+            "evidenceIds": []
+          },
+          {
+            "step": 2,
+            "name": "Observation quality",
+            "status": "OPTICAL ADEQUATE",
+            "detail": "30 clear interior observations. Radar needs a documented orbit and full coverage; absence of optical data is not itself evidence of harvest.",
+            "evidenceIds": [
+              "observations"
+            ]
+          },
+          {
+            "step": 3,
+            "name": "Direct harvest evidence",
+            "status": "NO QUALIFYING RECORD",
+            "detail": "Only reviewed actual harvest/use records matching this field and crop cycle qualify. Intentions and general descriptions do not.",
+            "evidenceIds": []
+          },
+          {
+            "step": 4,
+            "name": "Physical harvest",
+            "status": "SENESCENCE ONLY",
+            "detail": "NDVI decline detected; physical canopy removal is unconfirmed.",
+            "evidenceIds": []
+          },
+          {
+            "step": 5,
+            "name": "Pre-removal canopy",
+            "status": "UNCERTAIN CONDITION",
+            "detail": "A clear observation close to confirmed removal is missing.",
+            "evidenceIds": [
+              "observations"
+            ]
+          },
+          {
+            "step": 6,
+            "name": "Development timing",
+            "status": "TIMING UNKNOWN",
+            "detail": "Requires emergence, accumulated GDD with base/cap, a public local maturity reference, and sufficiently known maturity. Calendar date alone is insufficient.",
+            "evidenceIds": []
+          },
+          {
+            "step": 7,
+            "name": "Immediate post-harvest surface",
+            "status": "SURFACE UNKNOWN",
+            "detail": "Use dated surface evidence before tillage, manure, irrigation or residue removal; no residue percentage is inferred from NDVI.",
+            "evidenceIds": []
+          },
+          {
+            "step": 8,
+            "name": "Radar corroboration",
+            "status": "RADAR UNKNOWN",
+            "detail": "Requires one orbit, full coverage, an overlapping structural-change interval and confounder checks. Backscatter drop magnitude alone does not classify.",
+            "evidenceIds": []
+          },
+          {
+            "step": 9,
+            "name": "Exceptions",
+            "status": "NO REPORTED EXCEPTION",
+            "detail": "Stress without removal does not establish harvest. Actual chopped silage records override planting intention. Grain followed by baling/tillage retains documented grain use.",
+            "evidenceIds": []
+          },
+          {
+            "step": 10,
+            "name": "First classification",
+            "status": "UNRESOLVED",
+            "detail": "Evidence does not yet meet a harvest-use decision rule.",
+            "evidenceIds": []
+          },
+          {
+            "step": 11,
+            "name": "Contextual investigation",
+            "status": "UNRESOLVED",
+            "detail": "Order: field-linked livestock records / forage relationship, field history, winter-forage rotation, active facilities and routes, county prevalence. Context alone never classifies.",
+            "evidenceIds": []
+          },
+          {
+            "step": 12,
+            "name": "Final export",
+            "status": "UNRESOLVED",
+            "detail": "Evidence does not yet meet a harvest-use decision rule.",
+            "evidenceIds": []
+          }
+        ],
+        "rationale": "Evidence does not yet meet a harvest-use decision rule.",
+        "confidence": null
+      },
+      "elapsedMs": 0
+    },
+    {
+      "tool": "fuse_evidence",
+      "arguments": {},
+      "result": {
+        "evidence_id": "fusion",
+        "label": "uncertain",
+        "classification": "UNRESOLVED",
+        "status": "needs_review",
+        "confidence": null,
+        "policy_version": "harvest-workflow-v2",
+        "issues": [],
+        "workflow": {
+          "version": "harvest-workflow-v2",
+          "thresholds": {
+            "greenNdvi": 0.6,
+            "dryNdvi": 0.5,
+            "greenNdreRatio": 0.7,
+            "dryNdreRatio": 0.5,
+            "sustainedDeclineDays": 25,
+            "minClearObs": 14,
+            "maxHarvestGapDays": 15,
+            "maxPreHarvestAgeDays": 10,
+            "maxPostHarvestAgeDays": 10
+          },
+          "provisional": true,
+          "fieldId": "BARC-2023-OBJ231",
+          "year": 2023,
+          "cycleId": "corn-2023",
+          "classification": "UNRESOLVED",
+          "reviewStatus": "UNRESOLVED",
+          "harvestInterval": null,
+          "candidateInterval": {
+            "start": "2023-10-12",
+            "end": "2023-10-27"
+          },
+          "evidenceUsed": [
+            "observations"
+          ],
+          "missingEvidence": [
+            "Dated evidence of physical canopy removal",
+            "Fresh pre-removal canopy observation",
+            "NDRE relative to seasonal peak (senescence may provide alternative support)",
+            "Locally justified emergence/GDD/maturity assessment",
+            "Unconfounded immediate post-harvest surface evidence",
+            "Documented radar structural corroboration",
+            "Decisive harvest-use evidence; proximity, rotation or county prevalence alone cannot decide"
+          ],
+          "exceptionFlags": [],
+          "steps": [
+            {
+              "step": 1,
+              "name": "Field and corn cycle",
+              "status": "CORN CANDIDATE",
+              "detail": "corn-2023: 2023-03-01 to 2023-12-31. CDL identity remains provisional; distinct zones need separate polygons.",
+              "evidenceIds": []
+            },
+            {
+              "step": 2,
+              "name": "Observation quality",
+              "status": "OPTICAL ADEQUATE",
+              "detail": "30 clear interior observations. Radar needs a documented orbit and full coverage; absence of optical data is not itself evidence of harvest.",
+              "evidenceIds": [
+                "observations"
+              ]
+            },
+            {
+              "step": 3,
+              "name": "Direct harvest evidence",
+              "status": "NO QUALIFYING RECORD",
+              "detail": "Only reviewed actual harvest/use records matching this field and crop cycle qualify. Intentions and general descriptions do not.",
+              "evidenceIds": []
+            },
+            {
+              "step": 4,
+              "name": "Physical harvest",
+              "status": "SENESCENCE ONLY",
+              "detail": "NDVI decline detected; physical canopy removal is unconfirmed.",
+              "evidenceIds": []
+            },
+            {
+              "step": 5,
+              "name": "Pre-removal canopy",
+              "status": "UNCERTAIN CONDITION",
+              "detail": "A clear observation close to confirmed removal is missing.",
+              "evidenceIds": [
+                "observations"
+              ]
+            },
+            {
+              "step": 6,
+              "name": "Development timing",
+              "status": "TIMING UNKNOWN",
+              "detail": "Requires emergence, accumulated GDD with base/cap, a public local maturity reference, and sufficiently known maturity. Calendar date alone is insufficient.",
+              "evidenceIds": []
+            },
+            {
+              "step": 7,
+              "name": "Immediate post-harvest surface",
+              "status": "SURFACE UNKNOWN",
+              "detail": "Use dated surface evidence before tillage, manure, irrigation or residue removal; no residue percentage is inferred from NDVI.",
+              "evidenceIds": []
+            },
+            {
+              "step": 8,
+              "name": "Radar corroboration",
+              "status": "RADAR UNKNOWN",
+              "detail": "Requires one orbit, full coverage, an overlapping structural-change interval and confounder checks. Backscatter drop magnitude alone does not classify.",
+              "evidenceIds": []
+            },
+            {
+              "step": 9,
+              "name": "Exceptions",
+              "status": "NO REPORTED EXCEPTION",
+              "detail": "Stress without removal does not establish harvest. Actual chopped silage records override planting intention. Grain followed by baling/tillage retains documented grain use.",
+              "evidenceIds": []
+            },
+            {
+              "step": 10,
+              "name": "First classification",
+              "status": "UNRESOLVED",
+              "detail": "Evidence does not yet meet a harvest-use decision rule.",
+              "evidenceIds": []
+            },
+            {
+              "step": 11,
+              "name": "Contextual investigation",
+              "status": "UNRESOLVED",
+              "detail": "Order: field-linked livestock records / forage relationship, field history, winter-forage rotation, active facilities and routes, county prevalence. Context alone never classifies.",
+              "evidenceIds": []
+            },
+            {
+              "step": 12,
+              "name": "Final export",
+              "status": "UNRESOLVED",
+              "detail": "Evidence does not yet meet a harvest-use decision rule.",
+              "evidenceIds": []
+            }
+          ],
+          "rationale": "Evidence does not yet meet a harvest-use decision rule.",
+          "confidence": null
+        },
+        "note": "Provisional workflow; no calibrated probability. Missing evidence stays explicit."
+      },
+      "elapsedMs": 1
+    }
+  ],
+  "usage": {
+    "calls": 5,
+    "promptTokens": 25504,
+    "completionTokens": 1306
+  },
+  "elapsedMs": 10286,
+  "createdAt": "2026-11-15T03:08:38.414Z"
+}

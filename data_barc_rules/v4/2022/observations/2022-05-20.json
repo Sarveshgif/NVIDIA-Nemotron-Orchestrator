@@ -1,0 +1,1 @@
+{"version": "barc-v4-20m-mean-ndvi-v1", "date": "2022-05-20", "rows": {"BARC-2022-OBJ231": {"date": "2022-05-20", "ndvi": 0.379334, "clear_fraction": 0.714286, "valid_pixels_20m": 55, "scene_ids": ["S2A_18SUJ_20220520_0_L2A"]}}}

@@ -1,0 +1,16 @@
+# Python 3.11 recommended. Saved sklearn artifacts require 1.7.x.
+scikit-learn>=1.7,<1.8
+joblib>=1.4,<2
+numpy>=1.26,<3
+pandas>=2.2,<4
+pydantic>=2.10,<3
+fastapi>=0.115,<1
+uvicorn>=0.30,<1
+python-dotenv>=1,<2
+requests>=2.32,<3
+shapely>=2,<3
+pyproj>=3.6,<4
+rasterio>=1.4,<2
+
+# Connection diagnostics use the urllib3 2.x connection/pool API.
+urllib3>=2.2,<3

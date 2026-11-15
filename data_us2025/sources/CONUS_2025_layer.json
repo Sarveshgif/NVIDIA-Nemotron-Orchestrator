@@ -1,0 +1,9 @@
+{
+  "base": "https://pdi.scinet.usda.gov/image/rest/services/CDL_WM/ImageServer",
+  "attributes": {
+    "OBJECTID": 40,
+    "Name": "2025_10m_cdls",
+    "Year": 2025
+  },
+  "checked_at": "2026-11-15T02:15:23.178460+00:00"
+}

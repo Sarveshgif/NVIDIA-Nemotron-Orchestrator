@@ -1,0 +1,13 @@
+{
+  "state": "ALABAMA",
+  "state_fips": "01",
+  "year": 2025,
+  "grain_acres": 330000,
+  "silage_acres": 4000,
+  "harvested_total_acres": 334000,
+  "silage_share": 0.011976047904191617,
+  "source_url": "https://quickstats.nass.usda.gov/results/ACC45317-B978-3390-B0A1-BE0EC02A9D63",
+  "measure": "SURVEY; YEAR; CORN grain/silage ACRES HARVESTED; TOTAL; NOT SPECIFIED",
+  "source_sha256": "78db6757cf3e90d03468134595b04144c74a23f5d294a8cf48250c3386576972",
+  "use": "Evaluation only; never fit model thresholds or scale predictions to this total"
+}

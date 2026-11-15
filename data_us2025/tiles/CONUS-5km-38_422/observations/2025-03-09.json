@@ -1,0 +1,21 @@
+{
+  "date": "2025-03-09",
+  "rows": {
+    "US25-CONUS-5km-38_422-00004": {
+      "date": "2025-03-09",
+      "ndvi": 0.6453,
+      "lswi": -0.204,
+      "clear_fraction": 1.0,
+      "valid_pixels": 120,
+      "scene_ids": [
+        "S2C_15TVG_20250309_0_L2A",
+        "S2C_15TVG_20250309_1_L2A"
+      ]
+    }
+  },
+  "scene_ids": [
+    "S2C_15TVG_20250309_0_L2A",
+    "S2C_15TVG_20250309_1_L2A"
+  ],
+  "patch_limit": null
+}

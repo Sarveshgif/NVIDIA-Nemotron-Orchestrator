@@ -1,0 +1,31 @@
+{
+  "state": "ALABAMA",
+  "year": 2025,
+  "planned_tiles": 387,
+  "completed_tiles": 2,
+  "complete": false,
+  "corn_acres": 75.9354837248599,
+  "patches": 85,
+  "blocks": [
+    "AL25-35_46-B143_184",
+    "AL25-35_46-B143_185",
+    "AL25-35_46-B143_186",
+    "AL25-35_46-B143_187",
+    "AL25-35_47-B142_191",
+    "AL25-35_47-B143_188",
+    "AL25-35_47-B143_189",
+    "AL25-35_47-B143_190",
+    "AL25-35_47-B143_191"
+  ],
+  "errors_this_run": [
+    {
+      "tile": "AL25-35_48",
+      "error_type": "ConnectTimeout"
+    },
+    {
+      "tile": "AL25-35_45",
+      "error_type": "ConnectTimeout"
+    }
+  ],
+  "note": "Mapped CDL corn acreage, not official harvested acreage; no scaling to NASS totals."
+}

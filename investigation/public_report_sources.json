@@ -1,0 +1,31 @@
+{
+  "sources": [
+    {
+      "source_id": "umd-md-september-2021",
+      "url": "https://blog.umd.edu/agronomynews/2021/09/07/maryland-regional-crop-reports-september-2021/",
+      "title": "Maryland Regional Crop Reports: September 2021",
+      "year": 2021,
+      "state_alpha": "MD",
+      "published_on": "2021-09-07",
+      "scope": "regional"
+    },
+    {
+      "source_id": "umd-md-september-conditions-2022",
+      "url": "https://blog.umd.edu/agronomynews/2022/09/06/maryland-regional-crop-reports-august-2022/",
+      "title": "Maryland Regional Crop Reports: August 2022",
+      "year": 2022,
+      "state_alpha": "MD",
+      "published_on": "2022-09-06",
+      "scope": "regional"
+    },
+    {
+      "source_id": "umd-md-september-2023",
+      "url": "https://blog.umd.edu/agronomynews/2023/09/12/maryland-regional-crop-reports-september-2023/",
+      "title": "Maryland Regional Crop Reports: September 2023",
+      "year": 2023,
+      "state_alpha": "MD",
+      "published_on": "2023-09-12",
+      "scope": "regional"
+    }
+  ]
+}

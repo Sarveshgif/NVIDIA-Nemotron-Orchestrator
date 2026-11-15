@@ -7,7 +7,11 @@
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
     "build:artifact": "tsc --noEmit && vite build --mode artifact && node scripts/to-artifact.mjs",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "agent:server": ".venv-investigation/bin/python -m investigation.server",
+    "agent:run": ".venv-investigation/bin/python -m investigation run",
+    "agent:test": ".venv-investigation/bin/python -m unittest discover -s tests/investigation -v",
+    "agent:models": ".venv-investigation/bin/python -m investigation inspect-models"
   },
   "dependencies": {
     "leaflet": "1.9.4",

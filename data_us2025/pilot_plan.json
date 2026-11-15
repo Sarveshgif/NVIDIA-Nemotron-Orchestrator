@@ -1,0 +1,67 @@
+{
+  "year": 2025,
+  "created_at": "2026-11-15T02:14:29.266029+00:00",
+  "scope": "regional pilot",
+  "bbox": [
+    -93.68,
+    42.0,
+    -93.65,
+    42.025
+  ],
+  "tile_km": 5,
+  "pixel_size_m": 10,
+  "boundary_source": "https://www2.census.gov/geo/tiger/GENZ2025/shp/cb_2025_us_county_20m.zip",
+  "boundary_note": "Generalized Census counties are planning footprints, not field boundaries. Coastal planning geometry is approximate.",
+  "states": [
+    "19"
+  ],
+  "county_count": 1,
+  "unsupported_coverage": {
+    "72": "Puerto Rico: outside configured CDL services",
+    "02": "Alaska: no verified 2025 CDL layer in the configured services"
+  },
+  "corn_codes": {
+    "1": "Corn",
+    "225": "Winter wheat/corn",
+    "226": "Oats/corn",
+    "228": "Triticale/corn",
+    "237": "Barley/corn",
+    "241": "Corn/soybeans"
+  },
+  "tiles": [
+    {
+      "id": "CONUS-5km-38_422",
+      "region": "CONUS",
+      "epsg": 5070,
+      "bounds": [
+        190000,
+        2110000,
+        195000,
+        2115000
+      ],
+      "states": [
+        "19"
+      ],
+      "counties": [
+        "19169"
+      ]
+    },
+    {
+      "id": "CONUS-5km-38_423",
+      "region": "CONUS",
+      "epsg": 5070,
+      "bounds": [
+        190000,
+        2115000,
+        195000,
+        2120000
+      ],
+      "states": [
+        "19"
+      ],
+      "counties": [
+        "19169"
+      ]
+    }
+  ]
+}
