@@ -1,0 +1,36 @@
+NL loaded: tokens 371050 train 4243 val 2671 test 1847
+BARC interior pixels inside chip: mean {24: 0.6922597661263734, 64: 0.9990081604773102} min {24: 0.1989409984871407, 64: 0.9720121028744326}
+./.venv/lib/python3.10/site-packages/torch/nn/modules/transformer.py:385: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(
+check {'variant': 's2', 'seed': 1, 'thr_saved': 0.8799999999999999, 'thr_rebuilt': 0.8799999999999999, 'nl_bal_saved': 0.6864207034000454, 'nl_bal_rebuilt': np.float64(0.6864207034000454), 'nl_auc_saved': 0.760591576862029, 'nl_auc_rebuilt': 0.760591576862029}
+./.venv/lib/python3.10/site-packages/torch/nn/modules/transformer.py:385: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(
+check {'variant': 's2', 'seed': 2, 'thr_saved': 0.8999999999999999, 'thr_rebuilt': 0.8999999999999999, 'nl_bal_saved': 0.6706288114758989, 'nl_bal_rebuilt': np.float64(0.6706288114758989), 'nl_auc_saved': 0.7297059420237967, 'nl_auc_rebuilt': 0.7297059420237967}
+./.venv/lib/python3.10/site-packages/torch/nn/modules/transformer.py:385: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(
+check {'variant': 's2', 'seed': 3, 'thr_saved': 0.8499999999999999, 'thr_rebuilt': 0.8499999999999999, 'nl_bal_saved': 0.7058152232286706, 'nl_bal_rebuilt': np.float64(0.7058152232286706), 'nl_auc_saved': 0.7426664518515866, 'nl_auc_rebuilt': 0.7426664518515866}
+./.venv/lib/python3.10/site-packages/torch/nn/modules/transformer.py:385: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(
+check {'variant': 's2s1', 'seed': 1, 'thr_saved': 0.8799999999999999, 'thr_rebuilt': 0.8799999999999999, 'nl_bal_saved': 0.7461243779313308, 'nl_bal_rebuilt': np.float64(0.7461243779313308), 'nl_auc_saved': 0.7927646104089842, 'nl_auc_rebuilt': 0.7927646104089842}
+./.venv/lib/python3.10/site-packages/torch/nn/modules/transformer.py:385: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(
+check {'variant': 's2s1', 'seed': 2, 'thr_saved': 0.8699999999999999, 'thr_rebuilt': 0.8699999999999999, 'nl_bal_saved': 0.7102890456243361, 'nl_bal_rebuilt': np.float64(0.7102890456243361), 'nl_auc_saved': 0.7863380592650937, 'nl_auc_rebuilt': 0.7863380592650937}
+./.venv/lib/python3.10/site-packages/torch/nn/modules/transformer.py:385: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(
+check {'variant': 's2s1', 'seed': 3, 'thr_saved': 0.8699999999999999, 'thr_rebuilt': 0.8699999999999999, 'nl_bal_saved': 0.6866757963075675, 'nl_bal_rebuilt': np.float64(0.6866757963075675), 'nl_auc_saved': 0.7427305980213145, 'nl_auc_rebuilt': 0.7427305980213145}
+./.venv/lib/python3.10/site-packages/torch/nn/modules/transformer.py:385: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(
+check {'variant': 's2s1_nocnn', 'seed': 1, 'thr_saved': 0.8599999999999999, 'thr_rebuilt': 0.8599999999999999, 'nl_bal_saved': 0.6996795675056389, 'nl_bal_rebuilt': np.float64(0.6996795675056389), 'nl_auc_saved': 0.7825400093086536, 'nl_auc_rebuilt': 0.7825400093086536}
+./.venv/lib/python3.10/site-packages/torch/nn/modules/transformer.py:385: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(
+check {'variant': 's2s1_nocnn', 'seed': 2, 'thr_saved': 0.8699999999999999, 'thr_rebuilt': 0.8699999999999999, 'nl_bal_saved': 0.7414029214850882, 'nl_bal_rebuilt': np.float64(0.7414029214850882), 'nl_auc_saved': 0.7980723330111106, 'nl_auc_rebuilt': 0.7980723330111106}
+./.venv/lib/python3.10/site-packages/torch/nn/modules/transformer.py:385: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(
+check {'variant': 's2s1_nocnn', 'seed': 3, 'thr_saved': 0.8799999999999999, 'thr_rebuilt': 0.8799999999999999, 'nl_bal_saved': 0.7331534257038177, 'nl_bal_rebuilt': np.float64(0.7331534257038177), 'nl_auc_saved': 0.7895140405523134, 'nl_auc_rebuilt': 0.7895140405523134}
+s2 | chip 24             bal 0.804±0.068 AUC 0.915±0.031 | ensemble bal 0.833 AUC 0.938 TP 8 FN 4 FP 0 TN 32
+s2 | chip 64             bal 0.793±0.032 AUC 0.913±0.037 | ensemble bal 0.833 AUC 0.940 TP 8 FN 4 FP 0 TN 32
+s2s1 | chip 24           bal 0.832±0.079 AUC 0.962±0.034 | ensemble bal 0.833 AUC 0.992 TP 8 FN 4 FP 0 TN 32
+s2s1 | chip 64           bal 0.832±0.079 AUC 0.955±0.037 | ensemble bal 0.833 AUC 0.987 TP 8 FN 4 FP 0 TN 32
+s2s1_nocnn | chip 24     bal 0.844±0.030 AUC 0.934±0.006 | ensemble bal 0.917 AUC 0.969 TP 10 FN 2 FP 0 TN 32
+s2s1_nocnn | chip 64     bal 0.839±0.026 AUC 0.930±0.008 | ensemble bal 0.901 AUC 0.971 TP 10 FN 2 FP 1 TN 31
+BARC_DEEP_DONE

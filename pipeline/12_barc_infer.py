@@ -73,7 +73,12 @@ for y in YEARS:
     s1g, orbit = {}, None
     if (R / "s1" / "s1_BARC.parquet").exists():
         s1 = pd.read_parquet(R / "s1" / "s1_BARC.parquet")
-        orbit = int(s1.groupby("rel_orbit").date.nunique().idxmax()); s1g = dict(tuple(s1[s1.rel_orbit == orbit].groupby("field_id")))
+        # One relative orbit per area, as in training. NL used "most dates", which there equals "covers the block".
+        # Over BARC, orbit 106 has more dates but only clips the area edge (1-7 fields); choose by field-date rows
+        # (= coverage x revisits). Default HTH_S1_ORBIT_RULE=rows; "dates" reproduces the NL rule (first BARC run).
+        rule = os.environ.get("HTH_S1_ORBIT_RULE", "rows")
+        cnt = s1.groupby("rel_orbit").date.nunique() if rule == "dates" else s1.groupby("rel_orbit").size()
+        orbit = int(cnt.idxmax()); s1g = dict(tuple(s1[s1.rel_orbit == orbit].groupby("field_id")))
     for r in fl.itertuples():
         F = dict(field_id=r.field_id, year=y, OBJECTID=int(r.field_id[3:]), eligible=bool(r.eligible), excl_reason=r.excl_reason,
                  area_ha=r.area_utm_ha, n_interior_px=int(r.n_interior_px), s1_orbit=orbit)

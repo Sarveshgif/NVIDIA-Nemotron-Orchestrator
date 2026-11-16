@@ -1,0 +1,181 @@
+{
+ "model": "console RF (E2 rf_s2_s1), NL threshold/calibration, nothing tuned on BARC",
+ "threshold": 0.8799999999999999,
+ "review_band": [
+  0.832373255793456,
+  0.9154690727495013
+ ],
+ "reproduction": {
+  "val_auc_saved": 0.7120443236196562,
+  "val_auc_refit": 0.7120443236196562,
+  "n_compared": 1847,
+  "max_abs_diff_p": 3.3306690738754696e-16,
+  "same_class_share": 1.0
+ },
+ "n_reference": 44,
+ "n_scored": 44,
+ "not_scored": [],
+ "overall": {
+  "n": 44,
+  "n_silage": 12,
+  "n_grain": 32,
+  "tp": 9,
+  "fp": 1,
+  "fn": 3,
+  "tn": 31,
+  "precision_silage": 0.9,
+  "recall_silage": 0.75,
+  "precision_grain": 0.9117647058823529,
+  "recall_grain": 0.96875,
+  "fpr_silage": 0.03125,
+  "accuracy": 0.9090909090909091,
+  "f1_silage": 0.8181818181818182,
+  "f1_grain": 0.9393939393939394,
+  "balanced_accuracy": 0.859375,
+  "roc_auc": 0.9479166666666666
+ },
+ "by_year": {
+  "2021": {
+   "n": 18,
+   "n_silage": 4,
+   "n_grain": 14,
+   "tp": 3,
+   "fp": 0,
+   "fn": 1,
+   "tn": 14,
+   "precision_silage": 1.0,
+   "recall_silage": 0.75,
+   "precision_grain": 0.9333333333333333,
+   "recall_grain": 1.0,
+   "fpr_silage": 0.0,
+   "accuracy": 0.9444444444444444,
+   "f1_silage": 0.8571428571428571,
+   "f1_grain": 0.9655172413793104,
+   "balanced_accuracy": 0.875,
+   "roc_auc": 0.9464285714285714
+  },
+  "2022": {
+   "n": 7,
+   "n_silage": 4,
+   "n_grain": 3,
+   "tp": 3,
+   "fp": 0,
+   "fn": 1,
+   "tn": 3,
+   "precision_silage": 1.0,
+   "recall_silage": 0.75,
+   "precision_grain": 0.75,
+   "recall_grain": 1.0,
+   "fpr_silage": 0.0,
+   "accuracy": 0.8571428571428571,
+   "f1_silage": 0.8571428571428571,
+   "f1_grain": 0.8571428571428571,
+   "balanced_accuracy": 0.875,
+   "roc_auc": 1.0
+  },
+  "2023": {
+   "n": 19,
+   "n_silage": 4,
+   "n_grain": 15,
+   "tp": 3,
+   "fp": 1,
+   "fn": 1,
+   "tn": 14,
+   "precision_silage": 0.75,
+   "recall_silage": 0.75,
+   "precision_grain": 0.9333333333333333,
+   "recall_grain": 0.9333333333333333,
+   "fpr_silage": 0.06666666666666667,
+   "accuracy": 0.8947368421052632,
+   "f1_silage": 0.75,
+   "f1_grain": 0.9333333333333333,
+   "balanced_accuracy": 0.8416666666666667,
+   "roc_auc": 0.9666666666666667
+  }
+ },
+ "missing_input_share": {
+  "barc": 0.029797979797979803,
+  "nl_test": 0.12509976137480197
+ },
+ "inference": {
+  "seconds": 0.04143610503524542,
+  "n": 44,
+  "note": "from cached features, lab CPU; excludes imagery retrieval"
+ },
+ "auto_decided": {
+  "coverage": 0.75,
+  "n": 33,
+  "n_silage": 7,
+  "n_grain": 26,
+  "tp": 6,
+  "fp": 0,
+  "fn": 1,
+  "tn": 26,
+  "precision_silage": 1.0,
+  "recall_silage": 0.8571428571428571,
+  "precision_grain": 0.9629629629629629,
+  "recall_grain": 1.0,
+  "fpr_silage": 0.0,
+  "accuracy": 0.9696969696969697,
+  "f1_silage": 0.923076923076923,
+  "f1_grain": 0.9811320754716981,
+  "balanced_accuracy": 0.9285714285714286,
+  "roc_auc": 0.9505494505494505
+ },
+ "rules_orig": {
+  "coverage": 0.06818181818181818,
+  "n": 3,
+  "n_silage": 2,
+  "n_grain": 1,
+  "tp": 2,
+  "fp": 1,
+  "fn": 0,
+  "tn": 0,
+  "precision_silage": 0.6666666666666666,
+  "recall_silage": 1.0,
+  "precision_grain": NaN,
+  "recall_grain": 0.0,
+  "fpr_silage": 1.0,
+  "accuracy": 0.6666666666666666,
+  "f1_silage": 0.8,
+  "f1_grain": NaN,
+  "balanced_accuracy": 0.5
+ },
+ "rules_adapted": {
+  "coverage": 0.8863636363636364,
+  "n": 39,
+  "n_silage": 12,
+  "n_grain": 27,
+  "tp": 12,
+  "fp": 25,
+  "fn": 0,
+  "tn": 2,
+  "precision_silage": 0.32432432432432434,
+  "recall_silage": 1.0,
+  "precision_grain": 1.0,
+  "recall_grain": 0.07407407407407407,
+  "fpr_silage": 0.9259259259259259,
+  "accuracy": 0.358974358974359,
+  "f1_silage": 0.489795918367347,
+  "f1_grain": 0.13793103448275862,
+  "balanced_accuracy": 0.537037037037037
+ },
+ "acreage_ha": {
+  "declared_silage": 104.76800623620046,
+  "declared_grain": 193.08346501025648,
+  "threshold_silage": 84.22285868773417,
+  "threshold_grain": 213.6286125587228,
+  "expected_silage": 236.0632882966961,
+  "expected_grain": 61.78818294976085
+ },
+ "ci95_field_cluster_bootstrap": {
+  "balanced_accuracy": [
+   0.7156152037617556,
+   0.9857142857142858
+  ],
+  "roc_auc": [
+   0.8406029647435898,
+   1.0
+  ]
+ }
+}

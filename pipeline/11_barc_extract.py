@@ -29,11 +29,25 @@ def load_parcels(block):
 
 
 s2.load_parcels = load_parcels
-s2.process("BARC", chip_ids=[])
-p = s2.OUT / "fields_BARC.parquet"
-f = pd.read_parquet(p).drop(columns=["label", "code", "crop_name"], errors="ignore")
-f.to_parquet(p)
-s2.log(f"BARC {YEAR}: collection {s2.S2_COLLECTION}; fields {len(f)}, eligible {int(f.eligible.sum())}, "
-       f"excluded {f.excl_reason[f.excl_reason != ''].value_counts().to_dict()}")
-load("s1x", "03_extract_s1.py").process("BARC")
+BLOCKS = os.environ.get("HTH_BLOCKS", "BARC").split(",")   # several blocks when fields span S2 tiles
+# HTH_CHIP=N: also write N x N chips (10 m) centred on every field, for the CNN -> Transformer (13_barc_deep.py).
+# Use a separate HTH_BARC root for chip runs; HTH_SKIP_S1=1 skips S1 (link the s1/ folder from the main root).
+CHIP = os.environ.get("HTH_CHIP")
+if CHIP: s2.CHIP = int(CHIP)
+def run_block(blk):
+    s2.process(blk, chip_ids=None if CHIP else [])
+    p = s2.OUT / f"fields_{blk}.parquet"
+    f = pd.read_parquet(p).drop(columns=["label", "code", "crop_name"], errors="ignore")
+    f.to_parquet(p)
+    s2.log(f"{blk} {YEAR}: collection {s2.S2_COLLECTION}; fields {len(f)}, eligible {int(f.eligible.sum())}, "
+           f"excluded {f.excl_reason[f.excl_reason != ''].value_counts().to_dict()}")
+    if not os.environ.get("HTH_SKIP_S1") and f.eligible.any():
+        load("s1x", "03_extract_s1.py").process(blk)
+
+
+for blk in BLOCKS:
+    try:
+        run_block(blk)
+    except Exception as e:      # e.g. a block whose only field is too small: log it and continue with the next block
+        s2.log(f"{blk}: FAILED {type(e).__name__}: {e}")
 print("BARC_EXTRACT_DONE", YEAR)
