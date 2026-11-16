@@ -1,75 +1,186 @@
-# Harvest Console (prototype)
+# NVIDIA Nemotron Orchestrator — Hack the Harvest
 
-Console for reviewing whether corn fields were harvested for silage or grain. It holds two real-data datasets that
-are never mixed:
+Classifying corn fields as **harvested for silage or for grain** from satellite time series, with a calibrated
+**Random Forest** as the primary classifier and an **NVIDIA Nemotron** agent as a downstream investigator for the
+fields the RF is unsure about.
 
-1. **South-east Netherlands 2025 — validated (opens by default).** 1,847 held-out maize parcels from PDOK BRP 2025
-   (farmer-declared silage 259 / grain 316) with Sentinel-2 + Sentinel-1 evidence and Random Forest predictions from
-   a model trained on *other* regions in 2024 + 2025 (4,243 field-seasons). Held-out balanced accuracy 0.72, ROC-AUC
-   0.80 (rules: 0.50); a model trained on 2024 alone scores 0.69 on 2025. Pipeline, evaluation, label
-   audit and limitations: [`pipeline/README.md`](pipeline/README.md); demo script: [`pipeline/PRESENTATION.md`](pipeline/PRESENTATION.md).
-   Data: `public/nl/` (reference labels in a separate file, read only by Reports → evaluation).
-2. **Tulare County, CA 2023 — rule-based, unvalidated.** Described below.
+> Built for the Hack the Harvest hackathon. Original team repository: `pavan-nuthi/hack-the-harvest`
+> (commit history preserved here). The earlier console README is kept in [`HARVEST_CONSOLE.md`](HARVEST_CONSOLE.md).
 
-Tulare County, CA, 2023 season:
+---
 
-- **Field outlines:** [DWR 2023 Statewide Crop Mapping](https://data.cnra.ca.gov/dataset/statewide-crop-mapping),
-  crop code F16 (corn, sorghum or sudan), 48 fields in four sample areas.
-- **Evidence:** Copernicus Sentinel-2 L2A (cloud-masked NDVI / LSWI per clear look, 3 × 2 sub-field grid, true-colour
-  and NDVI image chips) and Sentinel-1 RTC (VV / VH backscatter, one relative orbit), via Microsoft Planetary Computer.
-- **Predictions:** rule-based (`src/lib/rules.ts`). There is no trained ML model yet, and **no ground truth**: labels
-  only become trusted when an analyst reviews them. The review history starts empty.
+## 1. Problem statement
 
-Contains modified Copernicus Sentinel data 2023.
+Corn (maize) is grown for two very different end uses:
+
+- **Silage** — the whole green plant is chopped while still moist (roughly 60–70 % moisture) and fermented as cattle feed.
+- **Grain** — the crop is left to dry down in the field and only the kernels are harvested weeks later.
+
+Knowing which is which, field by field, matters for crop-production statistics, feed and grain supply estimates,
+insurance and carbon/residue accounting. But public crop maps (e.g. USDA Cropland Data Layer) only say **"corn"**.
+The challenge: **infer silage vs grain from what satellites can see** — how long a field stays green, how it dries
+down, and when (and how abruptly) the canopy disappears — and do it honestly, with real labels, held-out
+evaluation and a reviewable trail of evidence.
+
+What makes it hard:
+
+| Difficulty | Why it matters |
+|---|---|
+| No US field-level labels | CDL does not separate silage from grain, so a model needs labels from elsewhere. |
+| Clouds in autumn | The harvest window (Sep–Nov) is the cloudiest; median clear-sky gap in NL autumn ≈ 23 days. |
+| Similar phenology | Silage is cut green, grain dries first — but timing varies by hybrid, year and weather. |
+| Class imbalance | Grain is ~12 % of fields in the study area, so precision on grain is the weak point. |
+| Labels are declarations | Farmers declare *intended* use in spring; a field declared grain may still be chopped. |
+
+## 2. Approach at a glance
+
+```
+ Field polygons + labels                Satellite evidence                       Decision
+ ───────────────────────     ─────────────────────────────────────     ──────────────────────────────
+ Dutch BRP parcels  ───────▶ Sentinel-2 L2A (NDVI, LSWI, NDRE, bands) ─▶ Random Forest (135 features)
+ (silage 259 / grain 316)    Sentinel-1 RTC (VV, VH, VH/VV, dB)          calibrated p(silage), p(grain)
+ BARC corn 2021–2023         2×2 within-field zones                                │
+ (US dev set, 44 fields)                                                           ▼
+                                                              max class score ≥ 0.80 ──▶ keep RF label
+                                                              max class score < 0.80 ──▶ Nemotron investigation
+                                                                                          │  Sentinel trajectories
+                                                                                          │  Daymet weather + history
+                                                                                          │  USGS 3DEP elevation
+                                                                                          │  v4 rulebook finding
+                                                                                          │  NASS / public reports
+                                                                                          ▼
+                                                                      cited GRAIN / SILAGE hypothesis
+                                                                      (falls back to RF if it fails)
+```
+
+## 3. Stage 1 — Random Forest (`pipeline/`, `rf_silage_grain_models/`)
+
+**Why the Netherlands.** No public US source labels individual corn fields as silage vs grain. The Dutch parcel
+register (PDOK BRP) does: crop code **259 "Mais, snij-"** (silage) and **316 "Mais, korrel-"** (grain), open and
+geometry-complete. That gives a real train/test evaluation.
+
+**Data.** 20 blocks (~10 × 10 km) in south-east NL, 2024 + 2025 → 5,169 (2025) and 5,446 (2024) eligible fields
+(≥ 50 interior 10 m pixels). Sentinel-2 L2A from Element84 Earth Search; Sentinel-1 RTC from Microsoft Planetary
+Computer. No interpolation: features are half-month medians of real clear looks, NaN when none exist.
+
+**Model.** 500-tree class-balanced Random Forest, one row per field; median imputation + missing indicators;
+hyper-parameters picked on validation ROC-AUC; threshold picked on validation for balanced accuracy; Platt
+calibration on validation. Observation counts / gap lengths are deliberately **excluded** (they track tile
+overlap, not crop). Final feature set: **S2 summaries + within-field zones + S1 radar** (135 features,
+contract `rf_s2s1_135_v1`).
+
+**Evaluation — held-out regions, never used for fitting or tuning** (train: Limburg-mid, Peel, Kempen;
+val: NE Brabant, Echt; test: Limburg-south, Limburg-north, Gelderland-east; 1,847 test fields in 2025):
+
+| Model (same 1,847 test fields) | Coverage | Bal. acc. | ROC-AUC | Grain P / R |
+|---|---|---|---|---|
+| Always silage | 100 % | 0.50 | — | — / 0.00 |
+| Original rulebook (Tulare thresholds) | 31 % | 0.50 | 0.49 | 0.00 / 0.00 |
+| Rulebook, thresholds re-tuned | 79 % | 0.54 | 0.59 | 0.39 / 0.11 |
+| RF · S2 only | 100 % | 0.69 | 0.77 | 0.23 / 0.68 |
+| **RF · S2 + zones + S1 (deployed)** | 100 % | **0.72** | **0.80** | 0.24 / 0.73 |
+| CNN → Transformer · S2 + S1 (3 seeds, RTX 4070 Ti) | 100 % | 0.71 ± 0.02 | 0.77 | |
+| Transformer on field means · S2 + S1 (3 seeds) | 100 % | 0.73 ± 0.02 | 0.79 | |
+
+95 % block-bootstrap CI for the deployed RF: balanced accuracy 0.61–0.79, ROC-AUC 0.71–0.86.
+With a **review band** (30 % of validation fields nearest the threshold go to an analyst) the 76 % of test fields
+decided automatically reach balanced accuracy 0.77 and grain recall 0.81. Calibrated scores also give much better
+acreage totals than hard calls (grain 699 ha vs 599 ha declared, +17 %, instead of 3.1× with hard labels).
+
+Key findings: radar helps most when autumn clouds hide the optical signal (simulated Sep 1–Oct 15 gap: AUC
+0.74 → 0.79); a model trained on 2024 alone still reaches 0.69 on 2025; deep models tie the RF but don't beat it,
+so the faster RF stays. Full method, ablations, label audit and limitations: [`pipeline/README.md`](pipeline/README.md).
+
+**US transfer.** `rf_us_barc_recalibrated.joblib` re-fits only the probability mapping on 44 BARC (Beltsville, MD)
+corn field-years, 2021–2023 (`BARC Corn 2021-2023.gpkg`). Because those labels were used for calibration, BARC
+numbers are **development results, not held-out accuracy**.
+
+## 4. Stage 2 — Nemotron downstream investigation (`investigation/`)
+
+The RF is good on average but weakest exactly where the satellite record is ambiguous. Stage 2 spends extra effort
+only on those fields, using **`nvidia/nemotron-3.5-super-vl-120b-a12b`** via the NVIDIA API as a tool-using agent.
+
+**Routing.** If the RF's assigned-class score is **≥ 0.80**, the RF label is kept and no model or external call is
+made. Below 0.80 (or on missing quality, contradictions, review band or unvalidated geography) the field is
+investigated.
+
+**Evidence the backend gathers before calling Nemotron** (`INVESTIGATION_PREFETCH_EVIDENCE=true`):
+
+| Tool / source | What it adds |
+|---|---|
+| Sentinel-2 / Sentinel-1 (`sentinel.py`) | Field-masked NDVI and sub-field statistics on a 20 m grid; VV/VH radar from one orbit/pass |
+| v4 rulebook (`rulebook_v4.py`) | Deterministic dry-down / abrupt-drop finding, or UNRESOLVED with the reason |
+| Daymet V4 (`weather.py`, `historical_context.py`) | Daily weather, corn GDD, frost, rain around radar dates, 30/60/90-day anomalies vs 1981–2010 |
+| USGS 3DEP (`tools.py`) | Field elevation statistics |
+| NASS Quick Stats, curated UMD reports | State crop progress / regional context (never used to label a single field) |
+
+**What Nemotron must return.** A structured `evaluate_evidence` call with a **GRAIN or SILAGE** hypothesis,
+qualitative evidence strength, cited evidence IDs and reason codes. It may not invent facts, dates, URLs or
+probabilities. The backend (`policy.py`, `assessment.py`) validates every citation and prerequisite.
+
+**Safeguards.**
+- Original RF probabilities are never changed; `final_probability` stays `null` (no fusion calibration was trained).
+- Hard budgets: ≤ 8 tool attempts, ≤ 6 model rounds, ≤ 30 public HTTP requests, 180 s per field; bounded format corrections.
+- If Nemotron times out, fails or exhausts corrections, the field falls back to the RF label (`rf_fallback`) and the failure is logged.
+- Reference labels are only joined *after* predictions are frozen (SHA-256 recorded); no inference path reads them.
+- Retrieved web text is treated as untrusted data, never as instructions.
+
+### Measured effect so far (BARC development set, `public/barc/evaluation.json`)
+
+| | RF only | RF + Nemotron |
+|---|---|---|
+| Fields (high-score kept / investigated) | 44 | 35 / 9 |
+| Correct | 37 / 44 (84.1 %) | 37 / 44 (84.1 %) |
+| Investigated fields correct | 6 / 9 | 6 / 9 |
+| Labels changed by Nemotron | — | 0 |
+| Mean backend time, investigated field | — | ~46 s |
+
+**Honest read:** on this small development set Nemotron agreed with the RF on every investigated field, so it has
+**not yet shown an accuracy gain**. What it adds today is an auditable, source-cited explanation for every uncertain
+field (weather, radar, rulebook evidence) instead of a bare score. Demonstrating improvement needs an independent
+held-out labelled set — see next steps.
+
+## 5. Repository layout
+
+| Path | Contents |
+|---|---|
+| `pipeline/` | NL data pipeline: block scan → S2/S1 extraction → features → RF/rules/deep models → console export; results and figures |
+| `rf_silage_grain_models/` | Saved RF bundles (`rf_nl_console.joblib`, `rf_us_barc_recalibrated.joblib`), `predict.py`, 135-feature contract |
+| `investigation/` | RF + Nemotron backend ("Cornstellation"): routing, tools, NVIDIA transport, policy, CLI and FastAPI server |
+| `tests/investigation/` | Unit tests for the agent protocol and prediction policy |
+| `data_barc_rules/` | BARC 2021–2023 observations, v4 rulebook outputs, Nemotron reviews, evaluations |
+| `data_alabama2025/` | Alabama 2025 CDL tiles and patch inventory (US expansion work) |
+| `public/` | Console data: `nl/` (held-out NL predictions + chips), `barc/` (reports and evaluation) |
+| `src/` | Harvest Console — React + TypeScript + Leaflet analyst UI |
+
+## 6. Running it
 
 ```bash
+# Analyst console
 npm install
-npm run dev              # local dev server
-npm run build            # standard static build → dist/
-npm run build:artifact   # single-file build → dist-artifact/harvest-console.html
+npm run dev
+
+# RF + Nemotron backend
+python3 -m venv .venv-investigation
+.venv-investigation/bin/pip install -r investigation/requirements.lock.txt
+cp investigation/config.example.env .env.investigation   # add NVIDIA_API_KEY (never commit it)
+npm run agent:test                                       # unit tests
+npm run agent:server                                     # http://127.0.0.1:8788/docs
 ```
 
-Refresh the data (Python 3, standard venv):
+Reproducing the NL pipeline (≈ 4 GB cache, GPU optional for the deep models) is documented step by step in
+[`pipeline/README.md`](pipeline/README.md). Satellite and parcel downloads are anonymous public reads.
 
-```bash
-python3 scripts/fetch-dwr-fields.py                      # field outlines → src/data/dwrFields.ts
-python3 -m venv .venv && .venv/bin/pip install pystac-client planetary-computer rasterio numpy pyproj shapely pillow
-.venv/bin/python scripts/fetch-sentinel.py               # → src/data/sentinel2023.json + public/s2/<field>/<date>_{rgb,ndvi}.jpg
-```
+## 7. Limitations and next steps
 
-## Where things live
+- Labels are farmer-declared intended use, not verified harvest outcome.
+- Two years, one region of one country; US transfer is only checked on 44 BARC fields used for calibration.
+- Grain precision is low (≈ 0.24 at 11 % prevalence) — grain calls need review.
+- Next: an untouched US labelled set to measure whether the Nemotron stage actually changes errors; tune the 0.80
+  routing gate on held-out data; add earlier-season (in-season) estimates (data to Oct 31 already gives 0.70).
 
-| Path | Purpose |
-| --- | --- |
-| `src/types.ts` | Typed models: fields, predictions, observations, subregions, decisions, history |
-| `src/data/dwrFields.ts` | Real corn field outlines (DWR 2023, 4 clusters × 12), with DWR `UniqueID`s |
-| `src/data/sentinel2023.json` | Real per-field Sentinel-2 / Sentinel-1 series (generated) |
-| `src/data/generate.ts` | Builds fields, evidence, review flags and showcase examples from the real data |
-| `public/s2/` | Sentinel-2 image chips per field and clear date (generated) |
-| `src/services/analysisService.ts` | Data access layer. Replace these functions with real API calls |
-| `src/lib/acreage.ts` | Single source of acreage allocation; summaries, map and CSV all use it |
-| `src/lib/rules.ts` | Rule set: time-series features, weak labels (silage / grain / abstain), rule-based predictions |
-| `src/components/WeakLabelsView.tsx` | Weak labels tab: tune thresholds, compare with analysts, export a training CSV |
-| `src/lib/priority.ts` | Explainable queue ranking |
-| `src/state/store.ts` | App state, decisions, undo, browser persistence |
-| `src/components/` | UI |
+## Data sources and licences
 
-Review decisions are stored in `localStorage` only. There is no backend or multi-user storage.
-
-## Predictions and weak labels
-
-There is no trained model yet, so predictions are **rule-based** (`src/lib/rules.ts`): silage = still green
-(NDVI ≥ 0.60) with ≤ 14 days of dry-down before an abrupt drop; grain = ≥ 25 days of dry-down with NDVI ≤ 0.55 before
-the drop. Fields with too few clear looks, a cloud gap over the drop or optical/radar timing disagreement abstain.
-The **Prediction** toggle in the top bar has an **ML model** option that stays disabled until a trained model's
-predictions are served (`ML_AVAILABLE` in `src/lib/format.ts`).
-
-The **Weak labels** tab runs the same rules as a labelling function. Analyst silage/grain decisions override weak labels,
-and the export (`training_label`, `label_source`) is the starting training set for the first model. Weak labels are not
-ground truth: test any model on analyst-reviewed fields held out by area and year.
-
-## RF + Nemotron investigation backend
-
-The scoped investigation backend adds Daymet weather, USGS elevation, public-record search around existing RF predictions, with NASS acreage comparisons kept separate. Setup, inputs, credentials, limitations and evaluation commands: [investigation/README.md](investigation/README.md).
-
-After setup, start `npm run agent:server` and open `http://127.0.0.1:8788/docs`. The existing dashboard is unchanged.
+PDOK BRP Gewaspercelen 2024/2025 (open data) · Copernicus Sentinel-2 L2A and Sentinel-1 RTC (Copernicus open
+licence; via Element84 Earth Search / AWS Open Data and Microsoft Planetary Computer) · Daymet V4 (ORNL DAAC) ·
+USGS 3DEP · USDA NASS Quick Stats · DWR 2023 Statewide Crop Mapping. Contains modified Copernicus Sentinel data.
