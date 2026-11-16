@@ -1,0 +1,45 @@
+{
+ "state": "RHODE ISLAND",
+ "fields": 102,
+ "acres": 1069,
+ "nass": {
+  "silage": "1,000"
+ },
+ "v4": {
+  "silage_acres": 717,
+  "grain_acres": 335,
+  "unresolved_acres": 16,
+  "silage_share_of_all": 0.671,
+  "silage_share_of_decided": 0.681,
+  "fields_by_outcome": {
+   "SILAGE strong": 60,
+   "GRAIN likely": 14,
+   "GRAIN strong": 22,
+   "UNRESOLVED ": 2,
+   "SILAGE lean": 3,
+   "SILAGE likely": 1
+  },
+  "fields_by_step": {
+   "0": 58,
+   "3": 13,
+   "6": 2,
+   "5": 3,
+   "1": 23,
+   "4": 2,
+   "2": 1
+  }
+ },
+ "rf": {
+  "silage_acres": 438,
+  "grain_acres": 630,
+  "silage_share": 0.41
+ },
+ "agreement": {
+  "silage / rf grain": 38,
+  "silage / rf silage": 26,
+  "grain / rf grain": 30,
+  "grain / rf silage": 6,
+  "unresolved / rf silage": 1,
+  "unresolved / rf grain": 1
+ }
+}

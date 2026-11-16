@@ -1,0 +1,158 @@
+{
+ "dataset": "FINAL untouched NL 40 (seed 2027), code e2dab300c772",
+ "version": "rulebook-v7",
+ "thresholds": {
+  "v6": {
+   "season": [
+    "04-15",
+    "10-15"
+   ],
+   "peak_min": 0.6,
+   "greenup_below_peak": 0.3,
+   "spring_window": [
+    "03-01",
+    "05-15"
+   ],
+   "trough": 0.35,
+   "drop": 0.2,
+   "max_gap": 15,
+   "after_max": 0.35,
+   "radar_drop": 1.5,
+   "radar_side_days": 24,
+   "wet_vv": 1.0,
+   "persist_days": 20,
+   "persist_max": 0.4,
+   "close_days": 10,
+   "weak_days": 20,
+   "green": 0.55,
+   "dry": 0.5,
+   "decline_below_peak": 0.15,
+   "decline_looks": 3,
+   "decline_span": 21,
+   "adequate_looks": 6,
+   "adequate_max_gap": 30,
+   "adequate_until": "11-30",
+   "regrow": 0.55,
+   "zone_min_looks": 6,
+   "zone_tol": 10,
+   "questionable_clear": 0.8
+  },
+  "grain_pathway": {
+   "dry_end": 0.5,
+   "decline_below_peak": 0.15,
+   "min_looks": 3,
+   "min_span": 21,
+   "max_age": 20,
+   "green": 0.55,
+   "radar_drop": 1.5,
+   "wet_vv": 1.0
+  }
+ },
+ "rf_exclusion": {
+  "sample_split": [
+   "test"
+  ],
+  "sample_regions": [
+   "GE-east",
+   "LI-north",
+   "LI-south"
+  ],
+  "regions_in_2025_train_val": [],
+  "regions_in_2024_train_val": [],
+  "all_have_rf_prediction": true,
+  "statement": "RF (E2) fitted on train-region and tuned/calibrated on val-region field-seasons of 2024+2025; these fields are 2025 test-region fields, never used for RF training or tuning."
+ },
+ "v7": {
+  "confusion": {
+   "silage": {
+    "review": 13,
+    "silage": 6,
+    "grain": 1
+   },
+   "grain": {
+    "grain": 3,
+    "silage": 8,
+    "review": 9
+   }
+  },
+  "coverage": "18/40",
+  "decided_accuracy": 0.5,
+  "precision_silage": 0.429,
+  "recall_silage_incl_abstentions": 0.3,
+  "precision_grain": 0.75,
+  "recall_grain_incl_abstentions": 0.15,
+  "false_calls": {
+   "silage": 8,
+   "grain": 1
+  }
+ },
+ "v6": {
+  "confusion": {
+   "silage": {
+    "review": 14,
+    "silage": 6
+   },
+   "grain": {
+    "review": 12,
+    "silage": 8
+   }
+  },
+  "coverage": "14/40",
+  "decided_accuracy": 0.429,
+  "precision_silage": 0.429,
+  "recall_silage_incl_abstentions": 0.3,
+  "precision_grain": null,
+  "recall_grain_incl_abstentions": 0.0,
+  "false_calls": {
+   "silage": 8,
+   "grain": 0
+  }
+ },
+ "rf": {
+  "confusion": {
+   "silage": {
+    "silage": 15,
+    "grain": 5
+   },
+   "grain": {
+    "grain": 15,
+    "silage": 5
+   }
+  },
+  "coverage": "40/40",
+  "decided_accuracy": 0.75,
+  "precision_silage": 0.75,
+  "recall_silage_incl_abstentions": 0.75,
+  "precision_grain": 0.75,
+  "recall_grain_incl_abstentions": 0.75,
+  "false_calls": {
+   "silage": 5,
+   "grain": 5
+  }
+ },
+ "v7_by_tier": {
+  "strong": {
+   "n": 3,
+   "correct": 1
+  },
+  "likely": {
+   "n": 15,
+   "correct": 8
+  }
+ },
+ "v7_review_reasons": {
+  "spring green cycle": 1,
+  "radar event 2025-08-15..2025-08-21 before the optical harvest while th": 1,
+  "radar change without a credible optical harvest": 18,
+  "optical-only harvest rests on a partly cloudy image": 1,
+  "credible harvest but preharvest condition ambiguous": 1
+ },
+ "grain_pathway_outcomes": {
+  "dry-grain pathway G1-G6": 4,
+  "G2 drying not established": 24,
+  "G2 drying does not end <= 0.5": 4,
+  "G5 intervening green-up": 3,
+  "G5 earlier credible green-cut harvest": 4,
+  "G4 last low-NDVI look 26 d before the radar event": 1
+ }
+}

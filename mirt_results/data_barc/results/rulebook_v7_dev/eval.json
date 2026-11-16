@@ -1,0 +1,142 @@
+{
+ "dataset": "DEV BARC 44",
+ "version": "rulebook-v7",
+ "thresholds": {
+  "v6": {
+   "season": [
+    "04-15",
+    "10-15"
+   ],
+   "peak_min": 0.6,
+   "greenup_below_peak": 0.3,
+   "spring_window": [
+    "03-01",
+    "05-15"
+   ],
+   "trough": 0.35,
+   "drop": 0.2,
+   "max_gap": 15,
+   "after_max": 0.35,
+   "radar_drop": 1.5,
+   "radar_side_days": 24,
+   "wet_vv": 1.0,
+   "persist_days": 20,
+   "persist_max": 0.4,
+   "close_days": 10,
+   "weak_days": 20,
+   "green": 0.55,
+   "dry": 0.5,
+   "decline_below_peak": 0.15,
+   "decline_looks": 3,
+   "decline_span": 21,
+   "adequate_looks": 6,
+   "adequate_max_gap": 30,
+   "adequate_until": "11-30",
+   "regrow": 0.55,
+   "zone_min_looks": 6,
+   "zone_tol": 10,
+   "questionable_clear": 0.8
+  },
+  "grain_pathway": {
+   "dry_end": 0.5,
+   "decline_below_peak": 0.15,
+   "min_looks": 3,
+   "min_span": 21,
+   "max_age": 20,
+   "green": 0.55,
+   "radar_drop": 1.5,
+   "wet_vv": 1.0
+  }
+ },
+ "rf_exclusion": "RF trained only on NL; BARC never used",
+ "v7": {
+  "confusion": {
+   "silage": {
+    "silage": 3,
+    "review": 9
+   },
+   "grain": {
+    "review": 30,
+    "grain": 2
+   }
+  },
+  "coverage": "5/44",
+  "decided_accuracy": 1.0,
+  "precision_silage": 1.0,
+  "recall_silage_incl_abstentions": 0.25,
+  "precision_grain": 1.0,
+  "recall_grain_incl_abstentions": 0.062,
+  "false_calls": {
+   "silage": 0,
+   "grain": 0
+  }
+ },
+ "v6": {
+  "confusion": {
+   "silage": {
+    "silage": 3,
+    "review": 9
+   },
+   "grain": {
+    "review": 32
+   }
+  },
+  "coverage": "3/44",
+  "decided_accuracy": 1.0,
+  "precision_silage": 1.0,
+  "recall_silage_incl_abstentions": 0.25,
+  "precision_grain": null,
+  "recall_grain_incl_abstentions": 0.0,
+  "false_calls": {
+   "silage": 0,
+   "grain": 0
+  }
+ },
+ "rf": {
+  "confusion": {
+   "silage": {
+    "silage": 9,
+    "grain": 3
+   },
+   "grain": {
+    "grain": 31,
+    "silage": 1
+   }
+  },
+  "coverage": "44/44",
+  "decided_accuracy": 0.909,
+  "precision_silage": 0.9,
+  "recall_silage_incl_abstentions": 0.75,
+  "precision_grain": 0.912,
+  "recall_grain_incl_abstentions": 0.969,
+  "false_calls": {
+   "silage": 1,
+   "grain": 3
+  }
+ },
+ "v7_by_tier": {
+  "strong": {
+   "n": 1,
+   "correct": 1
+  },
+  "likely": {
+   "n": 4,
+   "correct": 4
+  }
+ },
+ "v7_review_reasons": {
+  "optical-only harvest rests on a partly cloudy image": 1,
+  "radar change without a credible optical harvest": 13,
+  "CONFLICT": 1,
+  "observations adequate but no credible harvest event": 20,
+  "credible harvest but preharvest condition ambiguous": 2,
+  "spring green cycle": 2
+ },
+ "grain_pathway_outcomes": {
+  "G3 no radar VH decrease >= 1.5 dB after the peak": 24,
+  "G2 drying does not end <= 0.5": 1,
+  "dry-grain pathway G1-G6": 3,
+  "G5 intervening green-up": 5,
+  "G2 drying not established": 11
+ }
+}

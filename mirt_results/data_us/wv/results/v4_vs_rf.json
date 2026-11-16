@@ -1,0 +1,60 @@
+{
+ "state": "WEST VIRGINIA",
+ "fields": 289,
+ "acres": 8418,
+ "nass": {
+  "grain": "31,000",
+  "silage": "9,000"
+ },
+ "v4": {
+  "silage_acres": 1218,
+  "grain_acres": 6779,
+  "unresolved_acres": 421,
+  "silage_share_of_all": 0.145,
+  "silage_share_of_decided": 0.152,
+  "fields_by_outcome": {
+   "GRAIN likely": 82,
+   "SILAGE lean": 10,
+   "UNRESOLVED ": 31,
+   "GRAIN strong": 104,
+   "SILAGE strong": 61,
+   "SILAGE likely": 1
+  },
+  "fields_by_step": {
+   "3": 80,
+   "5": 10,
+   "6": 31,
+   "0": 145,
+   "1": 18,
+   "2": 2,
+   "4": 3
+  }
+ },
+ "rf": {
+  "silage_acres": 724,
+  "grain_acres": 7694,
+  "silage_share": 0.086
+ },
+ "agreement": {
+  "grain / rf grain": 169,
+  "silage / rf grain": 51,
+  "unresolved / rf grain": 27,
+  "grain / rf silage": 17,
+  "silage / rf silage": 21,
+  "unresolved / rf silage": 4
+ },
+ "ci95": {
+  "v4_silage_share_of_all": [
+   0.096,
+   0.207
+  ],
+  "v4_silage_share_of_decided": [
+   0.101,
+   0.219
+  ],
+  "rf_silage_share": [
+   0.049,
+   0.137
+  ]
+ }
+}

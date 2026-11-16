@@ -1,0 +1,9 @@
+{
+ "code_sha256_12": "e2dab300c772",
+ "seed": 2027,
+ "excluded": [
+  "./data/results_lenient_nl/predictions.csv",
+  "./data/results_lenient_nl_v4_seed7/predictions.csv",
+  "./data/sample_seed99_field_ids.csv"
+ ]
+}

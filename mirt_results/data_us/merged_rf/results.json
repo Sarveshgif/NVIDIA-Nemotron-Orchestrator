@@ -1,0 +1,128 @@
+{
+ "n_features": 160,
+ "val_auc": 0.715,
+ "params": {
+  "max_depth": 16,
+  "min_samples_leaf": 8,
+  "max_features": "sqrt"
+ },
+ "threshold": 0.8999999999999999,
+ "merged": {
+  "NL_test": {
+   "tp": 1086,
+   "fn": 557,
+   "fp": 46,
+   "tn": 158,
+   "recall_silage": 0.661,
+   "recall_grain": 0.775,
+   "precision_silage": 0.959,
+   "precision_grain": 0.221,
+   "balanced_accuracy": 0.718,
+   "roc_auc": 0.806
+  },
+  "BARC_44": {
+   "tp": 9,
+   "fn": 3,
+   "fp": 0,
+   "tn": 32,
+   "recall_silage": 0.75,
+   "recall_grain": 1.0,
+   "precision_silage": 1.0,
+   "precision_grain": 0.914,
+   "balanced_accuracy": 0.875,
+   "roc_auc": 0.964
+  },
+  "state_wv": {
+   "threshold_share": 0.039,
+   "threshold_ci95": [
+    0.013,
+    0.076
+   ],
+   "weighted_share": 0.752
+  },
+  "state_ri": {
+   "threshold_share": 0.206,
+   "threshold_ci95": [
+    0.099,
+    0.337
+   ],
+   "weighted_share": 0.83
+  },
+  "state_de": {
+   "threshold_share": 0.014,
+   "threshold_ci95": [
+    0.0,
+    0.042
+   ],
+   "weighted_share": 0.77
+  }
+ },
+ "console": {
+  "NL_test": {
+   "tp": 1162,
+   "fn": 481,
+   "fp": 55,
+   "tn": 149,
+   "recall_silage": 0.707,
+   "recall_grain": 0.73,
+   "precision_silage": 0.955,
+   "precision_grain": 0.237,
+   "balanced_accuracy": 0.718,
+   "roc_auc": 0.8
+  },
+  "BARC_44": {
+   "tp": 9,
+   "fn": 3,
+   "fp": 1,
+   "tn": 31,
+   "recall_silage": 0.75,
+   "recall_grain": 0.969,
+   "precision_silage": 0.9,
+   "precision_grain": 0.912,
+   "balanced_accuracy": 0.859,
+   "roc_auc": 0.948
+  },
+  "state_wv": {
+   "threshold_share": 0.086,
+   "threshold_ci95": [
+    0.049,
+    0.137
+   ],
+   "weighted_share": 0.773
+  },
+  "state_ri": {
+   "threshold_share": 0.41,
+   "threshold_ci95": [
+    0.231,
+    0.566
+   ],
+   "weighted_share": 0.854
+  },
+  "state_de": {
+   "threshold_share": 0.018,
+   "threshold_ci95": [
+    0.002,
+    0.046
+   ],
+   "weighted_share": 0.79
+  }
+ },
+ "nass": {
+  "wv": 0.225,
+  "ri": 1.0,
+  "de": 0.011
+ },
+ "top_features": {
+  "r_lswi_change": 0.0262,
+  "ndvi_hm12a": 0.0199,
+  "ndre_hm12a": 0.0192,
+  "ndvi_hm12b": 0.018,
+  "lswi_hm12a": 0.0175,
+  "ndre_hm05a": 0.0172,
+  "ndre_hm12b": 0.0158,
+  "cr_db_m11": 0.0156,
+  "ndre_hm04b": 0.0137,
+  "ndvi_hm10b": 0.0134
+ },
+ "share_of_importance_from_relative_gdd": 0.153
+}

@@ -1,0 +1,32 @@
+{
+ "state": "RHODE ISLAND",
+ "year": 2025,
+ "model": "console RF E2 (NL-trained), NL threshold 0.88, NL calibration",
+ "fields_total": 105,
+ "fields_scored": 102,
+ "not_scored": {
+  "too_small_interior": 3
+ },
+ "cdl_corn_acres_all_fields": 1077,
+ "cdl_corn_acres_scored": 1069,
+ "pred_silage_acres_threshold": 438,
+ "pred_grain_acres_threshold": 630,
+ "pred_silage_share_threshold": 0.41,
+ "pred_silage_share_expected": 0.854,
+ "nass_silage_acres": 1000.0,
+ "nass_grain_acres": "not published",
+ "nass_silage_share": 1.0,
+ "p_silage_quantiles": {
+  "0.1": 0.768,
+  "0.25": 0.804,
+  "0.5": 0.854,
+  "0.75": 0.894,
+  "0.9": 0.917
+ },
+ "caveats": [
+  "CDL = planted corn from a 30 m classification; NASS = harvested acres from a survey (CV not shown for small states)",
+  "aggregate share comparison only; no field labels",
+  "fields < ~0.5 ha interior after the 10 m inward buffer are not scored",
+  "model probabilities were miscalibrated in the US (BARC); the threshold share is the primary number"
+ ]
+}

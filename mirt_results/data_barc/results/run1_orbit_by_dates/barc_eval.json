@@ -1,0 +1,181 @@
+{
+ "model": "console RF (E2 rf_s2_s1), NL threshold/calibration, nothing tuned on BARC",
+ "threshold": 0.8799999999999999,
+ "review_band": [
+  0.832373255793456,
+  0.9154690727495013
+ ],
+ "reproduction": {
+  "val_auc_saved": 0.7120443236196562,
+  "val_auc_refit": 0.7120443236196562,
+  "n_compared": 1847,
+  "max_abs_diff_p": 3.3306690738754696e-16,
+  "same_class_share": 1.0
+ },
+ "n_reference": 44,
+ "n_scored": 44,
+ "not_scored": [],
+ "overall": {
+  "n": 44,
+  "n_silage": 12,
+  "n_grain": 32,
+  "tp": 10,
+  "fp": 4,
+  "fn": 2,
+  "tn": 28,
+  "precision_silage": 0.7142857142857143,
+  "recall_silage": 0.8333333333333334,
+  "precision_grain": 0.9333333333333333,
+  "recall_grain": 0.875,
+  "fpr_silage": 0.125,
+  "accuracy": 0.8636363636363636,
+  "f1_silage": 0.7692307692307692,
+  "f1_grain": 0.9032258064516129,
+  "balanced_accuracy": 0.8541666666666667,
+  "roc_auc": 0.9166666666666666
+ },
+ "by_year": {
+  "2021": {
+   "n": 18,
+   "n_silage": 4,
+   "n_grain": 14,
+   "tp": 3,
+   "fp": 0,
+   "fn": 1,
+   "tn": 14,
+   "precision_silage": 1.0,
+   "recall_silage": 0.75,
+   "precision_grain": 0.9333333333333333,
+   "recall_grain": 1.0,
+   "fpr_silage": 0.0,
+   "accuracy": 0.9444444444444444,
+   "f1_silage": 0.8571428571428571,
+   "f1_grain": 0.9655172413793104,
+   "balanced_accuracy": 0.875,
+   "roc_auc": 0.9107142857142856
+  },
+  "2022": {
+   "n": 7,
+   "n_silage": 4,
+   "n_grain": 3,
+   "tp": 4,
+   "fp": 1,
+   "fn": 0,
+   "tn": 2,
+   "precision_silage": 0.8,
+   "recall_silage": 1.0,
+   "precision_grain": 1.0,
+   "recall_grain": 0.6666666666666666,
+   "fpr_silage": 0.3333333333333333,
+   "accuracy": 0.8571428571428571,
+   "f1_silage": 0.888888888888889,
+   "f1_grain": 0.8,
+   "balanced_accuracy": 0.8333333333333333,
+   "roc_auc": 1.0
+  },
+  "2023": {
+   "n": 19,
+   "n_silage": 4,
+   "n_grain": 15,
+   "tp": 3,
+   "fp": 3,
+   "fn": 1,
+   "tn": 12,
+   "precision_silage": 0.5,
+   "recall_silage": 0.75,
+   "precision_grain": 0.9230769230769231,
+   "recall_grain": 0.8,
+   "fpr_silage": 0.2,
+   "accuracy": 0.7894736842105263,
+   "f1_silage": 0.6,
+   "f1_grain": 0.8571428571428571,
+   "balanced_accuracy": 0.775,
+   "roc_auc": 0.9500000000000001
+  }
+ },
+ "missing_input_share": {
+  "barc": 0.20202020202020204,
+  "nl_test": 0.12509976137480197
+ },
+ "inference": {
+  "seconds": 0.05313148396089673,
+  "n": 44,
+  "note": "from cached features, lab CPU; excludes imagery retrieval"
+ },
+ "auto_decided": {
+  "coverage": 0.6590909090909091,
+  "n": 29,
+  "n_silage": 5,
+  "n_grain": 24,
+  "tp": 4,
+  "fp": 0,
+  "fn": 1,
+  "tn": 24,
+  "precision_silage": 1.0,
+  "recall_silage": 0.8,
+  "precision_grain": 0.96,
+  "recall_grain": 1.0,
+  "fpr_silage": 0.0,
+  "accuracy": 0.9655172413793104,
+  "f1_silage": 0.888888888888889,
+  "f1_grain": 0.9795918367346939,
+  "balanced_accuracy": 0.9,
+  "roc_auc": 0.8833333333333333
+ },
+ "rules_orig": {
+  "coverage": 0.5681818181818182,
+  "n": 25,
+  "n_silage": 8,
+  "n_grain": 17,
+  "tp": 8,
+  "fp": 17,
+  "fn": 0,
+  "tn": 0,
+  "precision_silage": 0.32,
+  "recall_silage": 1.0,
+  "precision_grain": NaN,
+  "recall_grain": 0.0,
+  "fpr_silage": 1.0,
+  "accuracy": 0.32,
+  "f1_silage": 0.48484848484848486,
+  "f1_grain": NaN,
+  "balanced_accuracy": 0.5
+ },
+ "rules_adapted": {
+  "coverage": 0.8636363636363636,
+  "n": 38,
+  "n_silage": 12,
+  "n_grain": 26,
+  "tp": 12,
+  "fp": 24,
+  "fn": 0,
+  "tn": 2,
+  "precision_silage": 0.3333333333333333,
+  "recall_silage": 1.0,
+  "precision_grain": 1.0,
+  "recall_grain": 0.07692307692307693,
+  "fpr_silage": 0.9230769230769231,
+  "accuracy": 0.3684210526315789,
+  "f1_silage": 0.5,
+  "f1_grain": 0.14285714285714288,
+  "balanced_accuracy": 0.5384615384615384
+ },
+ "acreage_ha": {
+  "declared_silage": 104.76800623620046,
+  "declared_grain": 193.08346501025648,
+  "threshold_silage": 103.71137527792575,
+  "threshold_grain": 194.1400959685312,
+  "expected_silage": 237.192858243286,
+  "expected_grain": 60.65861300317096
+ },
+ "ci95_field_cluster_bootstrap": {
+  "balanced_accuracy": [
+   0.7126306165099269,
+   0.9659090909090908
+  ],
+  "roc_auc": [
+   0.767029637029637,
+   1.0
+  ]
+ }
+}

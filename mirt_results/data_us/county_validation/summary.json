@@ -1,0 +1,102 @@
+{
+ "source": "FSA 2025 crop acreage data as of 2026-01-12 (county_data; corn, intended use Grain/Silage)",
+ "corn_crop_types_kept": [
+  "BLUE",
+  "RED",
+  "WHITE",
+  "YELLOW"
+ ],
+ "min_fields": 5,
+ "fields_without_county": 0,
+ "all_counties": {
+  "console_nl": {
+   "counties": 37,
+   "mae_pts": 22.5,
+   "acre_weighted_mae_pts": 11.2,
+   "spearman": 0.57,
+   "bias_pts": -10.7
+  },
+  "console_us": {
+   "counties": 37,
+   "mae_pts": 23.4,
+   "acre_weighted_mae_pts": 11.2,
+   "spearman": 0.52,
+   "bias_pts": -5.3
+  },
+  "merged_nl": {
+   "counties": 37,
+   "mae_pts": 22.4,
+   "acre_weighted_mae_pts": 12.6,
+   "spearman": 0.45,
+   "bias_pts": -17.4
+  },
+  "merged_us": {
+   "counties": 37,
+   "mae_pts": 23.1,
+   "acre_weighted_mae_pts": 11.9,
+   "spearman": 0.54,
+   "bias_pts": -9.3
+  },
+  "v4": {
+   "counties": 31,
+   "mae_pts": 29.6,
+   "acre_weighted_mae_pts": 11.9,
+   "spearman": 0.27,
+   "bias_pts": 2.3
+  }
+ },
+ "counties_with_min_fields": {
+  "console_nl": {
+   "counties": 20,
+   "mae_pts": 26.4,
+   "acre_weighted_mae_pts": 11.1,
+   "spearman": 0.77,
+   "bias_pts": -20.7
+  },
+  "console_us": {
+   "counties": 20,
+   "mae_pts": 23.5,
+   "acre_weighted_mae_pts": 10.9,
+   "spearman": 0.72,
+   "bias_pts": -15.2
+  },
+  "merged_nl": {
+   "counties": 20,
+   "mae_pts": 30.2,
+   "acre_weighted_mae_pts": 12.6,
+   "spearman": 0.39,
+   "bias_pts": -28.4
+  },
+  "merged_us": {
+   "counties": 20,
+   "mae_pts": 25.0,
+   "acre_weighted_mae_pts": 11.7,
+   "spearman": 0.74,
+   "bias_pts": -20.5
+  },
+  "v4": {
+   "counties": 17,
+   "mae_pts": 16.9,
+   "acre_weighted_mae_pts": 10.7,
+   "spearman": 0.83,
+   "bias_pts": -8.8
+  }
+ },
+ "fsa_state_totals": {
+  "wv": {
+   "grain": 36422.3799,
+   "silage": 4898.930000000001,
+   "silage_share": 0.119
+  },
+  "ri": {
+   "grain": 98.08,
+   "silage": 936.73,
+   "silage_share": 0.905
+  },
+  "de": {
+   "grain": 166756.19,
+   "silage": 0.0,
+   "silage_share": 0.0
+  }
+ }
+}

@@ -1,0 +1,200 @@
+{
+ "prior_years": [
+  2022,
+  2023,
+  2024
+ ],
+ "truth": "FSA 2025",
+ "pi0_barc": 0.273,
+ "state_priors": {
+  "wv": 0.097,
+  "ri": 0.93,
+  "de": 0.0
+ },
+ "counties_ge5_all": {
+  "history_only": {
+   "counties": 20,
+   "mae_pts": 1.4,
+   "bias_pts": -0.5,
+   "spearman": 0.96
+  },
+  "console_us_calls": {
+   "counties": 20,
+   "mae_pts": 26.2,
+   "bias_pts": -18.3,
+   "spearman": 0.72
+  },
+  "console_us_weighted": {
+   "counties": 20,
+   "mae_pts": 26.3,
+   "bias_pts": -13.5,
+   "spearman": 0.7
+  },
+  "console_prior_calls": {
+   "counties": 20,
+   "mae_pts": 5.3,
+   "bias_pts": -2.6,
+   "spearman": 0.83
+  },
+  "console_prior_weighted": {
+   "counties": 20,
+   "mae_pts": 5.6,
+   "bias_pts": -3.6,
+   "spearman": 0.86
+  },
+  "merged_us_calls": {
+   "counties": 20,
+   "mae_pts": 25.0,
+   "bias_pts": -20.5,
+   "spearman": 0.74
+  },
+  "merged_us_weighted": {
+   "counties": 20,
+   "mae_pts": 25.8,
+   "bias_pts": -16.0,
+   "spearman": 0.67
+  },
+  "merged_prior_calls": {
+   "counties": 20,
+   "mae_pts": 5.7,
+   "bias_pts": -3.9,
+   "spearman": 0.83
+  },
+  "merged_prior_weighted": {
+   "counties": 20,
+   "mae_pts": 7.1,
+   "bias_pts": -5.9,
+   "spearman": 0.85
+  },
+  "v4": {
+   "counties": 17,
+   "mae_pts": 16.9,
+   "bias_pts": -8.8,
+   "spearman": 0.83
+  }
+ },
+ "counties_ge5_wv_ri": {
+  "history_only": {
+   "counties": 17,
+   "mae_pts": 1.6,
+   "bias_pts": -0.6,
+   "spearman": 0.96
+  },
+  "console_us_calls": {
+   "counties": 17,
+   "mae_pts": 30.2,
+   "bias_pts": -22.1,
+   "spearman": 0.65
+  },
+  "console_us_weighted": {
+   "counties": 17,
+   "mae_pts": 28.5,
+   "bias_pts": -18.3,
+   "spearman": 0.76
+  },
+  "console_prior_calls": {
+   "counties": 17,
+   "mae_pts": 5.8,
+   "bias_pts": -3.4,
+   "spearman": 0.91
+  },
+  "console_prior_weighted": {
+   "counties": 17,
+   "mae_pts": 6.3,
+   "bias_pts": -4.6,
+   "spearman": 0.92
+  },
+  "merged_us_calls": {
+   "counties": 17,
+   "mae_pts": 28.8,
+   "bias_pts": -24.8,
+   "spearman": 0.69
+  },
+  "merged_us_weighted": {
+   "counties": 17,
+   "mae_pts": 27.9,
+   "bias_pts": -21.3,
+   "spearman": 0.77
+  },
+  "merged_prior_calls": {
+   "counties": 17,
+   "mae_pts": 6.4,
+   "bias_pts": -4.9,
+   "spearman": 0.91
+  },
+  "merged_prior_weighted": {
+   "counties": 17,
+   "mae_pts": 8.1,
+   "bias_pts": -7.2,
+   "spearman": 0.89
+  },
+  "v4": {
+   "counties": 17,
+   "mae_pts": 16.9,
+   "bias_pts": -8.8,
+   "spearman": 0.83
+  }
+ },
+ "counties_ge5_same_as_v4": {
+  "history_only": {
+   "counties": 17,
+   "mae_pts": 1.6,
+   "bias_pts": -0.6,
+   "spearman": 0.96
+  },
+  "console_us_calls": {
+   "counties": 17,
+   "mae_pts": 30.2,
+   "bias_pts": -22.1,
+   "spearman": 0.65
+  },
+  "console_us_weighted": {
+   "counties": 17,
+   "mae_pts": 28.5,
+   "bias_pts": -18.3,
+   "spearman": 0.76
+  },
+  "console_prior_calls": {
+   "counties": 17,
+   "mae_pts": 5.8,
+   "bias_pts": -3.4,
+   "spearman": 0.91
+  },
+  "console_prior_weighted": {
+   "counties": 17,
+   "mae_pts": 6.3,
+   "bias_pts": -4.6,
+   "spearman": 0.92
+  },
+  "merged_us_calls": {
+   "counties": 17,
+   "mae_pts": 28.8,
+   "bias_pts": -24.8,
+   "spearman": 0.69
+  },
+  "merged_us_weighted": {
+   "counties": 17,
+   "mae_pts": 27.9,
+   "bias_pts": -21.3,
+   "spearman": 0.77
+  },
+  "merged_prior_calls": {
+   "counties": 17,
+   "mae_pts": 6.4,
+   "bias_pts": -4.9,
+   "spearman": 0.91
+  },
+  "merged_prior_weighted": {
+   "counties": 17,
+   "mae_pts": 8.1,
+   "bias_pts": -7.2,
+   "spearman": 0.89
+  },
+  "v4": {
+   "counties": 17,
+   "mae_pts": 16.9,
+   "bias_pts": -8.8,
+   "spearman": 0.83
+  }
+ }
+}

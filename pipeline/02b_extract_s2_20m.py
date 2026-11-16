@@ -39,6 +39,10 @@ B20 = {"B05": "rededge1", "B06": "rededge2", "B8A": "nir08", "B11": "swir16", "B
 MIN_CLEAR, MIN_VALID_PX, MIN_ZONE_PX = 0.6, 3, 3
 OUT = ROOT / "s2_20m"; OUT.mkdir(exist_ok=True)
 ES = "https://earth-search.aws.element84.com/v1"
+# Earth Search legacy "sentinel-2-l2a" COGs already have the BOA offset removed (DN is exactly 1000 lower than
+# Collection-1 on the same scene, verified 2022-03-21/12-06/12-11) while raster:bands still says offset -0.1.
+# Set HTH_S2_OFFSET_OVERRIDE=0 for that collection; default None = use the asset metadata.
+OFFSET_OVERRIDE = os.environ.get("HTH_S2_OFFSET_OVERRIDE")
 
 
 def process(block):
@@ -50,7 +54,7 @@ def process(block):
     elig = fl[fl.eligible].reset_index(drop=True)
     bbox = json.load(open(ROOT / "blocks" / f"{block}.json"))["bbox"]
     cat = pystac_client.Client.open(ES)
-    items = list(cat.search(collections=["sentinel-2-c1-l2a"], bbox=bbox, datetime="/".join(SEASON),
+    items = list(cat.search(collections=[os.environ.get("HTH_S2_COLLECTION", "sentinel-2-c1-l2a")], bbox=bbox, datetime="/".join(SEASON),
                             query={"eo:cloud_cover": {"lt": 95}}).items())
     items = sorted([i for i in items if i.properties["grid:code"] == tile], key=lambda i: i.datetime)
     seen, uniq = set(), []
@@ -94,7 +98,7 @@ def process(block):
         a = item.assets[key]; rb = (a.extra_fields.get("raster:bands") or [{}])[0]
         with rasterio.open(a.href) as src:
             arr = src.read(1, window=w, boundless=True, fill_value=0)
-        return arr, rb.get("scale", 1.0), rb.get("offset", 0.0)
+        return arr, rb.get("scale", 1.0), (float(OFFSET_OVERRIDE) if OFFSET_OVERRIDE is not None else rb.get("offset", 0.0))
 
     def do_item(item):
         date = item.datetime.strftime("%Y-%m-%d")

@@ -40,6 +40,10 @@ ES = "https://earth-search.aws.element84.com/v1"
 # Default = Collection-1 reprocessing. Override only where it has gaps (e.g. 2022 over Maryland -> "sentinel-2-l2a");
 # scaling still comes from each asset's raster:bands, so DN -> reflectance stays per-item correct.
 S2_COLLECTION = os.environ.get("HTH_S2_COLLECTION", "sentinel-2-c1-l2a")
+# Earth Search legacy "sentinel-2-l2a" COGs already have the BOA offset removed (DN is exactly 1000 lower than
+# Collection-1 on the same scene, verified 2022-03-21/12-06/12-11) while raster:bands still says offset -0.1.
+# Set HTH_S2_OFFSET_OVERRIDE=0 for that collection; default None = use the asset metadata.
+OFFSET_OVERRIDE = os.environ.get("HTH_S2_OFFSET_OVERRIDE")
 
 
 def load_parcels(block):
@@ -93,6 +97,9 @@ def process(block, chip_ids=None):
     to_utm = Transformer.from_crs("EPSG:4326", crs, always_xy=True).transform
     to_rd = Transformer.from_crs("EPSG:4326", "EPSG:28992", always_xy=True).transform
     foot = stransform(to_utm, shape(items[0].geometry))
+    if os.environ.get("HTH_FOOTPRINT") == "union":   # first item may be a partial swath; use all acquisitions' data footprint
+        from shapely.ops import unary_union
+        foot = stransform(to_utm, unary_union([shape(i.geometry) for i in items]))
     bpoly = stransform(to_utm, block_poly)
     xmin, ymin, xmax, ymax = bpoly.bounds
     win = from_bounds(xmin, ymin, xmax, ymax, ttr).round_offsets().round_lengths()
@@ -149,11 +156,11 @@ def process(block, chip_ids=None):
         rb = (a.extra_fields.get("raster:bands") or [{}])[0]
         with rasterio.open(a.href) as src:
             if out_shape is None:
-                arr = src.read(1, window=win)
+                arr = src.read(1, window=win, boundless=True, fill_value=0)   # identical inside the tile; zero (= nodata) past its edge
             else:
                 w20 = from_bounds(*rasterio.windows.bounds(win, ttr), src.transform)
                 arr = src.read(1, window=w20, out_shape=out_shape, resampling=Resampling.nearest, boundless=True, fill_value=0)
-        return arr, rb.get("scale", 1.0), rb.get("offset", 0.0)
+        return arr, rb.get("scale", 1.0), (float(OFFSET_OVERRIDE) if OFFSET_OVERRIDE is not None else rb.get("offset", 0.0))
 
     def do_item(item):
         date = item.datetime.strftime("%Y-%m-%d")

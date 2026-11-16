@@ -1,0 +1,202 @@
+{
+ "benchmark": "BARC 2021-2023, development benchmark (data examined in earlier project work; not a pristine independent test)",
+ "config_version": "rulebook-v1.1",
+ "config_sha256_12": "80282f183502",
+ "population": {
+  "field_years": 44,
+  "grain": 32,
+  "silage": 12,
+  "polygons": 34,
+  "matches_expected": true
+ },
+ "rulebook": {
+  "n": 44,
+  "decided": 1,
+  "coverage": 0.022727272727272728,
+  "correct": 1,
+  "correct_over_all": 0.022727272727272728,
+  "decided_accuracy": 1.0,
+  "binary": {
+   "n": 1,
+   "tp": 0,
+   "fn": 0,
+   "fp": 0,
+   "tn": 1,
+   "precision_silage": null,
+   "recall_silage": null,
+   "precision_grain": 1.0,
+   "recall_grain": 1.0,
+   "balanced_accuracy": null
+  },
+  "coverage_by_year": {
+   "2021": [
+    1,
+    18
+   ],
+   "2022": [
+    0,
+    7
+   ],
+   "2023": [
+    0,
+    19
+   ]
+  },
+  "coverage_by_class": {
+   "silage": [
+    0,
+    12
+   ],
+   "grain": [
+    1,
+    32
+   ]
+  },
+  "outcomes": {
+   "UNRESOLVED": 43,
+   "LIKELY GRAIN": 1
+  }
+ },
+ "ml_all": {
+  "n": 44,
+  "decided": 44,
+  "coverage": 1.0,
+  "correct": 40,
+  "correct_over_all": 0.9090909090909091,
+  "decided_accuracy": 0.9090909090909091,
+  "binary": {
+   "n": 44,
+   "tp": 9,
+   "fn": 3,
+   "fp": 1,
+   "tn": 31,
+   "precision_silage": 0.9,
+   "recall_silage": 0.75,
+   "precision_grain": 0.9117647058823529,
+   "recall_grain": 0.96875,
+   "balanced_accuracy": 0.859375
+  },
+  "coverage_by_year": {
+   "2021": [
+    18,
+    18
+   ],
+   "2022": [
+    7,
+    7
+   ],
+   "2023": [
+    19,
+    19
+   ]
+  },
+  "coverage_by_class": {
+   "silage": [
+    12,
+    12
+   ],
+   "grain": [
+    32,
+    32
+   ]
+  },
+  "outcomes": null
+ },
+ "same_decided_subset": {
+  "n": 1,
+  "rulebook": {
+   "n": 1,
+   "tp": 0,
+   "fn": 0,
+   "fp": 0,
+   "tn": 1,
+   "precision_silage": null,
+   "recall_silage": null,
+   "precision_grain": 1.0,
+   "recall_grain": 1.0,
+   "balanced_accuracy": null
+  },
+  "ml": {
+   "n": 1,
+   "tp": 0,
+   "fn": 0,
+   "fp": 0,
+   "tn": 1,
+   "precision_silage": null,
+   "recall_silage": null,
+   "precision_grain": 1.0,
+   "recall_grain": 1.0,
+   "balanced_accuracy": null
+  }
+ },
+ "outcome_by_class": {
+  "silage": {
+   "UNRESOLVED": 12
+  },
+  "grain": {
+   "UNRESOLVED": 31,
+   "LIKELY GRAIN": 1
+  }
+ },
+ "check_availability": {
+  "1_identity": {
+   "supported": 44
+  },
+  "1_crop_type_exclusion": {
+   "not_applicable": 44
+  },
+  "2_quality": {
+   "supported": 44
+  },
+  "3_documents": {
+   "unknown": 44
+  },
+  "4_removal": {
+   "supported": 21,
+   "unknown": 23
+  },
+  "5_condition": {
+   "unknown": 13,
+   "not_applicable": 23,
+   "supported": 8
+  },
+  "6_timing": {
+   "unknown": 18,
+   "not_applicable": 23,
+   "supported": 3
+  },
+  "7_surface": {
+   "supported": 15,
+   "not_applicable": 23,
+   "unknown": 6
+  },
+  "8_radar": {
+   "unknown": 15,
+   "not_applicable": 26,
+   "supported": 3
+  },
+  "9_exceptions": {
+   "not_applicable": 43,
+   "unknown": 1
+  },
+  "11_context": {
+   "not_applicable": 43,
+   "unknown": 1
+  }
+ },
+ "unresolved_reasons": {
+  "senescence_only": 20,
+  "uncertain_condition": 12,
+  "preharvest_observation_too_distant": 8,
+  "conflicting_evidence": 6,
+  "surface_contradicts_condition": 6,
+  "ambiguous_removal_vs_damage": 3,
+  "ndvi_between_green_and_dry": 2,
+  "signals_disagree": 1,
+  "missing_supporting_signal": 1,
+  "contextual_evidence_unavailable": 1,
+  "removal_condition_established_timing_unknown": 1,
+  "possible_mixed_management": 1
+ },
+ "errors": []
+}

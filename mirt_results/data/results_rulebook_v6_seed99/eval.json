@@ -1,0 +1,123 @@
+{
+ "dataset": "NL fresh 40 (seed 99, clean test)",
+ "version": "rulebook-v6",
+ "thresholds": {
+  "season": [
+   "04-15",
+   "10-15"
+  ],
+  "peak_min": 0.6,
+  "greenup_below_peak": 0.3,
+  "spring_window": [
+   "03-01",
+   "05-15"
+  ],
+  "trough": 0.35,
+  "drop": 0.2,
+  "max_gap": 15,
+  "after_max": 0.35,
+  "radar_drop": 1.5,
+  "radar_side_days": 24,
+  "wet_vv": 1.0,
+  "persist_days": 20,
+  "persist_max": 0.4,
+  "close_days": 10,
+  "weak_days": 20,
+  "green": 0.55,
+  "dry": 0.5,
+  "decline_below_peak": 0.15,
+  "decline_looks": 3,
+  "decline_span": 21,
+  "adequate_looks": 6,
+  "adequate_max_gap": 30,
+  "adequate_until": "11-30",
+  "regrow": 0.55,
+  "zone_min_looks": 6,
+  "zone_tol": 10,
+  "questionable_clear": 0.8
+ },
+ "n": 40,
+ "labels": {
+  "grain": 20,
+  "silage": 20
+ },
+ "outcomes": {
+  "REVIEW": 28,
+  "SILAGE (strong)": 5,
+  "SILAGE (likely)": 7
+ },
+ "coverage": "12/40",
+ "coverage_by_class": {
+  "silage": "7/20",
+  "grain": "5/20"
+ },
+ "correct": 7,
+ "rulebook": {
+  "n": 12,
+  "tp": 7,
+  "fn": 0,
+  "fp": 5,
+  "tn": 0,
+  "precision_silage": 0.583,
+  "recall_silage": 1.0,
+  "precision_grain": null,
+  "recall_grain": 0.0,
+  "balanced_accuracy": 0.5
+ },
+ "by_tier": {
+  "strong": {
+   "n": 5,
+   "tp": 3,
+   "fn": 0,
+   "fp": 2,
+   "tn": 0,
+   "precision_silage": 0.6,
+   "recall_silage": 1.0,
+   "precision_grain": null,
+   "recall_grain": 0.0,
+   "balanced_accuracy": 0.5
+  },
+  "likely": {
+   "n": 7,
+   "tp": 4,
+   "fn": 0,
+   "fp": 3,
+   "tn": 0,
+   "precision_silage": 0.571,
+   "recall_silage": 1.0,
+   "precision_grain": null,
+   "recall_grain": 0.0,
+   "balanced_accuracy": 0.5
+  }
+ },
+ "ml_all": {
+  "n": 40,
+  "tp": 18,
+  "fn": 2,
+  "fp": 2,
+  "tn": 18,
+  "precision_silage": 0.9,
+  "recall_silage": 0.9,
+  "precision_grain": 0.9,
+  "recall_grain": 0.9,
+  "balanced_accuracy": 0.9
+ },
+ "ml_same_subset": {
+  "n": 12,
+  "tp": 5,
+  "fn": 2,
+  "fp": 2,
+  "tn": 3,
+  "precision_silage": 0.714,
+  "recall_silage": 0.714,
+  "precision_grain": 0.6,
+  "recall_grain": 0.6,
+  "balanced_accuracy": 0.657
+ },
+ "review_reasons": {
+  "radar change without a credible optical harvest": 24,
+  "credible harvest but preharvest condition ambiguous": 2,
+  "spring green cycle": 1,
+  "no green-up observed before the peak": 1
+ }
+}

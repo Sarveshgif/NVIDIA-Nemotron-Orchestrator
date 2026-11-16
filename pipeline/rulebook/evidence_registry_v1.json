@@ -1,0 +1,11 @@
+{
+  "version": "registry-v1",
+  "created": "2026-11-14",
+  "searched": [
+    {"what": "field-linked actual harvest logs, delivery records, nutrient-management plans, dairy annual reports for the study fields",
+     "outcome": "No public, field-linked record was identified. The only field-linked source available to the project is the BARC reference dataset itself, which is excluded as documentary evidence. No web search for the farm's own records was run, to avoid retrieving label-disclosing sources.",
+     "date": "2026-11-14"}
+  ],
+  "items": [],
+  "_schema": "items[]: {field_key (opaque id), crop_year, kind: harvest_log|delivery|nutrient_plan|dairy_report|forage_supply, claim: silage|grain|mixed, actual_or_planned: actual|planned, url, excerpt, location (page/table), field_match (how the record names the field), retrieved (YYYY-MM-DD), verified_by}"
+}

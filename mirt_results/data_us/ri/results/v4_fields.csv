@@ -1,0 +1,103 @@
+field_id,acres,rf,rf_p,final,tier,step,why,a,b
+CDL00105,9.118180515263687,grain,0.8656107920937196,SILAGE,strong,0,green at radar-dated removal: radar VH -2.6 dB between 2025-09-10 and 2025-09-22; last clear look 2025-09-05 NDVI 0.81,2025-09-10,2025-09-22
+CDL00102,3.113525053992478,silage,0.9392691984386276,SILAGE,strong,0,green at radar-dated removal: radar VH -2.5 dB between 2025-09-10 and 2025-09-22; last clear look 2025-09-05 NDVI 0.88,2025-09-10,2025-09-22
+CDL00103,3.7807089941337235,silage,0.9304867887263664,SILAGE,strong,0,green at radar-dated removal: radar VH -2.2 dB between 2025-09-10 and 2025-09-22; last clear look 2025-09-05 NDVI 0.74,2025-09-10,2025-09-22
+CDL00104,38.91906317490598,silage,0.9433426390488788,SILAGE,strong,0,green at radar-dated removal: radar VH -3.7 dB between 2025-09-10 and 2025-09-22; last clear look 2025-09-05 NDVI 0.83,2025-09-10,2025-09-22
+CDL00086,13.343678802824908,grain,0.8023533658775661,GRAIN,likely,3,10 brown standing looks 2025-11-04..2025-12-22,,
+CDL00088,10.230153748832427,silage,0.8856582598286731,GRAIN,strong,0,dry at radar-dated removal: radar VH -3.1 dB between 2025-10-28 and 2025-11-09; last clear look 2025-10-25 NDVI 0.43,2025-10-28,2025-11-09
+CDL00089,4.8926822277024655,silage,0.8825929326457163,GRAIN,likely,3,4 brown standing looks 2025-10-05..2025-12-22,,
+CDL00090,4.003103640847472,grain,0.8792677357104949,GRAIN,strong,0,dry at radar-dated removal: radar VH -3.5 dB between 2025-10-28 and 2025-11-09; last clear look 2025-10-25 NDVI 0.38,2025-10-28,2025-11-09
+CDL00091,11.119732335687422,grain,0.8690524220036453,GRAIN,likely,3,10 brown standing looks 2025-11-02..2025-12-22,,
+CDL00094,2.8911304072787294,silage,0.9271392843526304,SILAGE,strong,0,green at radar-dated removal: radar VH -2.7 dB between 2025-09-22 and 2025-10-04; last clear look 2025-09-20 NDVI 0.84,2025-09-22,2025-10-04
+CDL00095,3.113525053992478,grain,0.7952844789308472,GRAIN,likely,3,17 brown standing looks 2025-10-03..2025-12-22,,
+CDL00096,13.121284156111157,silage,0.8939968416367039,UNRESOLVED,,6,no step gave a clear answer,,
+CDL00081,16.01241456338989,silage,0.9122369243357598,SILAGE,strong,0,green at radar-dated removal: radar VH -2.6 dB between 2025-10-04 and 2025-10-16; last clear look 2025-10-03 NDVI 0.91,2025-10-04,2025-10-16
+CDL00084,8.228601928408693,silage,0.9024534683472404,SILAGE,strong,0,green at radar-dated removal: radar VH -2.2 dB between 2025-10-28 and 2025-11-09; last clear look 2025-10-25 NDVI 0.82,2025-10-28,2025-11-09
+CDL00044,9.340575161977434,silage,0.9651887345653642,SILAGE,strong,0,green at radar-dated removal: radar VH -3.3 dB between 2025-09-10 and 2025-09-22; last clear look 2025-09-03 NDVI 0.81,2025-09-10,2025-09-22
+CDL00028,2.8911304072787294,silage,0.8806015389380009,GRAIN,likely,3,12 brown standing looks 2025-10-23..2025-12-22,,
+CDL00010,16.679598503531132,grain,0.8019157098433273,SILAGE,lean,5,radar VH -1.6 dB at 2025-10-04 while last look green (0.68),,
+CDL00101,8.006207281694945,silage,0.8969918241913374,SILAGE,strong,0,green at radar-dated removal: radar VH -3.2 dB between 2025-10-04 and 2025-10-16; last clear look 2025-10-03 NDVI 0.83,2025-10-04,2025-10-16
+CDL00076,4.447892934274969,grain,0.8089906089102996,GRAIN,likely,3,8 brown standing looks 2025-10-23..2025-11-19,,
+CDL00079,2.8911304072787294,grain,0.8683269385078003,SILAGE,strong,0,green at radar-dated removal: radar VH -2.3 dB between 2025-09-10 and 2025-09-22; last clear look 2025-08-31 NDVI 0.70,2025-09-10,2025-09-22
+CDL00030,6.894234048126202,grain,0.626393345823387,GRAIN,strong,0,dry at radar-dated removal: radar VH -2.1 dB between 2025-11-21 and 2025-12-03; last clear look 2025-11-19 NDVI 0.26,2025-11-21,2025-12-03
+CDL00050,6.449444754698704,grain,0.8769355744588764,SILAGE,strong,0,green at radar-dated removal: radar VH -3.0 dB between 2025-10-16 and 2025-10-28; last clear look 2025-10-10 NDVI 0.85,2025-10-16,2025-10-28
+CDL00051,4.670287580988717,grain,0.8396977069981919,SILAGE,strong,0,green at radar-dated removal: radar VH -3.4 dB between 2025-10-16 and 2025-10-28; last clear look 2025-10-10 NDVI 0.83,2025-10-16,2025-10-28
+CDL00029,4.447892934274969,grain,0.8022730807362397,GRAIN,likely,3,6 brown standing looks 2025-11-02..2025-11-24,,
+CDL00007,6.894234048126202,grain,0.8113471442788083,SILAGE,strong,1,green (0.82) on 2025-10-10 then 0.33 on 2025-10-25; radar confirmed (-1.0 dB),2025-10-10,2025-10-25
+CDL00001,4.22549828756122,grain,0.772108001274672,SILAGE,strong,1,green (0.84) on 2025-10-10 then 0.32 on 2025-10-25; radar unknown (-0.9 dB),2025-10-10,2025-10-25
+CDL00002,7.1166286948399495,grain,0.7926540890240319,SILAGE,strong,1,green (0.84) on 2025-10-10 then 0.35 on 2025-10-25; radar unknown (-0.7 dB),2025-10-10,2025-10-25
+CDL00003,6.671839401412454,grain,0.8324724644937067,SILAGE,strong,1,green (0.82) on 2025-10-10 then 0.33 on 2025-10-17; radar confirmed (-1.5 dB),2025-10-10,2025-10-17
+CDL00093,21.79467537794735,grain,0.8697831470623064,SILAGE,strong,0,green at radar-dated removal: radar VH -3.5 dB between 2025-09-22 and 2025-10-04; last clear look 2025-09-20 NDVI 0.81,2025-09-22,2025-10-04
+CDL00097,48.92682227702466,silage,0.9173886887158024,SILAGE,strong,1,green (0.71) on 2025-09-28 then 0.25 on 2025-10-03; radar confirmed (-1.8 dB),2025-09-28,2025-10-03
+CDL00098,16.234809210103638,grain,0.8644467610577315,GRAIN,strong,0,dry at radar-dated removal: radar VH -3.0 dB between 2025-08-29 and 2025-09-10; last clear look 2025-08-29 NDVI 0.38,2025-08-29,2025-09-10
+CDL00099,18.236361030527373,grain,0.8586792947766977,GRAIN,strong,0,dry at radar-dated removal: radar VH -3.6 dB between 2025-08-29 and 2025-09-10; last clear look 2025-08-29 NDVI 0.40,2025-08-29,2025-09-10
+CDL00100,9.785364455404931,grain,0.8030318803690528,SILAGE,strong,1,green (0.67) on 2025-09-15 then 0.29 on 2025-09-27; radar confirmed (-1.4 dB),2025-09-15,2025-09-27
+CDL00071,16.679598503531132,grain,0.8509456426705507,SILAGE,strong,0,green at radar-dated removal: radar VH -3.5 dB between 2025-10-28 and 2025-11-09; last clear look 2025-10-25 NDVI 0.55,2025-10-28,2025-11-09
+CDL00075,5.782260814557459,grain,0.8432718261359237,GRAIN,strong,0,dry at radar-dated removal: radar VH -4.0 dB between 2025-10-28 and 2025-11-09; last clear look 2025-10-25 NDVI 0.29,2025-10-28,2025-11-09
+CDL00077,4.447892934274969,grain,0.7132878189448028,GRAIN,strong,0,dry at radar-dated removal: radar VH -4.6 dB between 2025-10-28 and 2025-11-09; last clear look 2025-10-25 NDVI 0.42,2025-10-28,2025-11-09
+CDL00078,2.8911304072787294,grain,0.7898277858644699,GRAIN,strong,0,dry at radar-dated removal: radar VH -3.8 dB between 2025-10-28 and 2025-11-09; last clear look 2025-10-25 NDVI 0.28,2025-10-28,2025-11-09
+CDL00014,6.894234048126202,grain,0.7471747884643952,GRAIN,strong,0,dry at radar-dated removal: radar VH -2.9 dB between 2025-10-28 and 2025-11-09; last clear look 2025-10-25 NDVI 0.37,2025-10-28,2025-11-09
+CDL00015,4.22549828756122,grain,0.827360338668787,SILAGE,strong,1,green (0.64) on 2025-11-04 then 0.31 on 2025-11-09; radar confirmed (-1.3 dB),2025-11-04,2025-11-09
+CDL00013,3.113525053992478,grain,0.7741831005598694,SILAGE,strong,0,green at radar-dated removal: radar VH -2.0 dB between 2025-10-28 and 2025-11-09; last clear look 2025-10-25 NDVI 0.77,2025-10-28,2025-11-09
+CDL00004,13.121284156111157,grain,0.8652856409485331,SILAGE,strong,0,green at radar-dated removal: radar VH -2.7 dB between 2025-10-04 and 2025-10-16; last clear look 2025-10-03 NDVI 0.87,2025-10-04,2025-10-16
+CDL00005,8.895785868549938,silage,0.8924021668057368,SILAGE,strong,0,green at radar-dated removal: radar VH -2.9 dB between 2025-10-04 and 2025-10-16; last clear look 2025-10-03 NDVI 0.89,2025-10-04,2025-10-16
+CDL00006,11.119732335687422,grain,0.8615497197906477,SILAGE,strong,1,green (0.84) on 2025-10-10 then 0.34 on 2025-10-17; radar confirmed (-1.6 dB),2025-10-10,2025-10-17
+CDL00008,7.783812634981195,grain,0.8395242319792463,SILAGE,strong,1,green (0.80) on 2025-10-10 then 0.32 on 2025-10-23; radar confirmed (-1.1 dB),2025-10-10,2025-10-23
+CDL00009,3.335919700706227,grain,0.8562080108327499,GRAIN,likely,3,15 brown standing looks 2025-10-17..2025-12-24,,
+CDL00080,4.22549828756122,silage,0.9361912059979134,SILAGE,strong,0,green at radar-dated removal: radar VH -2.4 dB between 2025-10-28 and 2025-11-09; last clear look 2025-10-25 NDVI 0.75,2025-10-28,2025-11-09
+CDL00082,14.678046683107398,silage,0.889766702894669,GRAIN,likely,3,12 brown standing looks 2025-10-03..2025-12-22,,
+CDL00083,3.335919700706227,silage,0.945302477585284,SILAGE,strong,1,green (0.86) on 2025-09-27 then 0.31 on 2025-10-03; radar confirmed (-1.5 dB),2025-09-27,2025-10-03
+CDL00085,10.452548395546177,silage,0.9000272893754971,GRAIN,strong,0,dry at radar-dated removal: radar VH -2.4 dB between 2025-10-28 and 2025-11-09; last clear look 2025-10-25 NDVI 0.29,2025-10-28,2025-11-09
+CDL00087,4.447892934274969,silage,0.9405840162546022,SILAGE,strong,0,green at radar-dated removal: radar VH -3.2 dB between 2025-09-10 and 2025-09-22; last clear look 2025-09-05 NDVI 0.67,2025-09-10,2025-09-22
+CDL00031,12.676494862683661,grain,0.7049153140016945,GRAIN,strong,0,dry at radar-dated removal: radar VH -2.5 dB between 2025-10-28 and 2025-11-09; last clear look 2025-10-25 NDVI 0.31,2025-10-28,2025-11-09
+CDL00011,5.337471521129963,silage,0.8947021762087987,SILAGE,strong,1,green (0.81) on 2025-10-18 then 0.33 on 2025-10-23; radar unknown (+0.5 dB),2025-10-18,2025-10-23
+CDL00012,15.790019916676139,silage,0.9186558718938044,SILAGE,strong,1,green (0.75) on 2025-10-18 then 0.28 on 2025-10-23; radar confirmed (-1.9 dB),2025-10-18,2025-10-23
+CDL00022,2.6687357605649815,grain,0.7800800697333627,SILAGE,strong,0,green at radar-dated removal: radar VH -2.7 dB between 2025-10-28 and 2025-11-09; last clear look 2025-10-25 NDVI 0.70,2025-10-28,2025-11-09
+CDL00033,5.559866167843711,silage,0.9025978296502968,SILAGE,strong,0,green at radar-dated removal: radar VH -2.9 dB between 2025-10-28 and 2025-11-09; last clear look 2025-10-25 NDVI 0.61,2025-10-28,2025-11-09
+CDL00034,2.6687357605649815,grain,0.8646666692981406,SILAGE,strong,0,green at radar-dated removal: radar VH -2.2 dB between 2025-10-28 and 2025-11-09; last clear look 2025-10-25 NDVI 0.76,2025-10-28,2025-11-09
+CDL00035,32.69201306692102,grain,0.7765994571424105,GRAIN,likely,4,harvest drop 92 d after peak 2025-08-04,2025-11-04,2025-11-09
+CDL00037,4.22549828756122,grain,0.8032647817209733,SILAGE,strong,0,green at radar-dated removal: radar VH -2.2 dB between 2025-10-28 and 2025-11-09; last clear look 2025-10-25 NDVI 0.63,2025-10-28,2025-11-09
+CDL00040,22.017070024661095,grain,0.8249985944260106,GRAIN,strong,0,dry at radar-dated removal: radar VH -3.7 dB between 2025-10-28 and 2025-11-09; last clear look 2025-10-28 NDVI 0.24,2025-10-28,2025-11-09
+CDL00042,7.561417988267447,grain,0.7734376652579724,GRAIN,strong,2,already brown (0.40) on 2025-10-18 then 0.20 on 2025-11-02; radar confirmed (-2.6 dB),2025-10-18,2025-11-02
+CDL00048,5.559866167843711,grain,0.8049369689129401,SILAGE,strong,0,green at radar-dated removal: radar VH -2.4 dB between 2025-10-28 and 2025-11-09; last clear look 2025-10-25 NDVI 0.78,2025-10-28,2025-11-09
+CDL00049,7.783812634981195,grain,0.8768145950412355,SILAGE,strong,0,green at radar-dated removal: radar VH -2.3 dB between 2025-10-28 and 2025-11-09; last clear look 2025-10-25 NDVI 0.69,2025-10-28,2025-11-09
+CDL00055,9.562969808691184,grain,0.8233079812047848,GRAIN,strong,0,dry at radar-dated removal: radar VH -2.6 dB between 2025-10-28 and 2025-11-09; last clear look 2025-10-28 NDVI 0.36,2025-10-28,2025-11-09
+CDL00056,8.228601928408693,grain,0.8237632833907986,SILAGE,strong,1,green (0.69) on 2025-10-15 then 0.22 on 2025-10-17; radar confirmed (-2.0 dB),2025-10-15,2025-10-17
+CDL00058,23.796227198371085,silage,0.9005809058714029,SILAGE,strong,0,green at radar-dated removal: radar VH -2.6 dB between 2025-10-04 and 2025-10-16; last clear look 2025-10-03 NDVI 0.87,2025-10-04,2025-10-16
+CDL00059,11.786916275828666,grain,0.8392492666697932,GRAIN,strong,0,dry at radar-dated removal: radar VH -2.0 dB between 2025-10-28 and 2025-11-09; last clear look 2025-10-25 NDVI 0.50,2025-10-28,2025-11-09
+CDL00061,4.670287580988717,grain,0.8074646888939506,GRAIN,strong,0,dry at radar-dated removal: radar VH -2.8 dB between 2025-10-28 and 2025-11-09; last clear look 2025-10-25 NDVI 0.43,2025-10-28,2025-11-09
+CDL00062,4.22549828756122,grain,0.8559130484001821,SILAGE,strong,1,green (0.64) on 2025-10-05 then 0.21 on 2025-10-15; radar confirmed (-1.7 dB),2025-10-05,2025-10-15
+CDL00064,7.561417988267447,grain,0.8617818945753082,GRAIN,strong,0,dry at radar-dated removal: radar VH -3.8 dB between 2025-10-28 and 2025-11-09; last clear look 2025-10-28 NDVI 0.41,2025-10-28,2025-11-09
+CDL00068,4.670287580988717,silage,0.893900862459552,SILAGE,strong,0,green at radar-dated removal: radar VH -3.9 dB between 2025-09-22 and 2025-10-04; last clear look 2025-09-20 NDVI 0.88,2025-09-22,2025-10-04
+CDL00070,33.359197007062264,grain,0.826227103570739,GRAIN,strong,0,dry at radar-dated removal: radar VH -3.5 dB between 2025-10-28 and 2025-11-09; last clear look 2025-10-25 NDVI 0.47,2025-10-28,2025-11-09
+CDL00072,3.5583143474199748,grain,0.7798314502771743,SILAGE,strong,0,green at radar-dated removal: radar VH -2.1 dB between 2025-10-28 and 2025-11-09; last clear look 2025-10-25 NDVI 0.60,2025-10-28,2025-11-09
+CDL00020,3.335919700706227,grain,0.7013507097342309,GRAIN,strong,0,dry at radar-dated removal: radar VH -3.1 dB between 2025-10-28 and 2025-11-09; last clear look 2025-10-25 NDVI 0.40,2025-10-28,2025-11-09
+CDL00021,7.339023341553699,grain,0.8065504411118869,SILAGE,strong,1,green (0.74) on 2025-10-25 then 0.26 on 2025-11-09; radar confirmed (-1.4 dB),2025-10-25,2025-11-09
+CDL00027,2.6687357605649815,grain,0.8411386633695266,UNRESOLVED,,6,no step gave a clear answer,,
+CDL00016,3.5583143474199748,grain,0.8529484118491923,SILAGE,strong,0,green at radar-dated removal: radar VH -2.7 dB between 2025-09-22 and 2025-10-04; last clear look 2025-09-20 NDVI 0.87,2025-09-22,2025-10-04
+CDL00018,3.5583143474199748,silage,0.9072622170978129,SILAGE,strong,1,green (0.88) on 2025-10-10 then 0.34 on 2025-10-18; radar confirmed (-1.9 dB),2025-10-10,2025-10-18
+CDL00019,5.782260814557459,grain,0.8279212733442061,GRAIN,likely,3,8 brown standing looks 2025-11-02..2025-11-29,,
+CDL00073,4.8926822277024655,grain,0.8100418057131915,SILAGE,strong,0,green at radar-dated removal: radar VH -2.8 dB between 2025-10-28 and 2025-11-09; last clear look 2025-10-25 NDVI 0.71,2025-10-28,2025-11-09
+CDL00074,5.559866167843711,grain,0.6966985444435195,SILAGE,strong,1,green (0.79) on 2025-10-03 then 0.29 on 2025-10-10; radar unknown (-0.9 dB),2025-10-03,2025-10-10
+CDL00032,16.01241456338989,grain,0.8175850451347809,SILAGE,strong,1,green (0.64) on 2025-09-27 then 0.27 on 2025-10-03; radar confirmed (-1.9 dB),2025-09-27,2025-10-03
+CDL00036,5.115076874416213,silage,0.9049085268985796,SILAGE,lean,5,radar VH -1.5 dB at 2025-09-22 while last look green (0.73),,
+CDL00038,2.6687357605649815,silage,0.8832939526486889,GRAIN,likely,3,18 brown standing looks 2025-10-10..2025-12-24,,
+CDL00039,13.566073449538656,grain,0.8631508930037204,SILAGE,likely,4,harvest drop 45 d after peak 2025-09-13,2025-10-28,2025-11-02
+CDL00041,3.7807089941337235,silage,0.9094831130297304,SILAGE,strong,0,green at radar-dated removal: radar VH -3.0 dB between 2025-10-04 and 2025-10-16; last clear look 2025-10-03 NDVI 0.88,2025-10-04,2025-10-16
+CDL00043,4.003103640847472,silage,0.9254476748088236,SILAGE,lean,5,radar VH -1.9 dB at 2025-11-09 while last look green (0.75),,
+CDL00045,3.335919700706227,grain,0.8735329394073867,SILAGE,strong,1,green (0.57) on 2025-10-28 then 0.32 on 2025-11-02; radar confirmed (-1.5 dB),2025-10-28,2025-11-02
+CDL00046,17.569177090386127,silage,0.8971806413477054,SILAGE,strong,1,green (0.73) on 2025-10-25 then 0.34 on 2025-10-28; radar unknown (-0.9 dB),2025-10-25,2025-10-28
+CDL00052,3.7807089941337235,grain,0.7208974041912499,GRAIN,strong,0,dry at radar-dated removal: radar VH -2.8 dB between 2025-10-16 and 2025-10-28; last clear look 2025-10-15 NDVI 0.27,2025-10-16,2025-10-28
+CDL00053,35.805538120913496,grain,0.8361611900747132,SILAGE,strong,0,green at radar-dated removal: radar VH -3.1 dB between 2025-10-04 and 2025-10-16; last clear look 2025-10-03 NDVI 0.87,2025-10-04,2025-10-16
+CDL00054,5.782260814557459,grain,0.7403233196346384,GRAIN,likely,3,14 brown standing looks 2025-10-10..2025-12-22,,
+CDL00057,3.5583143474199748,grain,0.7249104611969341,GRAIN,strong,0,dry at radar-dated removal: radar VH -2.1 dB between 2025-10-28 and 2025-11-09; last clear look 2025-10-28 NDVI 0.39,2025-10-28,2025-11-09
+CDL00060,2.8911304072787294,silage,0.8847788131955244,SILAGE,strong,0,green at radar-dated removal: radar VH -2.9 dB between 2025-10-28 and 2025-11-09; last clear look 2025-10-25 NDVI 0.70,2025-10-28,2025-11-09
+CDL00063,4.003103640847472,grain,0.786344191309644,GRAIN,likely,3,11 brown standing looks 2025-10-15..2025-12-22,,
+CDL00065,16.234809210103638,grain,0.8298084694469587,GRAIN,strong,0,dry at radar-dated removal: radar VH -4.3 dB between 2025-09-10 and 2025-09-22; last clear look 2025-09-05 NDVI 0.44,2025-09-10,2025-09-22
+CDL00066,4.8926822277024655,grain,0.7676625841286294,SILAGE,strong,0,green at radar-dated removal: radar VH -2.8 dB between 2025-10-28 and 2025-11-09; last clear look 2025-10-25 NDVI 0.60,2025-10-28,2025-11-09
+CDL00067,19.348334264096113,grain,0.6664450573091208,SILAGE,strong,1,green (0.75) on 2025-10-05 then 0.23 on 2025-10-17; radar unknown (-0.9 dB),2025-10-05,2025-10-17
+CDL00069,25.57538437208107,grain,0.8216994528027513,SILAGE,strong,0,green at radar-dated removal: radar VH -2.0 dB between 2025-10-04 and 2025-10-16; last clear look 2025-10-03 NDVI 0.79,2025-10-04,2025-10-16
+CDL00023,124.31860751298538,silage,0.9073459811436306,SILAGE,strong,0,green at radar-dated removal: radar VH -2.8 dB between 2025-10-28 and 2025-11-09; last clear look 2025-10-25 NDVI 0.56,2025-10-28,2025-11-09
+CDL00024,2.8911304072787294,grain,0.8222422847769842,SILAGE,strong,1,green (0.74) on 2025-10-18 then 0.34 on 2025-10-25; radar confirmed (-1.6 dB),2025-10-18,2025-10-25
+CDL00025,4.22549828756122,grain,0.8700816049291344,SILAGE,strong,0,green at radar-dated removal: radar VH -2.7 dB between 2025-10-16 and 2025-10-28; last clear look 2025-10-10 NDVI 0.75,2025-10-16,2025-10-28
+CDL00026,2.6687357605649815,silage,0.9099492180669656,SILAGE,strong,1,green (0.84) on 2025-10-25 then 0.26 on 2025-11-02; radar confirmed (-2.1 dB),2025-10-25,2025-11-02

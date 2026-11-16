@@ -1,0 +1,167 @@
+{
+ "features": [
+  "r_season_len",
+  "r_peak_to_tr_days",
+  "r_greenup_to_peak_days",
+  "r_ndvi_before",
+  "r_ndvi_after",
+  "r_drop",
+  "r_drop_rate",
+  "tr_gap",
+  "r_predrop_decline",
+  "r_predrop_rate",
+  "r_slope30_pre",
+  "r_post_20_60",
+  "r_post_min30",
+  "r_first_below6_days",
+  "r_first_below4_days",
+  "r_ndre_before",
+  "r_lswi_change",
+  "r_lswi_before_vs_peak",
+  "zone_tr_spread",
+  "r_zone_sd_before",
+  "r_zone_sd_after",
+  "r_ndvi_sd_before",
+  "s1_vh_db_change_at_tr",
+  "s1_vv_db_change_at_tr",
+  "s1_cr_db_change_at_tr",
+  "s1_vh_pre60_slope",
+  "s1_vh_maxdrop",
+  "r_s1_maxdrop_vs_tr_days",
+  "r_vh_db_tr_vs_summer",
+  "r_cr_db_tr_vs_summer"
+ ],
+ "n_features": 30,
+ "params": {
+  "max_depth": 16,
+  "min_samples_leaf": 8,
+  "max_features": 0.3
+ },
+ "val_auc": 0.684,
+ "threshold": 0.8599999999999999,
+ "console_threshold": 0.8799999999999999,
+ "NL_test_1847": {
+  "console": {
+   "tp": 1162,
+   "fn": 481,
+   "fp": 55,
+   "tn": 149,
+   "recall_silage": 0.707,
+   "recall_grain": 0.73,
+   "precision_silage": 0.955,
+   "precision_grain": 0.237,
+   "balanced_accuracy": 0.718,
+   "roc_auc": 0.8
+  },
+  "relative": {
+   "tp": 1413,
+   "fn": 230,
+   "fp": 100,
+   "tn": 104,
+   "recall_silage": 0.86,
+   "recall_grain": 0.51,
+   "precision_silage": 0.934,
+   "precision_grain": 0.311,
+   "balanced_accuracy": 0.685,
+   "roc_auc": 0.751
+  }
+ },
+ "BARC_44": {
+  "console": {
+   "tp": 9,
+   "fn": 3,
+   "fp": 1,
+   "tn": 31,
+   "recall_silage": 0.75,
+   "recall_grain": 0.969,
+   "precision_silage": 0.9,
+   "precision_grain": 0.912,
+   "balanced_accuracy": 0.859,
+   "roc_auc": 0.948
+  },
+  "relative": {
+   "tp": 11,
+   "fn": 1,
+   "fp": 10,
+   "tn": 22,
+   "recall_silage": 0.917,
+   "recall_grain": 0.688,
+   "precision_silage": 0.524,
+   "precision_grain": 0.957,
+   "balanced_accuracy": 0.802,
+   "roc_auc": 0.896
+  }
+ },
+ "state_wv": {
+  "nass_silage_share": 0.225,
+  "fields": 289,
+  "console": {
+   "threshold_share": 0.086,
+   "threshold_ci95": [
+    0.049,
+    0.137
+   ],
+   "weighted_share": 0.773
+  },
+  "relative": {
+   "threshold_share": 0.222,
+   "threshold_ci95": [
+    0.156,
+    0.308
+   ],
+   "weighted_share": 0.781
+  }
+ },
+ "state_ri": {
+  "nass_silage_share": 1.0,
+  "fields": 102,
+  "console": {
+   "threshold_share": 0.41,
+   "threshold_ci95": [
+    0.231,
+    0.566
+   ],
+   "weighted_share": 0.854
+  },
+  "relative": {
+   "threshold_share": 0.469,
+   "threshold_ci95": [
+    0.323,
+    0.63
+   ],
+   "weighted_share": 0.831
+  }
+ },
+ "state_de": {
+  "nass_silage_share": 0.011,
+  "fields": 101,
+  "console": {
+   "threshold_share": 0.018,
+   "threshold_ci95": [
+    0.002,
+    0.046
+   ],
+   "weighted_share": 0.79
+  },
+  "relative": {
+   "threshold_share": 0.402,
+   "threshold_ci95": [
+    0.201,
+    0.597
+   ],
+   "weighted_share": 0.801
+  }
+ },
+ "top_features": {
+  "r_lswi_change": 0.1021,
+  "r_post_20_60": 0.0666,
+  "r_first_below4_days": 0.0568,
+  "r_vh_db_tr_vs_summer": 0.0517,
+  "s1_vh_db_change_at_tr": 0.0516,
+  "s1_vh_maxdrop": 0.0429,
+  "r_greenup_to_peak_days": 0.0389,
+  "r_season_len": 0.0376,
+  "r_drop": 0.0358,
+  "r_cr_db_tr_vs_summer": 0.0356
+ }
+}

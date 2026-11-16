@@ -1,0 +1,42 @@
+{
+ "orbit_selection": {
+  "2021": {
+   "4": {
+    "fields_full": 18,
+    "dates_jul_dec": 13
+   },
+   "106": {
+    "fields_full": 2,
+    "dates_jul_dec": 15
+   },
+   "selected": 4
+  },
+  "2022": {
+   "4": {
+    "fields_full": 7,
+    "dates_jul_dec": 13
+   },
+   "106": {
+    "fields_full": 0,
+    "dates_jul_dec": 13
+   },
+   "selected": 4
+  },
+  "2023": {
+   "4": {
+    "fields_full": 19,
+    "dates_jul_dec": 11
+   },
+   "106": {
+    "fields_full": 5,
+    "dates_jul_dec": 12
+   },
+   "selected": 4
+  }
+ },
+ "weather_point": [
+  39.02569438001942,
+  -76.87695519438131
+ ],
+ "config": "rulebook-v1.1"
+}

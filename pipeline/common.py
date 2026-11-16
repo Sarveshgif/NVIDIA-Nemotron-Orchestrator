@@ -11,7 +11,7 @@ SILAGE = {259: "Mais, snij-"}
 GRAIN = {316: "Mais, korrel-"}
 # Maize categories deliberately excluded from the binary task.
 EXCLUDED_MAIZE = {317: "Mais, corncob mix", 1935: "Maiskolvensilage", 814: "Mais, suiker-"}
-BUFFER_M = -10          # inward buffer against mixed edge pixels
+BUFFER_M = float(os.environ.get("HTH_BUFFER_M", -10))   # inward buffer against mixed edge pixels (metres, negative = inward)
 MIN_INTERIOR_PX = 50    # >= 0.5 ha of interior 10 m pixels
 
 def log(msg, name="pipeline.log"):

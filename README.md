@@ -227,6 +227,11 @@ opinion worth routing alongside the RF for uncertain fields.
 | `pipeline/11_barc_*.py`, `12_barc_infer.py`, `13_barc_deep.py` | BARC external check: prepare → extract → RF inference → deep-model inference |
 | `models/deep_e2/` | 9 trained deep checkpoints (3 variants × 3 seeds, E2: trained on NL 2024 + 2025) |
 | `pipeline/results/barc_deep/` | Deep-model BARC predictions, matched labels, evaluation JSON and run log |
+| `pipeline/14–20_*.py`, `pipeline/rulebook/`, `pipeline/tests/` | Rulebook track: label-free inputs → frozen engine → evaluation; lenient v4, v6 and v7 (dry-grain pathway) rulebooks, tested on BARC and unseen Dutch fields |
+| `pipeline/21–30_*.py` | US transfer track: CDL corn by state vs NASS, weak-label US RF (RI = silage, DE = grain), relative and GDD-based RF, merged RF, county validation and county-prior calibration (FSA acreage) |
+| `rf_merged_bundle/` | Merged RF (135 absolute + relative/GDD features) with `predict_merged.py`, features and FSA county priors |
+| `mirt_results/` | Results, small feature tables and trained models from the lab GPU workstation, with their original `data*/` paths (raw satellite caches not included — rebuild with the pipeline) |
+| `scripts/mirt/` | Small helper scripts used during the runs (timing, summaries, screenshots) |
 | `rf_silage_grain_models/` | Saved RF bundles (`rf_nl_console.joblib`, `rf_us_barc_recalibrated.joblib`), `predict.py`, 135-feature contract |
 | `investigation/` | RF + Nemotron backend ("Cornstellation"): routing, tools, NVIDIA transport, policy, CLI and FastAPI server |
 | `tests/investigation/` | Unit tests for the agent protocol and prediction policy |

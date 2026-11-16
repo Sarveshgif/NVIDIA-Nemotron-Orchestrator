@@ -1,0 +1,120 @@
+{
+ "training": {
+  "RI_silage_fields": 102,
+  "DE_grain_fields": 101,
+  "NL_train_fields": 4243,
+  "B_oob_accuracy_on_RI_DE": 0.98,
+  "note": "B separates RI from DE almost perfectly if OOB ~1.0: that measures state separability, not silage-vs-grain skill"
+ },
+ "BARC_44_field_labels": {
+  "A_nl_console": {
+   "tp": 9,
+   "fn": 3,
+   "fp": 1,
+   "tn": 31,
+   "precision_silage": 0.9,
+   "recall_silage": 0.75,
+   "precision_grain": 0.912,
+   "recall_grain": 0.969,
+   "balanced_accuracy": 0.859,
+   "roc_auc": 0.948
+  },
+  "B_ri_de": {
+   "tp": 0,
+   "fn": 12,
+   "fp": 4,
+   "tn": 28,
+   "precision_silage": 0.0,
+   "recall_silage": 0.0,
+   "precision_grain": 0.7,
+   "recall_grain": 0.875,
+   "balanced_accuracy": 0.438,
+   "roc_auc": 0.667
+  },
+  "C_nl_plus_ri_de": {
+   "tp": 12,
+   "fn": 0,
+   "fp": 14,
+   "tn": 18,
+   "precision_silage": 0.462,
+   "recall_silage": 1.0,
+   "precision_grain": 1.0,
+   "recall_grain": 0.562,
+   "balanced_accuracy": 0.781,
+   "roc_auc": 0.927
+  }
+ },
+ "WV_vs_NASS_22.5pct": {
+  "A_nl_console": {
+   "share": 0.086,
+   "ci95": [
+    0.049,
+    0.137
+   ]
+  },
+  "B_ri_de": {
+   "share": 0.289,
+   "ci95": [
+    0.208,
+    0.383
+   ]
+  },
+  "C_nl_plus_ri_de": {
+   "share": 0.367,
+   "ci95": [
+    0.276,
+    0.486
+   ]
+  }
+ },
+ "NL_test_1847": {
+  "A_nl_console": {
+   "tp": 1162,
+   "fn": 481,
+   "fp": 55,
+   "tn": 149,
+   "precision_silage": 0.955,
+   "recall_silage": 0.707,
+   "precision_grain": 0.237,
+   "recall_grain": 0.73,
+   "balanced_accuracy": 0.718,
+   "roc_auc": 0.8
+  },
+  "B_ri_de": {
+   "tp": 336,
+   "fn": 1307,
+   "fp": 78,
+   "tn": 126,
+   "precision_silage": 0.812,
+   "recall_silage": 0.205,
+   "precision_grain": 0.088,
+   "recall_grain": 0.618,
+   "balanced_accuracy": 0.411,
+   "roc_auc": 0.411
+  },
+  "C_nl_plus_ri_de": {
+   "tp": 1538,
+   "fn": 105,
+   "fp": 123,
+   "tn": 81,
+   "precision_silage": 0.926,
+   "recall_silage": 0.936,
+   "precision_grain": 0.435,
+   "recall_grain": 0.397,
+   "balanced_accuracy": 0.667,
+   "roc_auc": 0.793
+  }
+ },
+ "B_top_features": {
+  "lswi_hm09b": 0.0643,
+  "lswi_hm10a": 0.0522,
+  "lswi_hm05b": 0.046,
+  "ndvi_hm09b": 0.0453,
+  "ndre_hm09b": 0.0448,
+  "lswi_hm05a": 0.0361,
+  "B11_hm11a": 0.0302,
+  "ndre_hm06b": 0.0259,
+  "vh_db_m11": 0.0257,
+  "vh_db_m07": 0.0235
+ }
+}

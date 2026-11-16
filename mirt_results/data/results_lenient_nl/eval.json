@@ -1,0 +1,72 @@
+{
+ "version": "lenient-v4",
+ "sample": {
+  "n": 40,
+  "silage": 20,
+  "grain": 20,
+  "seed": 20251114,
+  "regions": {
+   "GE-east": 18,
+   "LI-north": 11,
+   "LI-south": 11
+  }
+ },
+ "decided": 40,
+ "correct": 25,
+ "outcomes": {
+  "SILAGE strong": 21,
+  "GRAIN strong": 13,
+  "SILAGE lean": 4,
+  "GRAIN likely": 2
+ },
+ "by_step": {
+  "0": {
+   "n": 34,
+   "correct": 20
+  },
+  "3": {
+   "n": 2,
+   "correct": 1
+  },
+  "5": {
+   "n": 4,
+   "correct": 4
+  }
+ },
+ "rulebook": {
+  "n": 40,
+  "tp": 15,
+  "fn": 5,
+  "fp": 10,
+  "tn": 10,
+  "recall_silage": 0.75,
+  "recall_grain": 0.5,
+  "precision_silage": 0.6,
+  "precision_grain": 0.6666666666666666,
+  "balanced_accuracy": 0.625
+ },
+ "ml_all": {
+  "n": 40,
+  "tp": 13,
+  "fn": 7,
+  "fp": 8,
+  "tn": 12,
+  "recall_silage": 0.65,
+  "recall_grain": 0.6,
+  "precision_silage": 0.6190476190476191,
+  "precision_grain": 0.631578947368421,
+  "balanced_accuracy": 0.625
+ },
+ "ml_same_subset": {
+  "n": 40,
+  "tp": 13,
+  "fn": 7,
+  "fp": 8,
+  "tn": 12,
+  "recall_silage": 0.65,
+  "recall_grain": 0.6,
+  "precision_silage": 0.6190476190476191,
+  "precision_grain": 0.631578947368421,
+  "balanced_accuracy": 0.625
+ }
+}

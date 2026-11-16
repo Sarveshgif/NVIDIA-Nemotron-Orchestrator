@@ -1,0 +1,152 @@
+{
+  "version": "rulebook-v1.1",
+  "frozen_on": "2026-11-14",
+  "frozen_before_labels": true,
+  "note": "Provisional thresholds. Frozen before any BARC label was joined to rulebook output. Not tuned on BARC. Any later tuning must use a new version string and a separate results folder.",
+  "field": {
+    "inward_buffer_m": 10,
+    "working_resolution_m": 20,
+    "min_interior_ha": 0.5,
+    "min_valid_px20": 3,
+    "_doc": "Interior = parcel buffered inward in the tile's UTM CRS (metric). Spectral checks use the native 20 m grid: 20 m bands read natively, 10 m bands 2x2-mean aggregated, so no band is upsampled and one acquisition = one observation."
+  },
+  "season": {
+    "spring_window": [
+      "03-01",
+      "05-31"
+    ],
+    "summer_peak_window": [
+      "06-01",
+      "09-30"
+    ],
+    "reporting_cutoff": "12-31",
+    "_doc": "MM-DD within the crop year. The corn cycle is the summer peak; a spring peak before a spring minimum is recorded as preceding green cover, not the corn season."
+  },
+  "identity": {
+    "corn_peak_ndvi_min": 0.7,
+    "uncertain_peak_ndvi_min": 0.55,
+    "canopy_detect_ndvi": 0.35,
+    "spring_min_ndvi_max": 0.35,
+    "_doc": "Assumption: a field-mean summer NDVI peak >= 0.70 is consistent with a closed corn canopy; 0.55-0.70 = uncertain identity (review); < 0.55 = not a corn-like cycle. Sweet corn / popcorn / non-corn can only be excluded from records; none exist for this dataset, so that check is not_applicable."
+  },
+  "quality": {
+    "min_clear_obs_jun_dec": 8,
+    "max_gap_near_harvest_days": 20,
+    "_doc": "Clear look = >= 60 % of interior 20 m pixels SCL 4/5 and >= 3 valid pixels (extraction rule, 02b_extract_s2_20m.py)."
+  },
+  "radar_orbit": {
+    "full_cover_frac": 0.9,
+    "min_dates_jul_dec": 8,
+    "_doc": "Per crop year and area: choose the single relative orbit that fully covers (median S1 pixel count >= 90 % of the 10 m interior pixel count) the most fields, then the most Jul-Dec dates. Not merely the most frequent orbit. Fields not fully covered by that orbit get radar = unknown (geometry)."
+  },
+  "removal": {
+    "min_ndvi_drop": 0.15,
+    "max_ndvi_after": 0.4,
+    "confirm_window_days": 30,
+    "confirm_tol": 0.1,
+    "recovery_window_days": 30,
+    "recovery_margin": 0.1,
+    "standing_ndvi_at_cutoff": 0.5,
+    "standing_check_after": "11-15",
+    "senescence_ndvi": 0.5,
+    "senescence_max_ndvi_rate_per_day": 0.012,
+    "rate_margin": 0.1,
+    "_doc": "Candidate optical change = consecutive clear looks a -> b after the summer peak with NDVI(a) - NDVI(b) >= 0.15 and NDVI(b) <= 0.40. It is accepted as canopy REMOVAL on optical evidence only if (i) the drop exceeds what senescence could produce over the gap, i.e. drop >= 0.012/day x (b - a) + 0.10 (ASSUMPTION A3: natural senescence lowers field-mean NDVI by at most ~0.012/day), and (ii) a later clear look within 30 d stays <= NDVI(b) + 0.10. A candidate failing (i) or (ii) needs an overlapping radar structural change; otherwise it is senescence/decline only. A return to >= NDVI(a) - 0.10 within 30 d = ambiguous removal vs damage (review). Radar-only removal (no optical candidate) requires non-green canopy (NDVI <= 0.50) at the last optical look before the radar interval and no green look after it. An NDVI threshold crossing alone never establishes harvest. v1.1: candidate pairs are any two clear looks <= max_window_days apart (plus consecutive looks at any gap); processed in order of first-removed date, narrowest interval first. NOT YET HARVESTED requires no post-peak look <= senescence_ndvi (a post-decline green-up is flagged as a possible cover crop, not standing corn).",
+    "max_window_days": 15
+  },
+  "condition": {
+    "ndvi_green_min": 0.6,
+    "ndvi_dry_max": 0.5,
+    "ndre_green_frac_of_peak": 0.7,
+    "ndre_senescent_frac_of_peak": 0.5,
+    "drydown_days_min": 25,
+    "drydown_start_drop_from_peak": 0.1,
+    "drydown_rebound_tol": 0.05,
+    "max_preharvest_obs_age_days": 15,
+    "_doc": "Evaluated at the last standing look a. Its age relative to harvest is at most b - a; if b - a > 15 d the condition is UNCERTAIN (too distant). Dry-down start = first look after the peak with NDVI <= peak - 0.10 after which no look before a exceeds peak - 0.05; duration = a - start (lower bound, uses a, not b). GREEN = NDVI green AND NDRE green AND no >= 25 d dry-down. DRY = NDVI dry AND (NDRE senescent OR dry-down >= 25 d) AND NDRE not green."
+  },
+  "timing": {
+    "gdd_method": "daily (min(Tmax,86F) + max(Tmin,50F))/2 - 50F, Tmax/Tmin clipped to [50,86] F",
+    "gdd_planting_to_canopy_detect": [
+      450,
+      800
+    ],
+    "silage_stage_min_gdd": 2029,
+    "black_layer_min_gdd": 2686,
+    "black_layer_max_gdd": 2926,
+    "weather_source": "Open-Meteo historical weather API (ERA5-based reanalysis), daily 2 m Tmax/Tmin (F) and precipitation (mm), one point at the mean field centroid",
+    "sources": [
+      {
+        "id": "UD-2025",
+        "ref": "Miller, J. (March 2025) Corn Growth Stages and Management. University of Delaware Cooperative Extension fact sheet, Table 1 (GDD, 86/50 F): R5 2287 (range 2029-2509), R6 2824 (range 2686-2926), VE 109 (84-150).",
+        "url": "https://www.udel.edu/academics/colleges/canr/cooperative-extension/fact-sheets/corn-growth-stages-and-management"
+      },
+      {
+        "id": "UW-silage",
+        "ref": "Timing Corn Silage Harvest. University of Wisconsin Corn Agronomy (2014, updated 2016): silage harvest usually begins around 50 % kernel milk, 42-47 days after silking; ~55-60 days from silking to R6 black layer.",
+        "url": "https://corn.agronomy.wisc.edu/Management/L059.aspx"
+      },
+      {
+        "id": "Purdue-ISU-leaf",
+        "ref": "Leaf collar emergence about every 82 GDD (Nielsen, Purdue) to 84 GDD (Abendroth et al. 2011, Iowa State PMR 1009) from VE to V10; emergence ~115-120 GDD after planting. Summarised in OSU Agronomic Crops Network 'Predicting leaf development in corn using accumulated heat units'.",
+        "url": "https://agcrops.osu.edu/newsletter/corn-newsletter/predicting-leaf-development-corn-using-accumulated-heat-units"
+      }
+    ],
+    "_doc": "Planting is unknown, so it is bounded from the satellite canopy-detection date D (first look after the spring minimum with NDVI >= 0.35). ASSUMPTION A1 (not from a source): field-mean NDVI first reaches 0.35 between V4 and V8, i.e. 120 + 4x84 ~ 450 to 120 + 8x84 ~ 800 GDD after planting. Planting interval = dates where GDD(P -> D) in [450, 800]. GDD at harvest: min = GDD(latest planting -> a), max = GDD(earliest planting -> b). SILAGE TIMING if max < 2686 (before the earliest regional black layer) and min >= 2029 (at/after the earliest regional dent). GRAIN TIMING if min >= 2926 (past the latest regional black layer) and the canopy dried while standing. Otherwise TIMING UNKNOWN; hybrid relative maturity is unknown and the regional ranges stand in for it. Removal with max < 2029 = exception flag (earlier than any silage stage)."
+  },
+  "surface": {
+    "max_days_after_removal": 20,
+    "ndvi_max": 0.3,
+    "ndti_bare_max": 0.05,
+    "ndti_residue_min": 0.1,
+    "rain_mm_prior_2d_max": 10,
+    "_doc": "ASSUMPTION A2 (no validated published NDTI cut-off was found): first clear look after removal (within 20 d) with NDVI <= 0.30; NDTI <= 0.05 = little residue (silage support), NDTI >= 0.10 = abundant residue (grain support), between = unknown. NDTI is a proxy for residue, not a measurement. Moisture strongly affects SWIR indices, so >= 10 mm rain in the 2 days before the look = SURFACE UNKNOWN. Absence of rain does not establish dry soil (irrigation unknown). Manure, tillage and residue removal cannot be identified and are listed as confounders."
+  },
+  "radar": {
+    "window_days": 24,
+    "min_acq_each_side": 2,
+    "vh_drop_db": 1.5,
+    "cr_drop_db": 0.5,
+    "vv_wetting_db": 1.0,
+    "search_window": [
+      "08-01",
+      "12-15"
+    ],
+    "overlap_tol_days": 6,
+    "standing_max_change_db": 0.5,
+    "prior_senescence_days": 25,
+    "_doc": "Structural change at S1 date t: mean over acquisitions in (t-24 d, t] minus mean over [t-24 d-, t) with >= 2 each side: dVH <= -1.5 dB AND d(VH-VV) <= -0.5 dB (cross-ratio falls when canopy volume scattering is removed). dVV >= +1.0 dB = wetting signature -> RADAR UNKNOWN. Change interval = [last acquisition before t, t]. Corroborates optical removal if intervals overlap within 6 d. If |dVH| < 0.5 dB across the optical interval (>= 2 acquisitions each side) radar contradicts removal. GRAIN SUPPORT if the radar change starts >= 25 d after optical senescence onset (first NDVI <= 0.50 after peak). Magnitude alone never classifies."
+  },
+  "exceptions": {
+    "frost_tmin_f": 28.4,
+    "drought_jun_aug_precip_mm_max": 150,
+    "_doc": "Possible confounders are flagged, never asserted: frost (Tmin <= 28.4 F = -2 C) while the canopy was still green before removal; Jun-Aug precipitation < 150 mm (possible drought stress). Lodging, disease, earlage / high-moisture grain and partial harvest by product cannot be observed; listed as unverifiable confounders. Zone check: 2x2 zone NDVI removal intervals that do not overlap within 10 d = possible mixed management (review, no homogeneous label)."
+  },
+  "zones": {
+    "min_zone_looks": 6,
+    "non_overlap_days": 10
+  },
+  "documents": {
+    "registry": "rulebook/evidence_registry_v1.json",
+    "excluded_sources": [
+      "BARC Corn 2021-2023.gpkg and any copy or derivative",
+      "any publication or report disclosing BARC silage/grain field labels"
+    ],
+    "_doc": "Direct-evidence checks (step 3) and contextual checks (step 11) read only a curated registry of verifiable items (URL, excerpt/location, field match, crop year, planned vs actual, retrieval date). v1 registry is empty: no field-linked public harvest, delivery, nutrient-management or dairy records were identified that are not excluded. Absence is recorded as unknown, never as evidence."
+  },
+  "changelog": [
+    {
+      "version": "rulebook-v1.0",
+      "date": "2026-11-14",
+      "status": "superseded before any label join",
+      "outputs": "label-free run kept in results_v1/run_v1.0_prelabel/ (44 field-years: 9 NOT YET HARVESTED, 3 LIKELY GRAIN, 32 UNRESOLVED)"
+    },
+    {
+      "version": "rulebook-v1.1",
+      "date": "2026-11-14",
+      "why": "Defects found by inspecting v1.0 traces and input series WITHOUT reference labels: (1) 2022 legacy-collection reflectance was double-offset (NDVI up to 8.7) -> fixed at extraction, not in the rules; (2) post-harvest cover-crop green-up (NDVI back to ~0.5 in Nov-Dec after falling to ~0.25) was read as standing corn -> NOT YET HARVESTED now requires that the canopy never fell to the senescence level after the peak; (3) with 2-5 day revisits a harvest appears as a fall spread over several consecutive looks, which a consecutive-pair detector cannot see -> candidates now include any two looks <= 15 d apart (still required to fall faster than senescence); (4) the radar-only 'no green look afterwards' test now covers only the 30-day confirmation window so later cover crops do not veto it.",
+      "labels_seen": false,
+      "thresholds_changed": "none (one new structural setting: removal.max_window_days = 15, equal to condition.max_preharvest_obs_age_days)"
+    }
+  ]
+}
